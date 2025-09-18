@@ -2,13 +2,12 @@ import logging
 
 import click
 
-from mw2mhd.commands.cli import cli
 from mw2mhd.v0_1.legacy.mw_utils import fetch_mw_data
 
 logger = logging.getLogger(__name__)
 
 
-@cli.command(name="fetch")
+@click.command(name="fetch")
 @click.option(
     "--study-id",
     show_default=True,

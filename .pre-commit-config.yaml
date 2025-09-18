@@ -22,7 +22,7 @@ repos:
   rev: v0.1.6
   hooks:
   - id: detect-missing-init
-    args: [ "--create", "--track", "--python-folders", "mhd_model" ]
+    args: [ "--create", "--track", "--python-folders", "mw2mhd" ]
 - repo: https://github.com/astral-sh/uv-pre-commit
   # uv version.
   rev: 0.8.17

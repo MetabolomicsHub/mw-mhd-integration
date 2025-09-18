@@ -7,13 +7,12 @@ from mhd_model.model.definitions import (
     MHD_MODEL_V0_1_LEGACY_PROFILE_NAME,
 )
 
-from mw2mhd.commands.cli import cli
 from mw2mhd.convertor_factory import Mw2MhdConvertorFactory
 
 logger = logging.getLogger(__name__)
 
 
-@cli.command(name="convert")
+@click.command(name="convert")
 @click.option(
     "--study-id",
     show_default=True,
