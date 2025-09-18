@@ -8,7 +8,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "asyncpg>=0.30.0",
-    "mhd-model>=0.1.15",
+    "mhd-model>=0.1.19",
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.1",
     "xmltodict>=0.15.1",

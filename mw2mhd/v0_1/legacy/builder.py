@@ -593,7 +593,7 @@ class MhdLegacyDatasetBuilder:
             mhd_study,
             "has-characteristic-definition",
             characteristic_definition,
-            reverse_relationship_name="defined-in",
+            reverse_relationship_name="used-in",
         )
         default_organism_part_value = None
         organism_part_field_value = collection_section.get("SAMPLE_TYPE", "")
@@ -1122,7 +1122,7 @@ class MhdLegacyDatasetBuilder:
         accession = ""
         source = ""
         if ncbi_taxon and ncbi_taxon.isnumeric():
-            accession = f"NCBITAXON:{ncbi_taxon}"
+            accession = f"NCBITaxon:{ncbi_taxon}"
             source = "NCBITAXON"
 
         if organism_name:
@@ -1281,7 +1281,7 @@ class MhdLegacyDatasetBuilder:
             mhd_study,
             "has-characteristic-definition",
             characteristic_definition,
-            reverse_relationship_name="defined-in",
+            reverse_relationship_name="used-in",
         )
 
     def define_protocol_parameters(
@@ -1348,7 +1348,7 @@ class MhdLegacyDatasetBuilder:
                     protocol,
                     "has-protocol-definition",
                     definition,
-                    reverse_relationship_name="defined-in",
+                    reverse_relationship_name="used-in",
                 )
                 mhd_builder.link(
                     definition,
