@@ -1,0 +1,3655 @@
+{
+    "AN006834": {
+        "METABOLOMICS WORKBENCH": {
+            "STUDY_ID": "ST004122",
+            "ANALYSIS_ID": "AN006834",
+            "PROJECT_ID": "PR002591",
+            "VERSION": "1",
+            "CREATED_ON": "August 20, 2025, 8:25 am"
+        },
+        "PROJECT": {
+            "PROJECT_TITLE": "Metabolomic responses of Artemisia argyi to synthetic microbial community inoculation under cadmium stress",
+            "PROJECT_TYPE": "Environmental metabolomics",
+            "PROJECT_SUMMARY": "This project aims to investigate the metabolic responses of Artemisia argyi to inoculation with a native synthetic microbial community (SynCom) in cadmium-contaminated soils. We will perform untargeted rhizosphere metabolomics and targeted leaf volatile metabolomics to assess how SynCom inoculation influences primary and secondary metabolic pathways under heavy metal stress. The study will focus on identifying key metabolites and metabolic pathways related to microbial carbon fixation, soil organic carbon accumulation, stress signaling, and essential oil biosynthesis. The findings are expected to provide insights into the mechanisms by which SynCom enhances phytoremediation efficiency, carbon sequestration, and the economic utilization potential of A. argyi in mining-impacted environments.",
+            "INSTITUTE": "Central South University, China",
+            "DEPARTMENT": "School of Metallurgy and Environment",
+            "LAST_NAME": "He",
+            "FIRST_NAME": "Xiao",
+            "ADDRESS": "No. 932 Lushan South Road, Changsha 410083, P.R. China",
+            "EMAIL": "hexiao0507@gmail.com",
+            "PHONE": "+86 13805204537",
+            "CONTRIBUTORS": "Rui Xu"
+        },
+        "STUDY": {
+            "STUDY_TITLE": "Untargeted rhizosphere metabolomics of Artemisia argyi under cadmium stress with synthetic microbial community inoculation",
+            "STUDY_TYPE": "LC-MS",
+            "STUDY_SUMMARY": "This study investigated rhizosphere metabolic responses of Artemisia argyi to inoculation with a native two-member synthetic microbial community (SynCom) in cadmium-contaminated soils. Pot experiments were conducted using soils from a historically polluted mining area in Hunan Province, China, with SynCom-inoculated and uninoculated plants grown for 60 days under 400 mg/kg Cd stress. Rhizosphere soil metabolites were extracted with methanol containing an internal standard and analyzed by UHPLC-Q Exactive MS in positive and negative ionization modes. Untargeted metabolomics revealed 39% fatty acyls, 14% organooxygen compounds, and 11% carboxylic acids and derivatives as dominant classes. SynCom inoculation significantly upregulated key intermediates in microbial respiration and carbon metabolism (e.g., 6-phosphogluconic acid, succinic acid, fumaric acid) and biomarkers of microbial biomass and root-derived carbon input (lanosterin, \u03b2-sitosterol). Enrichment of signaling molecules such as nobiletin suggested enhanced antioxidative capacity and potential chemoattraction of beneficial microbes including Pseudomonas, Rahnella, and functional partners. These results indicate that SynCom inoculation reshapes rhizosphere metabolic networks to promote carbon retention and microbial resilience under heavy metal stress.",
+            "INSTITUTE": "Central South University, China",
+            "DEPARTMENT": "School of Metallurgy and Environment",
+            "LAST_NAME": "He",
+            "FIRST_NAME": "Xiao",
+            "ADDRESS": "932 South Lushan Road",
+            "EMAIL": "hexiao0507@gmail.com",
+            "PHONE": "+86 13805204537"
+        },
+        "SUBJECT": {
+            "SUBJECT_TYPE": "Plant",
+            "SUBJECT_SPECIES": "Artemisia argyi",
+            "TAXONOMY_ID": "259893",
+            "GENOTYPE_STRAIN": "NA",
+            "AGE_OR_AGE_RANGE": "60 days",
+            "GENDER": "Not applicable"
+        },
+        "SUBJECT_SAMPLE_FACTORS": [
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_1_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_1_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_1_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_1_pos.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_2_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_2_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_2_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_2_pos.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_3_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_3_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_3_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_3_pos.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_1_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_1_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_1_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_1_pos.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_2_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_2_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_2_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_2_pos.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_3_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_3_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_3_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_3_pos.mzML"
+                }
+            }
+        ],
+        "COLLECTION": {
+            "COLLECTION_SUMMARY": "Rhizosphere soil was collected from Artemisia argyi plants grown in a greenhouse pot experiment under cadmium stress. Plants received either no inoculum (control) or a native two-member SynCom. At harvest, roots were gently shaken to remove bulk soil; tightly adhered rhizosphere soil was brushed/vortexed from roots into sterile 2 mL tubes, immediately placed on ice, flash-frozen in liquid nitrogen within 30 min, and stored at \u221280 \u00b0C until extraction for LC-MS metabolomics.",
+            "COLLECTION_PROTOCOL_FILENAME": "XH_LC-MS_protocol.pdf",
+            "SAMPLE_TYPE": "rhizosphere soil",
+            "COLLECTION_METHOD": "Roots excised; bulk soil removed by gentle shaking. Remaining root-adhered soil brushed/vortexed into sterile 2 mL polypropylene tubes using sterile spatulas; tubes kept on wet ice; samples flash-frozen in liquid N\u2082 within 30 min.",
+            "COLLECTION_LOCATION": "Central South University, Changsha, Hunan, China",
+            "COLLECTION_FREQUENCY": "Once at harvest (day 60 after transplanting)",
+            "COLLECTION_DURATION": "5 min per plant (from uprooting to freezing)",
+            "VOLUMEORAMOUNT_COLLECTED": "0.20 g rhizosphere soil per sample (fresh weight)",
+            "STORAGE_CONDITIONS": "-80\u2103"
+        },
+        "TREATMENT": {
+            "TREATMENT_SUMMARY": "Artemisia argyi plants were grown in pots containing cadmium-contaminated mining soil with or without inoculation of a native synthetic microbial community.",
+            "TREATMENT": "Biological treatment",
+            "TREATMENT_COMPOUND": "native synthetic microbial community",
+            "TREATMENT_ROUTE": "Soil application",
+            "TREATMENT_DOSE": "SynCom inoculation: 50 mL suspension (OD600=0.8) per pot",
+            "PLANT_GROWTH_LOCATION": "Central South University, Changsha, China",
+            "PLANT_LIGHT_PERIOD": "16 h light / 8 h dark photoperiod",
+            "PLANT_HUMIDITY": "60 \u00b1 5% RH",
+            "PLANT_TEMP": "25 \u00b1 2 \u00b0C",
+            "PLANT_WATERING_REGIME": "Watered with deionized water every 3 days to maintain ~60% field capacity",
+            "PLANT_NUTRITIONAL_REGIME": "No additional fertilizer applied",
+            "PLANT_ESTAB_DATE": "2024-04-15",
+            "PLANT_HARVEST_DATE": "2024-06-15"
+        },
+        "SAMPLEPREP": {
+            "SAMPLEPREP_SUMMARY": "Fresh rhizosphere soil samples of Artemisia argyi were collected in the field, immediately frozen in liquid nitrogen, and stored at \u201380 \u00b0C until extraction. For LC-MS analysis, 100 mg of freeze-dried and homogenized soil was extracted with 1 mL of 70% methanol (v/v) containing an internal standard. The mixture was vortexed for 3 min and sonicated in an ice-water bath for 10 min, followed by incubation at \u201320 \u00b0C for 1 h. Samples were centrifuged at 12,000 rpm for 10 min at 4 \u00b0C, and the supernatant was filtered through a 0.22 \u03bcm PTFE membrane and stored at \u201380 \u00b0C prior to LC-MS analysis. For GC-MS analysis, 100 mg of homogenized soil was extracted with 1 mL of methanol:chloroform:water (2.5:1:1, v/v/v), vortexed, sonicated, and centrifuged as above. The polar phase was transferred to a fresh vial, dried under vacuum, derivatized with 20 mg/mL methoxyamine hydrochloride in pyridine at 37 \u00b0C for 90 min, followed by silylation with MSTFA at 37 \u00b0C for 30 min, and stored at \u201380 \u00b0C until injection.",
+            "SAMPLEPREP_PROTOCOL_FILENAME": "XH_LC-MS_protocol.pdf",
+            "PROCESSING_METHOD": "Sample homogenization, solvent extraction, centrifugation, filtration",
+            "PROCESSING_STORAGE_CONDITIONS": "-80\u2103",
+            "EXTRACTION_METHOD": "Methanol-based extraction for LC-MS; Methanol:chloroform:water extraction for GC-MS",
+            "EXTRACT_ENRICHMENT": "Not applicable",
+            "EXTRACT_CLEANUP": "0.22 \u03bcm PTFE membrane filtration (LC-MS extracts only)",
+            "EXTRACT_STORAGE": "-80\u2103"
+        },
+        "CHROMATOGRAPHY": {
+            "CHROMATOGRAPHY_SUMMARY": "Positive mode: Reversed-phase UHPLC separation of rhizosphere metabolite extracts was performed on a Thermo Vanquish system equipped with a Waters ACQUITY UPLC HSS T3 column (100 \u00d7 2.1 mm, 1.8 \u03bcm). The mobile phases consisted of Solvent A2 (0.1% formic acid in water) and Solvent B2 (0.1% formic acid in acetonitrile). A gradient elution was applied (0\u20131 min, 8% B2; 1\u20138 min, 8\u201398% B2; 8\u201310 min, 98% B2; 10\u201310.1 min, 98\u20138% B2; 10.1\u201312 min, 8% B2). The flow rate was 0.30 mL/min with a column temperature maintained at 40 \u00b0C.",
+            "CHROMATOGRAPHY_TYPE": "Reversed phase",
+            "INSTRUMENT_NAME": "Thermo Vanquish",
+            "COLUMN_NAME": "Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,1.8um)",
+            "SOLVENT_A": "100% Water; 0.1% formic acid",
+            "SOLVENT_B": "100% Acetonitrile; 0.1% formic acid",
+            "FLOW_GRADIENT": "0\u20131 min, 8% B; 1\u20138 min, 8\u201398% B; 8\u201310 min, 98% B; 10\u201310.1 min, 98\u20138% B; 10.1\u201312 min, 8% B",
+            "FLOW_RATE": "0.30 mL/min",
+            "COLUMN_TEMPERATURE": "40 \u00b0C",
+            "METHODS_FILENAME": "XH_LC-MS_protocol.pdf"
+        },
+        "ANALYSIS": {
+            "ANALYSIS_TYPE": "MS",
+            "ANALYSIS_PROTOCOL_FILE": "XH_LC-MS_protocol.pdf"
+        },
+        "MS": {
+            "INSTRUMENT_NAME": "Thermo Q Exactive Orbitrap",
+            "INSTRUMENT_TYPE": "Orbitrap",
+            "MS_TYPE": "ESI",
+            "ION_MODE": "POSITIVE",
+            "MS_COMMENTS": "LC\u2013MS analysis was performed on a Vanquish UHPLC system (Thermo Fisher Scientific, USA) coupled to a Q Exactive Orbitrap mass spectrometer with an electrospray ionization (ESI) source operating in positive ion mode. Full MS-ddMS\u00b2 acquisition was applied with sheath gas pressure 40 arb, aux gas flow 10 arb, spray voltage +3.50 kV, capillary temperature 325 \u00b0C, MS1 scan range m/z 100\u20131000, resolving power 70,000 (MS1) and 17,500 (MS2), normalized collision energy 30 eV, dynamic exclusion enabled."
+        },
+        "MS_METABOLITE_DATA": {
+            "Units": "peak area",
+            "Data": [
+                {
+                    "Metabolite": "2-Hydroxy-3-(4-hydroxyphenyl)propenoic acid",
+                    "N_1_pos": "12553455.02",
+                    "N_2_pos": "2810380.894",
+                    "N_3_pos": "13738205.43",
+                    "Syn_1_pos": "2505124.206",
+                    "Syn_2_pos": "6415797.903",
+                    "Syn_3_pos": "2876751.02"
+                },
+                {
+                    "Metabolite": "2-Ketobutyric acid",
+                    "N_1_pos": "6988535.081",
+                    "N_2_pos": "6045666.924",
+                    "N_3_pos": "5378144.759",
+                    "Syn_1_pos": "3801557.992",
+                    "Syn_2_pos": "3743391.478",
+                    "Syn_3_pos": "6753652.609"
+                },
+                {
+                    "Metabolite": "2-Aminoisobutyric acid",
+                    "N_1_pos": "2313102.744",
+                    "N_2_pos": "2124648.817",
+                    "N_3_pos": "1357356.607",
+                    "Syn_1_pos": "2478208.504",
+                    "Syn_2_pos": "2189043.474",
+                    "Syn_3_pos": "2834336.859"
+                },
+                {
+                    "Metabolite": "Dimethylglycine",
+                    "N_1_pos": "76503691.66",
+                    "N_2_pos": "15157665.79",
+                    "N_3_pos": "13199593.98",
+                    "Syn_1_pos": "76752953.01",
+                    "Syn_2_pos": "48123905.63",
+                    "Syn_3_pos": "8610045.277"
+                },
+                {
+                    "Metabolite": "m-Cresol",
+                    "N_1_pos": "10980553.48",
+                    "N_2_pos": "11514647.54",
+                    "N_3_pos": "3182067.616",
+                    "Syn_1_pos": "11945572.78",
+                    "Syn_2_pos": "9806452.712",
+                    "Syn_3_pos": "11387302.83"
+                },
+                {
+                    "Metabolite": "Catechol",
+                    "N_1_pos": "5425767.434",
+                    "N_2_pos": "21520594.22",
+                    "N_3_pos": "14550595.87",
+                    "Syn_1_pos": "20618231.82",
+                    "Syn_2_pos": "8900607.495",
+                    "Syn_3_pos": "11107630.67"
+                },
+                {
+                    "Metabolite": "2-Aminophenol",
+                    "N_1_pos": "723893.6497",
+                    "N_2_pos": "772520.2442",
+                    "N_3_pos": "624942.9166",
+                    "Syn_1_pos": "699842.6136",
+                    "Syn_2_pos": "6862055.269",
+                    "Syn_3_pos": "3303186.502"
+                },
+                {
+                    "Metabolite": "Ketoleucine",
+                    "N_1_pos": "14019184.02",
+                    "N_2_pos": "13544434.1",
+                    "N_3_pos": "3969606.358",
+                    "Syn_1_pos": "7731446.495",
+                    "Syn_2_pos": "4624159.924",
+                    "Syn_3_pos": "14947587.63"
+                },
+                {
+                    "Metabolite": "Creatinine",
+                    "N_1_pos": "61798706.65",
+                    "N_2_pos": "16560636.07",
+                    "N_3_pos": "39234643.73",
+                    "Syn_1_pos": "17383395.81",
+                    "Syn_2_pos": "36491072.76",
+                    "Syn_3_pos": "55063563.72"
+                },
+                {
+                    "Metabolite": "2-Heptanone",
+                    "N_1_pos": "13816935.83",
+                    "N_2_pos": "43662405.66",
+                    "N_3_pos": "80297445.52",
+                    "Syn_1_pos": "32457300.95",
+                    "Syn_2_pos": "9196950.582",
+                    "Syn_3_pos": "57995408.44"
+                },
+                {
+                    "Metabolite": "3-Methylindole",
+                    "N_1_pos": "1742847.653",
+                    "N_2_pos": "590264.4354",
+                    "N_3_pos": "2177773.125",
+                    "Syn_1_pos": "1641018.345",
+                    "Syn_2_pos": "4138096.365",
+                    "Syn_3_pos": "2277861.988"
+                },
+                {
+                    "Metabolite": "Dihydrouracil",
+                    "N_1_pos": "1676964.62",
+                    "N_2_pos": "11508487.3",
+                    "N_3_pos": "1271050.386",
+                    "Syn_1_pos": "8894970.364",
+                    "Syn_2_pos": "3429969.57",
+                    "Syn_3_pos": "5549265.148"
+                },
+                {
+                    "Metabolite": "L-Valine",
+                    "N_1_pos": "2118683.037",
+                    "N_2_pos": "1684921.22",
+                    "N_3_pos": "495797.1228",
+                    "Syn_1_pos": "1919802.015",
+                    "Syn_2_pos": "2638154.118",
+                    "Syn_3_pos": "490924.9486"
+                },
+                {
+                    "Metabolite": "Phenylacetic acid",
+                    "N_1_pos": "8034289.085",
+                    "N_2_pos": "5476680.714",
+                    "N_3_pos": "5099527.277",
+                    "Syn_1_pos": "1738546.456",
+                    "Syn_2_pos": "10269392.85",
+                    "Syn_3_pos": "13222558.79"
+                },
+                {
+                    "Metabolite": "Phenylacetaldehyde",
+                    "N_1_pos": "730365.0272",
+                    "N_2_pos": "2617712.563",
+                    "N_3_pos": "2584021.423",
+                    "Syn_1_pos": "2461498.223",
+                    "Syn_2_pos": "1969513.045",
+                    "Syn_3_pos": "677221.9803"
+                },
+                {
+                    "Metabolite": "Nicotinic acid",
+                    "N_1_pos": "819763797.6",
+                    "N_2_pos": "3885597466",
+                    "N_3_pos": "3815484828",
+                    "Syn_1_pos": "1600492303",
+                    "Syn_2_pos": "2343455229",
+                    "Syn_3_pos": "1288067156"
+                },
+                {
+                    "Metabolite": "Benzoate",
+                    "N_1_pos": "13685663.13",
+                    "N_2_pos": "16022375.67",
+                    "N_3_pos": "8972458.7",
+                    "Syn_1_pos": "12538546.31",
+                    "Syn_2_pos": "10643311.67",
+                    "Syn_3_pos": "13523378.06"
+                },
+                {
+                    "Metabolite": "Phosphonoacetate",
+                    "N_1_pos": "2279605.629",
+                    "N_2_pos": "4538180.515",
+                    "N_3_pos": "1925550.678",
+                    "Syn_1_pos": "2347285.605",
+                    "Syn_2_pos": "4413129.781",
+                    "Syn_3_pos": "2403794.706"
+                },
+                {
+                    "Metabolite": "3-Hydroxybenzyl alcohol glucoside",
+                    "N_1_pos": "448832909.8",
+                    "N_2_pos": "142606180.3",
+                    "N_3_pos": "168779301.9",
+                    "Syn_1_pos": "2736434795",
+                    "Syn_2_pos": "812335146.2",
+                    "Syn_3_pos": "432948085.7"
+                },
+                {
+                    "Metabolite": "Heptanoic acid",
+                    "N_1_pos": "10155179.92",
+                    "N_2_pos": "2262295.999",
+                    "N_3_pos": "3329534.11",
+                    "Syn_1_pos": "920337.2543",
+                    "Syn_2_pos": "833180.3854",
+                    "Syn_3_pos": "3016085.803"
+                },
+                {
+                    "Metabolite": "Glutaric acid",
+                    "N_1_pos": "29738282.18",
+                    "N_2_pos": "15701400.84",
+                    "N_3_pos": "4677578.893",
+                    "Syn_1_pos": "48709176.97",
+                    "Syn_2_pos": "17937665.75",
+                    "Syn_3_pos": "25982746.12"
+                },
+                {
+                    "Metabolite": "Cinnamaldehyde",
+                    "N_1_pos": "11628748.62",
+                    "N_2_pos": "3158227.411",
+                    "N_3_pos": "2946791.349",
+                    "Syn_1_pos": "4702456.458",
+                    "Syn_2_pos": "22482897.84",
+                    "Syn_3_pos": "2993356.645"
+                },
+                {
+                    "Metabolite": "D-Xylitol",
+                    "N_1_pos": "11172477.74",
+                    "N_2_pos": "3266651.127",
+                    "N_3_pos": "12182466.83",
+                    "Syn_1_pos": "6845356.948",
+                    "Syn_2_pos": "8461836.471",
+                    "Syn_3_pos": "8393348.932"
+                },
+                {
+                    "Metabolite": "2-Aminobenzoic acid",
+                    "N_1_pos": "2614316.844",
+                    "N_2_pos": "16463706.8",
+                    "N_3_pos": "5953549.19",
+                    "Syn_1_pos": "2400423.484",
+                    "Syn_2_pos": "4671540.54",
+                    "Syn_3_pos": "2725274.766"
+                },
+                {
+                    "Metabolite": "Spermidine",
+                    "N_1_pos": "6985990.089",
+                    "N_2_pos": "46002950.02",
+                    "N_3_pos": "13526459.17",
+                    "Syn_1_pos": "8618120.938",
+                    "Syn_2_pos": "9163707.361",
+                    "Syn_3_pos": "17888676.91"
+                },
+                {
+                    "Metabolite": "Anabasine",
+                    "N_1_pos": "137972700.4",
+                    "N_2_pos": "80890774.87",
+                    "N_3_pos": "204145106.9",
+                    "Syn_1_pos": "73219042.16",
+                    "Syn_2_pos": "252974044.2",
+                    "Syn_3_pos": "484075887"
+                },
+                {
+                    "Metabolite": "3-Hydroxymethylglutaric acid",
+                    "N_1_pos": "7736630.871",
+                    "N_2_pos": "10921171.36",
+                    "N_3_pos": "5227124.017",
+                    "Syn_1_pos": "17392701.89",
+                    "Syn_2_pos": "6624942.034",
+                    "Syn_3_pos": "10901149.42"
+                },
+                {
+                    "Metabolite": "4-Hydroxycinnamic acid",
+                    "N_1_pos": "6472085.091",
+                    "N_2_pos": "6049507.581",
+                    "N_3_pos": "10216928.82",
+                    "Syn_1_pos": "4948044.243",
+                    "Syn_2_pos": "6466169.128",
+                    "Syn_3_pos": "6029451.034"
+                },
+                {
+                    "Metabolite": "L-2-Hydroxyglutaric acid",
+                    "N_1_pos": "54113842.65",
+                    "N_2_pos": "25343510.79",
+                    "N_3_pos": "36511127.1",
+                    "Syn_1_pos": "89420952.27",
+                    "Syn_2_pos": "28272641.91",
+                    "Syn_3_pos": "27513219.38"
+                },
+                {
+                    "Metabolite": "Nornicotine",
+                    "N_1_pos": "5866254.987",
+                    "N_2_pos": "10322387.29",
+                    "N_3_pos": "7448909.492",
+                    "Syn_1_pos": "7614677.851",
+                    "Syn_2_pos": "4453697.422",
+                    "Syn_3_pos": "12531543.33"
+                },
+                {
+                    "Metabolite": "3-Methyladenine",
+                    "N_1_pos": "269614189.9",
+                    "N_2_pos": "269889050.5",
+                    "N_3_pos": "238190230.9",
+                    "Syn_1_pos": "272331299.9",
+                    "Syn_2_pos": "244676459.4",
+                    "Syn_3_pos": "299210114.6"
+                },
+                {
+                    "Metabolite": "Uric acid",
+                    "N_1_pos": "1997239.837",
+                    "N_2_pos": "889581.1311",
+                    "N_3_pos": "1703904.944",
+                    "Syn_1_pos": "2015190.061",
+                    "Syn_2_pos": "976666.9563",
+                    "Syn_3_pos": "2587663.67"
+                },
+                {
+                    "Metabolite": "D-Arabitol",
+                    "N_1_pos": "1365188.276",
+                    "N_2_pos": "5308154.528",
+                    "N_3_pos": "5466894.69",
+                    "Syn_1_pos": "1137826.24",
+                    "Syn_2_pos": "3857061.56",
+                    "Syn_3_pos": "1320361.012"
+                },
+                {
+                    "Metabolite": "Mandelic acid",
+                    "N_1_pos": "12754431.46",
+                    "N_2_pos": "1856850.516",
+                    "N_3_pos": "5443700.54",
+                    "Syn_1_pos": "3151435.627",
+                    "Syn_2_pos": "3734906.274",
+                    "Syn_3_pos": "8663186.797"
+                },
+                {
+                    "Metabolite": "3-Hydroxyphenylacetic acid",
+                    "N_1_pos": "4709161.322",
+                    "N_2_pos": "3655070.294",
+                    "N_3_pos": "1078674.143",
+                    "Syn_1_pos": "4489858.398",
+                    "Syn_2_pos": "4187405.35",
+                    "Syn_3_pos": "7352208.031"
+                },
+                {
+                    "Metabolite": "Resorcinol monoacetate",
+                    "N_1_pos": "788764.3323",
+                    "N_2_pos": "3427733.402",
+                    "N_3_pos": "664168.2641",
+                    "Syn_1_pos": "624231.427",
+                    "Syn_2_pos": "2797186.329",
+                    "Syn_3_pos": "2275816.169"
+                },
+                {
+                    "Metabolite": "2,3-Butanediol",
+                    "N_1_pos": "344521785.8",
+                    "N_2_pos": "297261164.7",
+                    "N_3_pos": "416662373.5",
+                    "Syn_1_pos": "341670142.1",
+                    "Syn_2_pos": "423793937.2",
+                    "Syn_3_pos": "234052760.6"
+                },
+                {
+                    "Metabolite": "3-Dehydroshikimate",
+                    "N_1_pos": "2361883.04",
+                    "N_2_pos": "2407211.844",
+                    "N_3_pos": "7249263.163",
+                    "Syn_1_pos": "3900346.71",
+                    "Syn_2_pos": "1671380.701",
+                    "Syn_3_pos": "14130598.62"
+                },
+                {
+                    "Metabolite": "Pelargonic acid",
+                    "N_1_pos": "1755794.786",
+                    "N_2_pos": "5083365.762",
+                    "N_3_pos": "696180.1007",
+                    "Syn_1_pos": "6259025.76",
+                    "Syn_2_pos": "14995413.16",
+                    "Syn_3_pos": "8671125.515"
+                },
+                {
+                    "Metabolite": "Pimelic acid",
+                    "N_1_pos": "5447775.492",
+                    "N_2_pos": "5346548.309",
+                    "N_3_pos": "13039423.33",
+                    "Syn_1_pos": "12548358.2",
+                    "Syn_2_pos": "5437248.433",
+                    "Syn_3_pos": "12627634.04"
+                },
+                {
+                    "Metabolite": "Acetylcysteine",
+                    "N_1_pos": "651960.4425",
+                    "N_2_pos": "950724.1126",
+                    "N_3_pos": "667383.1078",
+                    "Syn_1_pos": "1956582.632",
+                    "Syn_2_pos": "1512891.228",
+                    "Syn_3_pos": "1507730.671"
+                },
+                {
+                    "Metabolite": "2-Deoxy-D-glucose",
+                    "N_1_pos": "20930495.64",
+                    "N_2_pos": "19058238.72",
+                    "N_3_pos": "6951743.507",
+                    "Syn_1_pos": "17634098.76",
+                    "Syn_2_pos": "5164644.171",
+                    "Syn_3_pos": "16684956.86"
+                },
+                {
+                    "Metabolite": "L-Fucose",
+                    "N_1_pos": "4442571.504",
+                    "N_2_pos": "3737762.665",
+                    "N_3_pos": "901522.1",
+                    "Syn_1_pos": "2539993.022",
+                    "Syn_2_pos": "3625619.954",
+                    "Syn_3_pos": "5362534.517"
+                },
+                {
+                    "Metabolite": "Homovanillic acid",
+                    "N_1_pos": "16208020.35",
+                    "N_2_pos": "6229398.881",
+                    "N_3_pos": "4377054.915",
+                    "Syn_1_pos": "5819827.787",
+                    "Syn_2_pos": "3761395.701",
+                    "Syn_3_pos": "8290228.846"
+                },
+                {
+                    "Metabolite": "Sorbitol",
+                    "N_1_pos": "9701445.809",
+                    "N_2_pos": "9074333.757",
+                    "N_3_pos": "22859408.06",
+                    "Syn_1_pos": "2961292.573",
+                    "Syn_2_pos": "10343828.18",
+                    "Syn_3_pos": "14918309.38"
+                },
+                {
+                    "Metabolite": "Epinephrine",
+                    "N_1_pos": "21606291.61",
+                    "N_2_pos": "8516111.668",
+                    "N_3_pos": "18080472.64",
+                    "Syn_1_pos": "5821774.515",
+                    "Syn_2_pos": "7071162.816",
+                    "Syn_3_pos": "10091790.4"
+                },
+                {
+                    "Metabolite": "Pyridoxine",
+                    "N_1_pos": "3776127.311",
+                    "N_2_pos": "7918107.05",
+                    "N_3_pos": "11870125.18",
+                    "Syn_1_pos": "8858644.952",
+                    "Syn_2_pos": "1780722.871",
+                    "Syn_3_pos": "4971893.596"
+                },
+                {
+                    "Metabolite": "Norepinephrine",
+                    "N_1_pos": "41726645.51",
+                    "N_2_pos": "47992359.73",
+                    "N_3_pos": "41151443.87",
+                    "Syn_1_pos": "62331713.41",
+                    "Syn_2_pos": "30150704.85",
+                    "Syn_3_pos": "3907725.729"
+                },
+                {
+                    "Metabolite": "2-Amino-2-deoxy-D-gluconate",
+                    "N_1_pos": "2308196.516",
+                    "N_2_pos": "2143891.919",
+                    "N_3_pos": "601717.8609",
+                    "Syn_1_pos": "427297.0216",
+                    "Syn_2_pos": "1309594.336",
+                    "Syn_3_pos": "460035.1719"
+                },
+                {
+                    "Metabolite": "D-Psicose",
+                    "N_1_pos": "1777709.529",
+                    "N_2_pos": "946837.7502",
+                    "N_3_pos": "4301312.801",
+                    "Syn_1_pos": "15382558.45",
+                    "Syn_2_pos": "7204909.44",
+                    "Syn_3_pos": "1706022.36"
+                },
+                {
+                    "Metabolite": "myo-Inositol",
+                    "N_1_pos": "11940685.6",
+                    "N_2_pos": "2538953.562",
+                    "N_3_pos": "4776519.556",
+                    "Syn_1_pos": "11651795.12",
+                    "Syn_2_pos": "2110772.788",
+                    "Syn_3_pos": "7451801.328"
+                },
+                {
+                    "Metabolite": "D-Fructose",
+                    "N_1_pos": "10776331.34",
+                    "N_2_pos": "6375027.407",
+                    "N_3_pos": "9791497.848",
+                    "Syn_1_pos": "7188553.015",
+                    "Syn_2_pos": "4747341.309",
+                    "Syn_3_pos": "5072215.237"
+                },
+                {
+                    "Metabolite": "4-Pyridoxic acid",
+                    "N_1_pos": "7957036.725",
+                    "N_2_pos": "5683081.503",
+                    "N_3_pos": "11626133.98",
+                    "Syn_1_pos": "1327136.377",
+                    "Syn_2_pos": "1439201.52",
+                    "Syn_3_pos": "1942300.664"
+                },
+                {
+                    "Metabolite": "Methyl jasmonate",
+                    "N_1_pos": "2724751.296",
+                    "N_2_pos": "637236.1606",
+                    "N_3_pos": "621029.7631",
+                    "Syn_1_pos": "2070497.795",
+                    "Syn_2_pos": "2353795.534",
+                    "Syn_3_pos": "656501.1156"
+                },
+                {
+                    "Metabolite": "Deoxyuridine",
+                    "N_1_pos": "2258079.304",
+                    "N_2_pos": "2496726.198",
+                    "N_3_pos": "2828494.09",
+                    "Syn_1_pos": "5842375.429",
+                    "Syn_2_pos": "3002930.433",
+                    "Syn_3_pos": "2784808.203"
+                },
+                {
+                    "Metabolite": "Hydroxykynurenine",
+                    "N_1_pos": "3075470.341",
+                    "N_2_pos": "2605424.787",
+                    "N_3_pos": "2288467.471",
+                    "Syn_1_pos": "3570909.288",
+                    "Syn_2_pos": "2490113.154",
+                    "Syn_3_pos": "3056205.671"
+                },
+                {
+                    "Metabolite": "1-Hexadecanol",
+                    "N_1_pos": "5182884.494",
+                    "N_2_pos": "5675981.252",
+                    "N_3_pos": "4370168.892",
+                    "Syn_1_pos": "8647825.141",
+                    "Syn_2_pos": "4543187.128",
+                    "Syn_3_pos": "4911919.326"
+                },
+                {
+                    "Metabolite": "Porphobilinogen",
+                    "N_1_pos": "3673837.002",
+                    "N_2_pos": "2218880.794",
+                    "N_3_pos": "4907264.993",
+                    "Syn_1_pos": "2601781.27",
+                    "Syn_2_pos": "1350613.613",
+                    "Syn_3_pos": "2650185.662"
+                },
+                {
+                    "Metabolite": "Linoleic acid",
+                    "N_1_pos": "23070809.56",
+                    "N_2_pos": "44690674.78",
+                    "N_3_pos": "28303950.05",
+                    "Syn_1_pos": "27956290.85",
+                    "Syn_2_pos": "15730818.17",
+                    "Syn_3_pos": "17820493.44"
+                },
+                {
+                    "Metabolite": "Oleic acid",
+                    "N_1_pos": "1835605.557",
+                    "N_2_pos": "962484.9022",
+                    "N_3_pos": "533070.5863",
+                    "Syn_1_pos": "1074442.306",
+                    "Syn_2_pos": "1004010.056",
+                    "Syn_3_pos": "584132.3078"
+                },
+                {
+                    "Metabolite": "(6Z)-Octadecenoic acid",
+                    "N_1_pos": "27132094.17",
+                    "N_2_pos": "24847006.63",
+                    "N_3_pos": "9111399.328",
+                    "Syn_1_pos": "18041933.53",
+                    "Syn_2_pos": "19133890.78",
+                    "Syn_3_pos": "8979202.251"
+                },
+                {
+                    "Metabolite": "all-trans-Retinoic acid",
+                    "N_1_pos": "1153230.655",
+                    "N_2_pos": "1099754.743",
+                    "N_3_pos": "634615.8061",
+                    "Syn_1_pos": "4979119.949",
+                    "Syn_2_pos": "4633063.723",
+                    "Syn_3_pos": "4470643.214"
+                },
+                {
+                    "Metabolite": "Erucic acid",
+                    "N_1_pos": "1871934759",
+                    "N_2_pos": "941655957.3",
+                    "N_3_pos": "1086720314",
+                    "Syn_1_pos": "311006821.2",
+                    "Syn_2_pos": "2423911065",
+                    "Syn_3_pos": "763034533.9"
+                },
+                {
+                    "Metabolite": "Cellobiose",
+                    "N_1_pos": "1069352.097",
+                    "N_2_pos": "278381.6006",
+                    "N_3_pos": "252347.0292",
+                    "Syn_1_pos": "824731.6682",
+                    "Syn_2_pos": "4295157.45",
+                    "Syn_3_pos": "1488690.04"
+                },
+                {
+                    "Metabolite": "Aldosterone",
+                    "N_1_pos": "3277497.352",
+                    "N_2_pos": "2910192.464",
+                    "N_3_pos": "2583958.351",
+                    "Syn_1_pos": "4081093.861",
+                    "Syn_2_pos": "3068788.699",
+                    "Syn_3_pos": "2906816.126"
+                },
+                {
+                    "Metabolite": "Cholesterol",
+                    "N_1_pos": "9898836.003",
+                    "N_2_pos": "23294314.91",
+                    "N_3_pos": "7607376.397",
+                    "Syn_1_pos": "37584558.52",
+                    "Syn_2_pos": "9634611.516",
+                    "Syn_3_pos": "24245857.16"
+                },
+                {
+                    "Metabolite": "Riboflavin",
+                    "N_1_pos": "4529089.763",
+                    "N_2_pos": "1446768.223",
+                    "N_3_pos": "11405034",
+                    "Syn_1_pos": "3714521.084",
+                    "Syn_2_pos": "2197696.713",
+                    "Syn_3_pos": "1559204.704"
+                },
+                {
+                    "Metabolite": "alpha-Tocopherol",
+                    "N_1_pos": "5214486.239",
+                    "N_2_pos": "2286701.898",
+                    "N_3_pos": "5959023.542",
+                    "Syn_1_pos": "6900304.745",
+                    "Syn_2_pos": "4323064.292",
+                    "Syn_3_pos": "4742443.75"
+                },
+                {
+                    "Metabolite": "Genistin",
+                    "N_1_pos": "4121895.902",
+                    "N_2_pos": "5503673.515",
+                    "N_3_pos": "2611880.691",
+                    "Syn_1_pos": "3833859.448",
+                    "Syn_2_pos": "3019571.132",
+                    "Syn_3_pos": "3949938.384"
+                },
+                {
+                    "Metabolite": "Deoxyuridine-5''-triphosphate",
+                    "N_1_pos": "5220754.981",
+                    "N_2_pos": "3187396.866",
+                    "N_3_pos": "4593294.65",
+                    "Syn_1_pos": "2402961.509",
+                    "Syn_2_pos": "5414199.127",
+                    "Syn_3_pos": "6235171.065"
+                },
+                {
+                    "Metabolite": "Choline",
+                    "N_1_pos": "3063352.699",
+                    "N_2_pos": "5154505.587",
+                    "N_3_pos": "500346.5754",
+                    "Syn_1_pos": "384311.3571",
+                    "Syn_2_pos": "2824920.468",
+                    "Syn_3_pos": "4893092.217"
+                },
+                {
+                    "Metabolite": "Indole",
+                    "N_1_pos": "16588193.9",
+                    "N_2_pos": "12347788.78",
+                    "N_3_pos": "3132019.738",
+                    "Syn_1_pos": "3457140.499",
+                    "Syn_2_pos": "8234260.835",
+                    "Syn_3_pos": "24341666.49"
+                },
+                {
+                    "Metabolite": "Isonicotinic acid",
+                    "N_1_pos": "44450503.77",
+                    "N_2_pos": "19005887.91",
+                    "N_3_pos": "16844706.93",
+                    "Syn_1_pos": "31672148.47",
+                    "Syn_2_pos": "8443677.756",
+                    "Syn_3_pos": "16590695.21"
+                },
+                {
+                    "Metabolite": "L-Histidinol",
+                    "N_1_pos": "18173368.75",
+                    "N_2_pos": "103406890.6",
+                    "N_3_pos": "13432422.99",
+                    "Syn_1_pos": "38422861.94",
+                    "Syn_2_pos": "49494040.26",
+                    "Syn_3_pos": "71763240.22"
+                },
+                {
+                    "Metabolite": "L-Glutamine",
+                    "N_1_pos": "3482398.431",
+                    "N_2_pos": "13980951.42",
+                    "N_3_pos": "2742137.721",
+                    "Syn_1_pos": "14349267.52",
+                    "Syn_2_pos": "4855734.643",
+                    "Syn_3_pos": "3546547.758"
+                },
+                {
+                    "Metabolite": "3-(2-Hydroxyphenyl)propanoic acid",
+                    "N_1_pos": "5840608.054",
+                    "N_2_pos": "6365529.873",
+                    "N_3_pos": "5562873.994",
+                    "Syn_1_pos": "5446144.837",
+                    "Syn_2_pos": "5113189.808",
+                    "Syn_3_pos": "6488017.521"
+                },
+                {
+                    "Metabolite": "p-Octopamine",
+                    "N_1_pos": "1011475.147",
+                    "N_2_pos": "3780111.055",
+                    "N_3_pos": "2929928.162",
+                    "Syn_1_pos": "1862972.813",
+                    "Syn_2_pos": "3063231.218",
+                    "Syn_3_pos": "2454712.18"
+                },
+                {
+                    "Metabolite": "Phosphorylcholine",
+                    "N_1_pos": "57934853.1",
+                    "N_2_pos": "405390313",
+                    "N_3_pos": "313441888.7",
+                    "Syn_1_pos": "444781079.1",
+                    "Syn_2_pos": "81463666.22",
+                    "Syn_3_pos": "69455805.75"
+                },
+                {
+                    "Metabolite": "Capsidiol",
+                    "N_1_pos": "4015824.275",
+                    "N_2_pos": "1128435.802",
+                    "N_3_pos": "968086.3617",
+                    "Syn_1_pos": "1080922.2",
+                    "Syn_2_pos": "4325799.097",
+                    "Syn_3_pos": "4791852.318"
+                },
+                {
+                    "Metabolite": "Stearidonic acid",
+                    "N_1_pos": "1418312.427",
+                    "N_2_pos": "5397503.973",
+                    "N_3_pos": "9819121.593",
+                    "Syn_1_pos": "5835184.465",
+                    "Syn_2_pos": "6282314.853",
+                    "Syn_3_pos": "7365990.542"
+                },
+                {
+                    "Metabolite": "Oleamide",
+                    "N_1_pos": "8254572.739",
+                    "N_2_pos": "10901962.88",
+                    "N_3_pos": "6974334.855",
+                    "Syn_1_pos": "7831000.332",
+                    "Syn_2_pos": "7026517.249",
+                    "Syn_3_pos": "8057986.156"
+                },
+                {
+                    "Metabolite": "Octadecanamide",
+                    "N_1_pos": "379895036.3",
+                    "N_2_pos": "738543891.1",
+                    "N_3_pos": "1081790291",
+                    "Syn_1_pos": "645084510.5",
+                    "Syn_2_pos": "806273484.3",
+                    "Syn_3_pos": "1032317268"
+                },
+                {
+                    "Metabolite": "1-palmitoylglycerophosphocholine",
+                    "N_1_pos": "3224695.31",
+                    "N_2_pos": "5157045.92",
+                    "N_3_pos": "5337916.215",
+                    "Syn_1_pos": "9674892.056",
+                    "Syn_2_pos": "7478129.535",
+                    "Syn_3_pos": "7203497.937"
+                },
+                {
+                    "Metabolite": "3,4-Methylenedioxyamphetamine",
+                    "N_1_pos": "13758419.96",
+                    "N_2_pos": "12038054",
+                    "N_3_pos": "10350376.94",
+                    "Syn_1_pos": "17925825.21",
+                    "Syn_2_pos": "12989692.7",
+                    "Syn_3_pos": "14850569.14"
+                },
+                {
+                    "Metabolite": "Niacinamide",
+                    "N_1_pos": "6420019.765",
+                    "N_2_pos": "14012513.07",
+                    "N_3_pos": "7327355.796",
+                    "Syn_1_pos": "3881087.938",
+                    "Syn_2_pos": "874318.2092",
+                    "Syn_3_pos": "771920.3351"
+                },
+                {
+                    "Metabolite": "Phenylethylamine",
+                    "N_1_pos": "3905338.682",
+                    "N_2_pos": "6317160.441",
+                    "N_3_pos": "5992418.168",
+                    "Syn_1_pos": "1474702.346",
+                    "Syn_2_pos": "5805189.106",
+                    "Syn_3_pos": "17726800.25"
+                },
+                {
+                    "Metabolite": "Maltol",
+                    "N_1_pos": "76861390.95",
+                    "N_2_pos": "22352002.51",
+                    "N_3_pos": "148886650.9",
+                    "Syn_1_pos": "94277657.76",
+                    "Syn_2_pos": "17465299.24",
+                    "Syn_3_pos": "80229376.41"
+                },
+                {
+                    "Metabolite": "N-methyl-L-glutamic Acid",
+                    "N_1_pos": "6180844.873",
+                    "N_2_pos": "5769779.226",
+                    "N_3_pos": "2796104.353",
+                    "Syn_1_pos": "8691658.272",
+                    "Syn_2_pos": "4914380.691",
+                    "Syn_3_pos": "5345043.806"
+                },
+                {
+                    "Metabolite": "5alpha-Cholestanone",
+                    "N_1_pos": "17812852.12",
+                    "N_2_pos": "31045072.27",
+                    "N_3_pos": "15064330.06",
+                    "Syn_1_pos": "57234371.44",
+                    "Syn_2_pos": "5787406.676",
+                    "Syn_3_pos": "42415400.05"
+                },
+                {
+                    "Metabolite": "N,N-Dimethylaniline",
+                    "N_1_pos": "5710522.05",
+                    "N_2_pos": "14316711.87",
+                    "N_3_pos": "5951236.673",
+                    "Syn_1_pos": "12239787.82",
+                    "Syn_2_pos": "5779838.961",
+                    "Syn_3_pos": "1306915.633"
+                },
+                {
+                    "Metabolite": "Serotonin",
+                    "N_1_pos": "2598134.381",
+                    "N_2_pos": "1642245.995",
+                    "N_3_pos": "1927129.629",
+                    "Syn_1_pos": "1845717.402",
+                    "Syn_2_pos": "1237962.994",
+                    "Syn_3_pos": "2336283.109"
+                },
+                {
+                    "Metabolite": "OPEO",
+                    "N_1_pos": "14031694.87",
+                    "N_2_pos": "9396589.663",
+                    "N_3_pos": "11786140.83",
+                    "Syn_1_pos": "9375273.664",
+                    "Syn_2_pos": "2500986.787",
+                    "Syn_3_pos": "11217676.96"
+                },
+                {
+                    "Metabolite": "Sphingosine",
+                    "N_1_pos": "1484552.783",
+                    "N_2_pos": "4049650.107",
+                    "N_3_pos": "1203638.342",
+                    "Syn_1_pos": "3939300.859",
+                    "Syn_2_pos": "4331625.628",
+                    "Syn_3_pos": "4355105.92"
+                },
+                {
+                    "Metabolite": "N,N-Dimethylsphingosine",
+                    "N_1_pos": "3556975.055",
+                    "N_2_pos": "3054478.382",
+                    "N_3_pos": "2118632.341",
+                    "Syn_1_pos": "2285324.85",
+                    "Syn_2_pos": "4767365.366",
+                    "Syn_3_pos": "2507665.394"
+                },
+                {
+                    "Metabolite": "Glycyrrhetinate",
+                    "N_1_pos": "9561234.686",
+                    "N_2_pos": "1253072.471",
+                    "N_3_pos": "638126.0544",
+                    "Syn_1_pos": "1566536.848",
+                    "Syn_2_pos": "994041.4369",
+                    "Syn_3_pos": "693977.9267"
+                },
+                {
+                    "Metabolite": "1-Pyrroline-2-carboxylic acid",
+                    "N_1_pos": "11835376.17",
+                    "N_2_pos": "12471628.64",
+                    "N_3_pos": "3201803.603",
+                    "Syn_1_pos": "6094445.284",
+                    "Syn_2_pos": "5055740.932",
+                    "Syn_3_pos": "3239558.57"
+                },
+                {
+                    "Metabolite": "Epsilon-caprolactam",
+                    "N_1_pos": "1969464.207",
+                    "N_2_pos": "5592251.553",
+                    "N_3_pos": "9751960.92",
+                    "Syn_1_pos": "3504608.603",
+                    "Syn_2_pos": "5740824.502",
+                    "Syn_3_pos": "4336057.178"
+                },
+                {
+                    "Metabolite": "L-2,4-diaminobutyric acid",
+                    "N_1_pos": "24698331.85",
+                    "N_2_pos": "11353151.13",
+                    "N_3_pos": "8407734.064",
+                    "Syn_1_pos": "9804411.836",
+                    "Syn_2_pos": "19949516.86",
+                    "Syn_3_pos": "14489408.4"
+                },
+                {
+                    "Metabolite": "5-Hydroxypentanoic acid",
+                    "N_1_pos": "42244453.73",
+                    "N_2_pos": "6639466.375",
+                    "N_3_pos": "17590678.83",
+                    "Syn_1_pos": "6474600.095",
+                    "Syn_2_pos": "17304687.42",
+                    "Syn_3_pos": "34704433.36"
+                },
+                {
+                    "Metabolite": "5-Aminoimidazole-4-carboxamide",
+                    "N_1_pos": "3651466.014",
+                    "N_2_pos": "21456383.98",
+                    "N_3_pos": "9005922.499",
+                    "Syn_1_pos": "9622200.213",
+                    "Syn_2_pos": "13169406.31",
+                    "Syn_3_pos": "24591074.15"
+                },
+                {
+                    "Metabolite": "1,2,3-Trihydroxybenzene",
+                    "N_1_pos": "94862477.95",
+                    "N_2_pos": "22026950.28",
+                    "N_3_pos": "47720298.61",
+                    "Syn_1_pos": "21017020.5",
+                    "Syn_2_pos": "49672027.09",
+                    "Syn_3_pos": "199682206.5"
+                },
+                {
+                    "Metabolite": "(R)-5,6-Dihydrothymine",
+                    "N_1_pos": "1267292.203",
+                    "N_2_pos": "10193543.54",
+                    "N_3_pos": "1460144.886",
+                    "Syn_1_pos": "9259513.144",
+                    "Syn_2_pos": "7929988.992",
+                    "Syn_3_pos": "9591225.908"
+                },
+                {
+                    "Metabolite": "Dihydrothymine",
+                    "N_1_pos": "7078974.216",
+                    "N_2_pos": "6159884.155",
+                    "N_3_pos": "4351988.659",
+                    "Syn_1_pos": "7041272.713",
+                    "Syn_2_pos": "4767323.331",
+                    "Syn_3_pos": "17413824.2"
+                },
+                {
+                    "Metabolite": "Agmatine",
+                    "N_1_pos": "2523817.316",
+                    "N_2_pos": "1891939.137",
+                    "N_3_pos": "1487552.672",
+                    "Syn_1_pos": "1864165.917",
+                    "Syn_2_pos": "1450787.249",
+                    "Syn_3_pos": "1941133.516"
+                },
+                {
+                    "Metabolite": "Chavicol",
+                    "N_1_pos": "4030443.502",
+                    "N_2_pos": "3746123.938",
+                    "N_3_pos": "2498298.941",
+                    "Syn_1_pos": "2683580.325",
+                    "Syn_2_pos": "3381607.84",
+                    "Syn_3_pos": "3084289.083"
+                },
+                {
+                    "Metabolite": "3-Sulfinylpyruvic acid",
+                    "N_1_pos": "1552443.265",
+                    "N_2_pos": "1255068.895",
+                    "N_3_pos": "4511701.612",
+                    "Syn_1_pos": "6204955.056",
+                    "Syn_2_pos": "4453853.502",
+                    "Syn_3_pos": "6327231.23"
+                },
+                {
+                    "Metabolite": "4-Hydroxyphenylacetaldehyde",
+                    "N_1_pos": "5793094.465",
+                    "N_2_pos": "5075630.351",
+                    "N_3_pos": "5575107.84",
+                    "Syn_1_pos": "13414575.34",
+                    "Syn_2_pos": "16085527.55",
+                    "Syn_3_pos": "8855135.031"
+                },
+                {
+                    "Metabolite": "Trigonelline",
+                    "N_1_pos": "7575522.374",
+                    "N_2_pos": "10568170.02",
+                    "N_3_pos": "1557163.116",
+                    "Syn_1_pos": "1813783.739",
+                    "Syn_2_pos": "6976051.031",
+                    "Syn_3_pos": "2042171.443"
+                },
+                {
+                    "Metabolite": "(3S,5S)-Carbapenam-3-carboxylic acid",
+                    "N_1_pos": "8459672.281",
+                    "N_2_pos": "8578203.762",
+                    "N_3_pos": "1389768.23",
+                    "Syn_1_pos": "1906333.184",
+                    "Syn_2_pos": "115629.567",
+                    "Syn_3_pos": "1905510.312"
+                },
+                {
+                    "Metabolite": "Acetylphosphate",
+                    "N_1_pos": "18144641.03",
+                    "N_2_pos": "14494046.45",
+                    "N_3_pos": "30035575.18",
+                    "Syn_1_pos": "10682087.85",
+                    "Syn_2_pos": "10887534.93",
+                    "Syn_3_pos": "4728972.687"
+                },
+                {
+                    "Metabolite": "(R) 2,3-Dihydroxy-3-methylvalerate",
+                    "N_1_pos": "9549039.329",
+                    "N_2_pos": "8525844.94",
+                    "N_3_pos": "6600752.427",
+                    "Syn_1_pos": "8802100.438",
+                    "Syn_2_pos": "2065320.807",
+                    "Syn_3_pos": "13257680.15"
+                },
+                {
+                    "Metabolite": "2-Oxo-4-methylthiobutanoic acid",
+                    "N_1_pos": "60057214.05",
+                    "N_2_pos": "16277775.56",
+                    "N_3_pos": "127404520.9",
+                    "Syn_1_pos": "36773512.67",
+                    "Syn_2_pos": "38441835.02",
+                    "Syn_3_pos": "14192236.57"
+                },
+                {
+                    "Metabolite": "threo-3-Hydroxy-D-aspartate",
+                    "N_1_pos": "6287571.544",
+                    "N_2_pos": "21125221.84",
+                    "N_3_pos": "20610160.01",
+                    "Syn_1_pos": "7015593.318",
+                    "Syn_2_pos": "5929080.263",
+                    "Syn_3_pos": "17501392.77"
+                },
+                {
+                    "Metabolite": "erythro-3-Hydroxy-Ls-aspartate",
+                    "N_1_pos": "3023262.828",
+                    "N_2_pos": "3155404.188",
+                    "N_3_pos": "13863860.84",
+                    "Syn_1_pos": "7396057.23",
+                    "Syn_2_pos": "7417106.933",
+                    "Syn_3_pos": "10846297.05"
+                },
+                {
+                    "Metabolite": "2-Amino-4-nitrotoluene",
+                    "N_1_pos": "806352.046",
+                    "N_2_pos": "657060.4921",
+                    "N_3_pos": "750354.2682",
+                    "Syn_1_pos": "1576533.895",
+                    "Syn_2_pos": "1664120.033",
+                    "Syn_3_pos": "1594708.881"
+                },
+                {
+                    "Metabolite": "2-Pyrocatechuic acid",
+                    "N_1_pos": "2739408.264",
+                    "N_2_pos": "1975381.539",
+                    "N_3_pos": "1975049.538",
+                    "Syn_1_pos": "1632312.056",
+                    "Syn_2_pos": "1921034.642",
+                    "Syn_3_pos": "2490879.989"
+                },
+                {
+                    "Metabolite": "Scopoline",
+                    "N_1_pos": "30565630.68",
+                    "N_2_pos": "5849046.758",
+                    "N_3_pos": "1737906.317",
+                    "Syn_1_pos": "21853650.32",
+                    "Syn_2_pos": "3097481.68",
+                    "Syn_3_pos": "11529901.81"
+                },
+                {
+                    "Metabolite": "Swainsonine",
+                    "N_1_pos": "3181040.892",
+                    "N_2_pos": "7141460.78",
+                    "N_3_pos": "1171604.315",
+                    "Syn_1_pos": "5769997.733",
+                    "Syn_2_pos": "7153210.432",
+                    "Syn_3_pos": "1507636.703"
+                },
+                {
+                    "Metabolite": "4-Hydroxycoumarin",
+                    "N_1_pos": "16652998.65",
+                    "N_2_pos": "13733205.55",
+                    "N_3_pos": "14342431.53",
+                    "Syn_1_pos": "3287815.71",
+                    "Syn_2_pos": "2636128.582",
+                    "Syn_3_pos": "3895253.641"
+                },
+                {
+                    "Metabolite": "4-Hydroxycinnamoylmethane",
+                    "N_1_pos": "1496701.176",
+                    "N_2_pos": "1894363.059",
+                    "N_3_pos": "2030615.866",
+                    "Syn_1_pos": "1908554.452",
+                    "Syn_2_pos": "1766035.717",
+                    "Syn_3_pos": "2055067.05"
+                },
+                {
+                    "Metabolite": "2-Deoxystreptamine",
+                    "N_1_pos": "8353079.032",
+                    "N_2_pos": "7774740.954",
+                    "N_3_pos": "6259171.835",
+                    "Syn_1_pos": "7047185.654",
+                    "Syn_2_pos": "5563840.885",
+                    "Syn_3_pos": "7472063.647"
+                },
+                {
+                    "Metabolite": "(R)-2-O-Sulfolactate",
+                    "N_1_pos": "24861140.15",
+                    "N_2_pos": "66931572.07",
+                    "N_3_pos": "24289761.84",
+                    "Syn_1_pos": "6777007.674",
+                    "Syn_2_pos": "29486873.27",
+                    "Syn_3_pos": "34189369.59"
+                },
+                {
+                    "Metabolite": "Diphenylamine",
+                    "N_1_pos": "2851099.847",
+                    "N_2_pos": "874996.9626",
+                    "N_3_pos": "1325980.582",
+                    "Syn_1_pos": "1012291.019",
+                    "Syn_2_pos": "14753956.44",
+                    "Syn_3_pos": "2191081.082"
+                },
+                {
+                    "Metabolite": "Tetrahydrodipicolinate",
+                    "N_1_pos": "1858485.37",
+                    "N_2_pos": "984813.6276",
+                    "N_3_pos": "1417236.165",
+                    "Syn_1_pos": "1751905.483",
+                    "Syn_2_pos": "819164.9529",
+                    "Syn_3_pos": "2662937.408"
+                },
+                {
+                    "Metabolite": "Neocnidilide",
+                    "N_1_pos": "2295356.25",
+                    "N_2_pos": "2666522.651",
+                    "N_3_pos": "1776015.85",
+                    "Syn_1_pos": "2005439.251",
+                    "Syn_2_pos": "3380688.3",
+                    "Syn_3_pos": "2647220.174"
+                },
+                {
+                    "Metabolite": "(2Z,4S,5R)-2-Amino-4,5,6-trihydroxyhex-2-enoate",
+                    "N_1_pos": "11752974.24",
+                    "N_2_pos": "14693549.52",
+                    "N_3_pos": "2381063.595",
+                    "Syn_1_pos": "9263727.077",
+                    "Syn_2_pos": "2785710.367",
+                    "Syn_3_pos": "3291373.729"
+                },
+                {
+                    "Metabolite": "Se-Methylselenocysteine",
+                    "N_1_pos": "23282286.68",
+                    "N_2_pos": "11814437.15",
+                    "N_3_pos": "5975883.042",
+                    "Syn_1_pos": "8963993.416",
+                    "Syn_2_pos": "8507648.228",
+                    "Syn_3_pos": "19883269.99"
+                },
+                {
+                    "Metabolite": "Hydroxyphenyllactic acid",
+                    "N_1_pos": "2032949.897",
+                    "N_2_pos": "1136377.637",
+                    "N_3_pos": "1980701.58",
+                    "Syn_1_pos": "2696352.382",
+                    "Syn_2_pos": "466580.6869",
+                    "Syn_3_pos": "3944658.542"
+                },
+                {
+                    "Metabolite": "Carbendazim",
+                    "N_1_pos": "3022935.919",
+                    "N_2_pos": "3103663.119",
+                    "N_3_pos": "3188558.227",
+                    "Syn_1_pos": "4213570.753",
+                    "Syn_2_pos": "2133916.076",
+                    "Syn_3_pos": "5372580.159"
+                },
+                {
+                    "Metabolite": "Jasmonic acid",
+                    "N_1_pos": "5909722.8",
+                    "N_2_pos": "4972043.574",
+                    "N_3_pos": "4025977.807",
+                    "Syn_1_pos": "4541988.289",
+                    "Syn_2_pos": "4047951.536",
+                    "Syn_3_pos": "4883029.489"
+                },
+                {
+                    "Metabolite": "Thiabendazole",
+                    "N_1_pos": "5911741.823",
+                    "N_2_pos": "4398316.906",
+                    "N_3_pos": "3803094.524",
+                    "Syn_1_pos": "5289342.322",
+                    "Syn_2_pos": "6050543.867",
+                    "Syn_3_pos": "6617838.827"
+                },
+                {
+                    "Metabolite": "Confertifolin",
+                    "N_1_pos": "2707058.549",
+                    "N_2_pos": "14137141.18",
+                    "N_3_pos": "9507559.822",
+                    "Syn_1_pos": "4788552.382",
+                    "Syn_2_pos": "10340201.72",
+                    "Syn_3_pos": "5989404.177"
+                },
+                {
+                    "Metabolite": "Acacetin",
+                    "N_1_pos": "24311987.92",
+                    "N_2_pos": "8862971.857",
+                    "N_3_pos": "4244368.813",
+                    "Syn_1_pos": "25244672.51",
+                    "Syn_2_pos": "8110655.06",
+                    "Syn_3_pos": "5706524.864"
+                },
+                {
+                    "Metabolite": "Spiroxamine",
+                    "N_1_pos": "13038499.66",
+                    "N_2_pos": "11765230.45",
+                    "N_3_pos": "6423845.931",
+                    "Syn_1_pos": "7656283.327",
+                    "Syn_2_pos": "6773582.648",
+                    "Syn_3_pos": "8217233.699"
+                },
+                {
+                    "Metabolite": "9,10-Dihydroxystearate",
+                    "N_1_pos": "100527923.8",
+                    "N_2_pos": "85275327.57",
+                    "N_3_pos": "63780800.73",
+                    "Syn_1_pos": "32461381.08",
+                    "Syn_2_pos": "90310696.35",
+                    "Syn_3_pos": "130112384.1"
+                },
+                {
+                    "Metabolite": "5a-Cholest-8-en-3b-ol",
+                    "N_1_pos": "3049501.869",
+                    "N_2_pos": "2130318.313",
+                    "N_3_pos": "2398403.535",
+                    "Syn_1_pos": "22001966.48",
+                    "Syn_2_pos": "11020941.67",
+                    "Syn_3_pos": "36191463.52"
+                },
+                {
+                    "Metabolite": "Docosatetraenoyl Ethanolamide",
+                    "N_1_pos": "4006901.778",
+                    "N_2_pos": "3061863.766",
+                    "N_3_pos": "2260596.498",
+                    "Syn_1_pos": "1736769.653",
+                    "Syn_2_pos": "1343246.932",
+                    "Syn_3_pos": "2133451.957"
+                }
+            ],
+            "Metabolites": [
+                {
+                    "Metabolite": "2-Hydroxy-3-(4-hydroxyphenyl)propenoic acid",
+                    "mz": "163.0379",
+                    "RT": "162.7",
+                    "formula": "C9H8O4",
+                    "KEGG": "C05350",
+                    "ppm": "18.60951632"
+                },
+                {
+                    "Metabolite": "2-Ketobutyric acid",
+                    "mz": "102.0344",
+                    "RT": "45.1",
+                    "formula": "C4H6O3",
+                    "KEGG": "C00109",
+                    "ppm": "1.615194503"
+                },
+                {
+                    "Metabolite": "2-Aminoisobutyric acid",
+                    "mz": "102.9709",
+                    "RT": "45.8",
+                    "formula": "C4H9NO2",
+                    "KEGG": "C03665",
+                    "ppm": "4.282915125"
+                },
+                {
+                    "Metabolite": "Dimethylglycine",
+                    "mz": "103.9564",
+                    "RT": "599.1",
+                    "formula": "C4H9NO2",
+                    "KEGG": "C01026",
+                    "ppm": "28.23613696"
+                },
+                {
+                    "Metabolite": "m-Cresol",
+                    "mz": "109.1015",
+                    "RT": "38.5",
+                    "formula": "C7H8O",
+                    "KEGG": "C01467",
+                    "ppm": "0.013426433"
+                },
+                {
+                    "Metabolite": "Catechol",
+                    "mz": "111.0448",
+                    "RT": "37.5",
+                    "formula": "C6H6O2",
+                    "KEGG": "C00090",
+                    "ppm": "6.519891071"
+                },
+                {
+                    "Metabolite": "2-Aminophenol",
+                    "mz": "110.0608",
+                    "RT": "353.1",
+                    "formula": "C6H7NO",
+                    "KEGG": "C01987",
+                    "ppm": "6.578182241"
+                },
+                {
+                    "Metabolite": "Ketoleucine",
+                    "mz": "113.0347",
+                    "RT": "37.7",
+                    "formula": "C6H10O3",
+                    "KEGG": "C00233",
+                    "ppm": "0.013391215"
+                },
+                {
+                    "Metabolite": "Creatinine",
+                    "mz": "113.9645",
+                    "RT": "374.2",
+                    "formula": "C4H7N3O",
+                    "KEGG": "C00791",
+                    "ppm": "4.012972689"
+                },
+                {
+                    "Metabolite": "2-Heptanone",
+                    "mz": "113.9633",
+                    "RT": "101.5",
+                    "formula": "C7H14O",
+                    "KEGG": "C08380",
+                    "ppm": "5.981122151"
+                },
+                {
+                    "Metabolite": "3-Methylindole",
+                    "mz": "132.0447",
+                    "RT": "518.1",
+                    "formula": "C9H9N",
+                    "KEGG": "C08313",
+                    "ppm": "22.24015304"
+                },
+                {
+                    "Metabolite": "Dihydrouracil",
+                    "mz": "115.0398",
+                    "RT": "214.4",
+                    "formula": "C4H6N2O2",
+                    "KEGG": "C00429",
+                    "ppm": "3.691720813"
+                },
+                {
+                    "Metabolite": "L-Valine",
+                    "mz": "118.0866",
+                    "RT": "657.5",
+                    "formula": "C5H11NO2",
+                    "KEGG": "C00183",
+                    "ppm": "2.743749079"
+                },
+                {
+                    "Metabolite": "Phenylacetic acid",
+                    "mz": "119.0867",
+                    "RT": "416",
+                    "formula": "C8H8O2",
+                    "KEGG": "C07086",
+                    "ppm": "11.59223454"
+                },
+                {
+                    "Metabolite": "Phenylacetaldehyde",
+                    "mz": "120.0243",
+                    "RT": "87.4",
+                    "formula": "C8H8O",
+                    "KEGG": "C00601",
+                    "ppm": "10.73940242"
+                },
+                {
+                    "Metabolite": "Nicotinic acid",
+                    "mz": "124.0857",
+                    "RT": "598.6",
+                    "formula": "C6H5NO2",
+                    "KEGG": "C00253",
+                    "ppm": "9.353670391"
+                },
+                {
+                    "Metabolite": "Benzoate",
+                    "mz": "123.0406",
+                    "RT": "44.2",
+                    "formula": "C7H6O2",
+                    "KEGG": "C00180",
+                    "ppm": "28.25083753"
+                },
+                {
+                    "Metabolite": "Phosphonoacetate",
+                    "mz": "123.0812",
+                    "RT": "192.3",
+                    "formula": "C2H5O5P",
+                    "KEGG": "C05682",
+                    "ppm": "13.08206493"
+                },
+                {
+                    "Metabolite": "3-Hydroxybenzyl alcohol glucoside",
+                    "mz": "124.0857",
+                    "RT": "642.2",
+                    "formula": "C7H8O2",
+                    "KEGG": "C03351",
+                    "ppm": "10.66930062"
+                },
+                {
+                    "Metabolite": "Heptanoic acid",
+                    "mz": "130.1597",
+                    "RT": "677",
+                    "formula": "C7H14O2",
+                    "KEGG": "C17714",
+                    "ppm": "2.35625507"
+                },
+                {
+                    "Metabolite": "Glutaric acid",
+                    "mz": "131.9753",
+                    "RT": "78.2",
+                    "formula": "C5H8O4",
+                    "KEGG": "C00489",
+                    "ppm": "8.470305383"
+                },
+                {
+                    "Metabolite": "Cinnamaldehyde",
+                    "mz": "132.0552",
+                    "RT": "541.6",
+                    "formula": "C9H8O",
+                    "KEGG": "C00903",
+                    "ppm": "17.41695897"
+                },
+                {
+                    "Metabolite": "D-Xylitol",
+                    "mz": "153.0776",
+                    "RT": "519.8",
+                    "formula": "C5H12O5",
+                    "KEGG": "C00379",
+                    "ppm": "11.0226104"
+                },
+                {
+                    "Metabolite": "2-Aminobenzoic acid",
+                    "mz": "138.0557",
+                    "RT": "192.3",
+                    "formula": "C7H7NO2",
+                    "KEGG": "C00108",
+                    "ppm": "4.926364228"
+                },
+                {
+                    "Metabolite": "Spermidine",
+                    "mz": "145.9864",
+                    "RT": "685.4",
+                    "formula": "C7H19N3",
+                    "KEGG": "C00315",
+                    "ppm": "27.04092588"
+                },
+                {
+                    "Metabolite": "Anabasine",
+                    "mz": "144.9814",
+                    "RT": "653.2",
+                    "formula": "C10H14N2",
+                    "KEGG": "C06180",
+                    "ppm": "6.837824866"
+                },
+                {
+                    "Metabolite": "3-Hydroxymethylglutaric acid",
+                    "mz": "145.0489",
+                    "RT": "486.9",
+                    "formula": "C6H10O5",
+                    "KEGG": "C03761",
+                    "ppm": "24.36419718"
+                },
+                {
+                    "Metabolite": "4-Hydroxycinnamic acid",
+                    "mz": "164.0693",
+                    "RT": "518.4",
+                    "formula": "C9H8O3",
+                    "KEGG": "C00811",
+                    "ppm": "7.167702916"
+                },
+                {
+                    "Metabolite": "L-2-Hydroxyglutaric acid",
+                    "mz": "149.0249",
+                    "RT": "386.9",
+                    "formula": "C5H8O5",
+                    "KEGG": "C03196",
+                    "ppm": "9.097060136"
+                },
+                {
+                    "Metabolite": "Nornicotine",
+                    "mz": "147.9849",
+                    "RT": "683.9",
+                    "formula": "C9H12N2",
+                    "KEGG": "C06524",
+                    "ppm": "8.108224468"
+                },
+                {
+                    "Metabolite": "3-Methyladenine",
+                    "mz": "149.0219",
+                    "RT": "550.6",
+                    "formula": "C6H7N5",
+                    "KEGG": "C00913",
+                    "ppm": "6.652344635"
+                },
+                {
+                    "Metabolite": "Uric acid",
+                    "mz": "151.0185",
+                    "RT": "316.8",
+                    "formula": "C5H4N4O3",
+                    "KEGG": "C00366",
+                    "ppm": "15.66695471"
+                },
+                {
+                    "Metabolite": "D-Arabitol",
+                    "mz": "152.9946",
+                    "RT": "396.9",
+                    "formula": "C5H12O5",
+                    "KEGG": "C01904",
+                    "ppm": "0.188936407"
+                },
+                {
+                    "Metabolite": "Mandelic acid",
+                    "mz": "152.9951",
+                    "RT": "143.4",
+                    "formula": "C8H8O3",
+                    "KEGG": "C01984",
+                    "ppm": "15.59437505"
+                },
+                {
+                    "Metabolite": "3-Hydroxyphenylacetic acid",
+                    "mz": "152.9946",
+                    "RT": "452.9",
+                    "formula": "C8H8O3",
+                    "KEGG": "C05593",
+                    "ppm": "0.288670574"
+                },
+                {
+                    "Metabolite": "Resorcinol monoacetate",
+                    "mz": "152.9946",
+                    "RT": "472.6",
+                    "formula": "C8H8O3",
+                    "KEGG": "C12064",
+                    "ppm": "0.309734428"
+                },
+                {
+                    "Metabolite": "2,3-Butanediol",
+                    "mz": "154.9887",
+                    "RT": "585.3",
+                    "formula": "C4H10O2S2",
+                    "KEGG": "C00265",
+                    "ppm": "9.539456922"
+                },
+                {
+                    "Metabolite": "3-Dehydroshikimate",
+                    "mz": "171.9925",
+                    "RT": "214.4",
+                    "formula": "C7H8O5",
+                    "KEGG": "C02637",
+                    "ppm": "3.076488178"
+                },
+                {
+                    "Metabolite": "Pelargonic acid",
+                    "mz": "158.1536",
+                    "RT": "599.6",
+                    "formula": "C9H18O2",
+                    "KEGG": "C01601",
+                    "ppm": "0.127466861"
+                },
+                {
+                    "Metabolite": "Pimelic acid",
+                    "mz": "159.9691",
+                    "RT": "34.7",
+                    "formula": "C7H12O4",
+                    "KEGG": "C02656",
+                    "ppm": "0.196723786"
+                },
+                {
+                    "Metabolite": "Acetylcysteine",
+                    "mz": "163.1233",
+                    "RT": "75.3",
+                    "formula": "C5H9NO3S",
+                    "KEGG": "C06809",
+                    "ppm": "0.055077202"
+                },
+                {
+                    "Metabolite": "2-Deoxy-D-glucose",
+                    "mz": "164.0701",
+                    "RT": "41.5",
+                    "formula": "C6H12O5",
+                    "KEGG": "C00586",
+                    "ppm": "9.751929206"
+                },
+                {
+                    "Metabolite": "L-Fucose",
+                    "mz": "165.1131",
+                    "RT": "610.2",
+                    "formula": "C6H12O5",
+                    "KEGG": "C00507",
+                    "ppm": "2.08381063"
+                },
+                {
+                    "Metabolite": "Homovanillic acid",
+                    "mz": "182.9871",
+                    "RT": "637.9",
+                    "formula": "C9H10O4",
+                    "KEGG": "C05582",
+                    "ppm": "11.23959686"
+                },
+                {
+                    "Metabolite": "Sorbitol",
+                    "mz": "182.984",
+                    "RT": "350.4",
+                    "formula": "C6H14O6",
+                    "KEGG": "C00794",
+                    "ppm": "4.136732015"
+                },
+                {
+                    "Metabolite": "Epinephrine",
+                    "mz": "182.9841",
+                    "RT": "138.7",
+                    "formula": "C9H13NO3",
+                    "KEGG": "C00788",
+                    "ppm": "5.957824904"
+                },
+                {
+                    "Metabolite": "Pyridoxine",
+                    "mz": "169.9777",
+                    "RT": "664.4",
+                    "formula": "C8H11NO3",
+                    "KEGG": "C00314",
+                    "ppm": "3.09280575"
+                },
+                {
+                    "Metabolite": "Norepinephrine",
+                    "mz": "169.9793",
+                    "RT": "271.4",
+                    "formula": "C8H11NO3",
+                    "KEGG": "C00547",
+                    "ppm": "9.372263681"
+                },
+                {
+                    "Metabolite": "2-Amino-2-deoxy-D-gluconate",
+                    "mz": "196.0089",
+                    "RT": "72.3",
+                    "formula": "C6H13NO6",
+                    "KEGG": "C03752",
+                    "ppm": "5.781759742"
+                },
+                {
+                    "Metabolite": "D-Psicose",
+                    "mz": "181.0159",
+                    "RT": "485.7",
+                    "formula": "C6H12O6",
+                    "KEGG": "C06468",
+                    "ppm": "9.765735999"
+                },
+                {
+                    "Metabolite": "myo-Inositol",
+                    "mz": "181.0136",
+                    "RT": "510.6",
+                    "formula": "C6H12O6",
+                    "KEGG": "C00137",
+                    "ppm": "1.745811503"
+                },
+                {
+                    "Metabolite": "D-Fructose",
+                    "mz": "181.0158",
+                    "RT": "426.1",
+                    "formula": "C6H12O6",
+                    "KEGG": "C00095",
+                    "ppm": "9.703144969"
+                },
+                {
+                    "Metabolite": "4-Pyridoxic acid",
+                    "mz": "182.9842",
+                    "RT": "163.6",
+                    "formula": "C8H9NO4",
+                    "KEGG": "C00847",
+                    "ppm": "6.330305868"
+                },
+                {
+                    "Metabolite": "Methyl jasmonate",
+                    "mz": "224.012",
+                    "RT": "379.3",
+                    "formula": "C13H20O3",
+                    "KEGG": "C11512",
+                    "ppm": "3.664304533"
+                },
+                {
+                    "Metabolite": "Deoxyuridine",
+                    "mz": "228.196",
+                    "RT": "639.7",
+                    "formula": "C9H12N2O5",
+                    "KEGG": "C00526",
+                    "ppm": "0.137478615"
+                },
+                {
+                    "Metabolite": "Hydroxykynurenine",
+                    "mz": "224.1276",
+                    "RT": "74",
+                    "formula": "C10H12N2O4",
+                    "KEGG": "C02794",
+                    "ppm": "2.373707277"
+                },
+                {
+                    "Metabolite": "1-Hexadecanol",
+                    "mz": "243.1836",
+                    "RT": "206.3",
+                    "formula": "C16H34O",
+                    "KEGG": "C00823",
+                    "ppm": "5.108123714"
+                },
+                {
+                    "Metabolite": "Porphobilinogen",
+                    "mz": "226.1804",
+                    "RT": "640.6",
+                    "formula": "C10H14N2O4",
+                    "KEGG": "C00931",
+                    "ppm": "0.35793124"
+                },
+                {
+                    "Metabolite": "Linoleic acid",
+                    "mz": "280.2639",
+                    "RT": "585.3",
+                    "formula": "C18H32O2",
+                    "KEGG": "C01595",
+                    "ppm": "3.825680717"
+                },
+                {
+                    "Metabolite": "Oleic acid",
+                    "mz": "283.1694",
+                    "RT": "436.4",
+                    "formula": "C18H34O2",
+                    "KEGG": "C00712",
+                    "ppm": "17.90092482"
+                },
+                {
+                    "Metabolite": "(6Z)-Octadecenoic acid",
+                    "mz": "282.2791",
+                    "RT": "525.7",
+                    "formula": "C18H34O2",
+                    "KEGG": "C08363",
+                    "ppm": "2.221558766"
+                },
+                {
+                    "Metabolite": "all-trans-Retinoic acid",
+                    "mz": "300.1993",
+                    "RT": "250.8",
+                    "formula": "C20H28O2",
+                    "KEGG": "C00777",
+                    "ppm": "4.564429467"
+                },
+                {
+                    "Metabolite": "Erucic acid",
+                    "mz": "338.3426",
+                    "RT": "600.9",
+                    "formula": "C22H42O2",
+                    "KEGG": "C08316",
+                    "ppm": "4.936681704"
+                },
+                {
+                    "Metabolite": "Cellobiose",
+                    "mz": "342.1394",
+                    "RT": "54.8",
+                    "formula": "C12H22O11",
+                    "KEGG": "C00185",
+                    "ppm": "1.272617132"
+                },
+                {
+                    "Metabolite": "Aldosterone",
+                    "mz": "361.2218",
+                    "RT": "572.6",
+                    "formula": "C21H28O5",
+                    "KEGG": "C01780",
+                    "ppm": "1.441099737"
+                },
+                {
+                    "Metabolite": "Cholesterol",
+                    "mz": "369.3583",
+                    "RT": "555.4",
+                    "formula": "C27H46O",
+                    "KEGG": "C00187",
+                    "ppm": "16.7858689"
+                },
+                {
+                    "Metabolite": "Riboflavin",
+                    "mz": "376.265",
+                    "RT": "482.5",
+                    "formula": "C17H20N4O6",
+                    "KEGG": "C00255",
+                    "ppm": "15.64971982"
+                },
+                {
+                    "Metabolite": "alpha-Tocopherol",
+                    "mz": "430.2431",
+                    "RT": "306.6",
+                    "formula": "C29H50O2",
+                    "KEGG": "C02477",
+                    "ppm": "0.727914479"
+                },
+                {
+                    "Metabolite": "Genistin",
+                    "mz": "432.2377",
+                    "RT": "466.7",
+                    "formula": "C21H20O10",
+                    "KEGG": "C09126",
+                    "ppm": "0.221197968"
+                },
+                {
+                    "Metabolite": "Deoxyuridine-5''-triphosphate",
+                    "mz": "468.389",
+                    "RT": "586.8",
+                    "formula": "C9H15N2O14P3",
+                    "KEGG": "C00460",
+                    "ppm": "2.451276685"
+                },
+                {
+                    "Metabolite": "Choline",
+                    "mz": "104.1074",
+                    "RT": "684.9",
+                    "formula": "C5H14NO",
+                    "KEGG": "C00114",
+                    "ppm": "0.960546513"
+                },
+                {
+                    "Metabolite": "Indole",
+                    "mz": "118.066",
+                    "RT": "326.9",
+                    "formula": "C8H7N",
+                    "KEGG": "C00463",
+                    "ppm": "7.622855013"
+                },
+                {
+                    "Metabolite": "Isonicotinic acid",
+                    "mz": "124.0398",
+                    "RT": "488.3",
+                    "formula": "C6H5NO2",
+                    "KEGG": "C07446",
+                    "ppm": "4.030964255"
+                },
+                {
+                    "Metabolite": "L-Histidinol",
+                    "mz": "124.0854",
+                    "RT": "503.4",
+                    "formula": "C6H11N3O",
+                    "KEGG": "C00860",
+                    "ppm": "21.22731603"
+                },
+                {
+                    "Metabolite": "L-Glutamine",
+                    "mz": "147.0807",
+                    "RT": "38.2",
+                    "formula": "C5H10N2O3",
+                    "KEGG": "C00064",
+                    "ppm": "27.62725043"
+                },
+                {
+                    "Metabolite": "3-(2-Hydroxyphenyl)propanoic acid",
+                    "mz": "149.0594",
+                    "RT": "486.5",
+                    "formula": "C9H10O3",
+                    "KEGG": "C01198",
+                    "ppm": "25.72128963"
+                },
+                {
+                    "Metabolite": "p-Octopamine",
+                    "mz": "153.0778",
+                    "RT": "357.8",
+                    "formula": "C8H11NO2",
+                    "KEGG": "C04227",
+                    "ppm": "7.839151072"
+                },
+                {
+                    "Metabolite": "Phosphorylcholine",
+                    "mz": "184.0723",
+                    "RT": "550.6",
+                    "formula": "C5H15NO4P",
+                    "KEGG": "C00588",
+                    "ppm": "5.432647932"
+                },
+                {
+                    "Metabolite": "Capsidiol",
+                    "mz": "219.1742",
+                    "RT": "525",
+                    "formula": "C15H24O2",
+                    "KEGG": "C09627",
+                    "ppm": "3.19380657"
+                },
+                {
+                    "Metabolite": "Stearidonic acid",
+                    "mz": "277.2156",
+                    "RT": "530.1",
+                    "formula": "C18H28O2",
+                    "KEGG": "C16300",
+                    "ppm": "2.077805145"
+                },
+                {
+                    "Metabolite": "Oleamide",
+                    "mz": "282.2788",
+                    "RT": "470.9",
+                    "formula": "C18H35NO",
+                    "KEGG": "C19670",
+                    "ppm": "1.062779068"
+                },
+                {
+                    "Metabolite": "Octadecanamide",
+                    "mz": "284.2919",
+                    "RT": "580.1",
+                    "formula": "C18H37NO",
+                    "KEGG": "C13846",
+                    "ppm": "10.11636279"
+                },
+                {
+                    "Metabolite": "1-palmitoylglycerophosphocholine",
+                    "mz": "496.3393",
+                    "RT": "533.2",
+                    "formula": "C24H51NO7P",
+                    "KEGG": "C04102",
+                    "ppm": "1.007375398"
+                },
+                {
+                    "Metabolite": "3,4-Methylenedioxyamphetamine",
+                    "mz": "194.118",
+                    "RT": "56.2",
+                    "formula": "C11H15NO2",
+                    "KEGG": "C07577",
+                    "ppm": "0.006103597"
+                },
+                {
+                    "Metabolite": "Niacinamide",
+                    "mz": "123.056",
+                    "RT": "284.4",
+                    "formula": "C6H6N2O",
+                    "KEGG": "C00153",
+                    "ppm": "1.311788015"
+                },
+                {
+                    "Metabolite": "Phenylethylamine",
+                    "mz": "122.0964",
+                    "RT": "655.3",
+                    "formula": "C8H11N",
+                    "KEGG": "C05332",
+                    "ppm": "0.196565992"
+                },
+                {
+                    "Metabolite": "Maltol",
+                    "mz": "127.0378",
+                    "RT": "298.5",
+                    "formula": "C6H6O3",
+                    "KEGG": "C11918",
+                    "ppm": "9.257087261"
+                },
+                {
+                    "Metabolite": "N-methyl-L-glutamic Acid",
+                    "mz": "144.0651",
+                    "RT": "34.1",
+                    "formula": "C6H11NO4",
+                    "KEGG": "C01046",
+                    "ppm": "25.91883808"
+                },
+                {
+                    "Metabolite": "5alpha-Cholestanone",
+                    "mz": "369.3457",
+                    "RT": "528.9",
+                    "formula": "C27H46O",
+                    "KEGG": "C03238",
+                    "ppm": "4.781428347"
+                },
+                {
+                    "Metabolite": "N,N-Dimethylaniline",
+                    "mz": "122.0965",
+                    "RT": "685.6",
+                    "formula": "C8H11N",
+                    "KEGG": "C02846",
+                    "ppm": "1.015590127"
+                },
+                {
+                    "Metabolite": "Serotonin",
+                    "mz": "177.104",
+                    "RT": "316.5",
+                    "formula": "C10H12N2O",
+                    "KEGG": "C00780",
+                    "ppm": "9.734393351"
+                },
+                {
+                    "Metabolite": "OPEO",
+                    "mz": "251.1991",
+                    "RT": "472.5",
+                    "formula": "C16H26O2",
+                    "KEGG": "D05229",
+                    "ppm": "5.796517066"
+                },
+                {
+                    "Metabolite": "Sphingosine",
+                    "mz": "300.2906",
+                    "RT": "465.5",
+                    "formula": "C18H37NO2",
+                    "KEGG": "C00319",
+                    "ppm": "0.817223816"
+                },
+                {
+                    "Metabolite": "N,N-Dimethylsphingosine",
+                    "mz": "328.3217",
+                    "RT": "504.1",
+                    "formula": "C20H41NO2",
+                    "KEGG": "C13914",
+                    "ppm": "2.134657843"
+                },
+                {
+                    "Metabolite": "Glycyrrhetinate",
+                    "mz": "453.3365",
+                    "RT": "463.1",
+                    "formula": "C30H46O4",
+                    "KEGG": "C02283",
+                    "ppm": "9.560227337"
+                },
+                {
+                    "Metabolite": "1-Pyrroline-2-carboxylic acid",
+                    "mz": "114.0553",
+                    "RT": "36.4",
+                    "formula": "C5H7NO2",
+                    "KEGG": "C03564",
+                    "ppm": "0.420189198"
+                },
+                {
+                    "Metabolite": "Epsilon-caprolactam",
+                    "mz": "114.0915",
+                    "RT": "525.3",
+                    "formula": "C6H11NO",
+                    "KEGG": "C06593",
+                    "ppm": "0.006412371"
+                },
+                {
+                    "Metabolite": "L-2,4-diaminobutyric acid",
+                    "mz": "118.0659",
+                    "RT": "275.6",
+                    "formula": "C4H10N2O2",
+                    "KEGG": "C03283",
+                    "ppm": "1.655848674"
+                },
+                {
+                    "Metabolite": "5-Hydroxypentanoic acid",
+                    "mz": "118.065",
+                    "RT": "537.5",
+                    "formula": "C5H10O3",
+                    "KEGG": "C02804",
+                    "ppm": "2.571381104"
+                },
+                {
+                    "Metabolite": "5-Aminoimidazole-4-carboxamide",
+                    "mz": "126.0547",
+                    "RT": "440.4",
+                    "formula": "C4H6N4O",
+                    "KEGG": "C04051",
+                    "ppm": "2.224890853"
+                },
+                {
+                    "Metabolite": "1,2,3-Trihydroxybenzene",
+                    "mz": "127.0391",
+                    "RT": "275.7",
+                    "formula": "C6H6O3",
+                    "KEGG": "C01108",
+                    "ppm": "0.003752404"
+                },
+                {
+                    "Metabolite": "(R)-5,6-Dihydrothymine",
+                    "mz": "128.0712",
+                    "RT": "194.1",
+                    "formula": "C5H8N2O2",
+                    "KEGG": "C21028",
+                    "ppm": "1.081964681"
+                },
+                {
+                    "Metabolite": "Dihydrothymine",
+                    "mz": "128.0712",
+                    "RT": "34.1",
+                    "formula": "C5H8N2O2",
+                    "KEGG": "C00906",
+                    "ppm": "1.705872858"
+                },
+                {
+                    "Metabolite": "Agmatine",
+                    "mz": "130.1229",
+                    "RT": "58.6",
+                    "formula": "C5H14N4",
+                    "KEGG": "C00179",
+                    "ppm": "8.453546608"
+                },
+                {
+                    "Metabolite": "Chavicol",
+                    "mz": "135.0812",
+                    "RT": "466.7",
+                    "formula": "C9H10O",
+                    "KEGG": "C16930",
+                    "ppm": "2.90632635"
+                },
+                {
+                    "Metabolite": "3-Sulfinylpyruvic acid",
+                    "mz": "152.9951",
+                    "RT": "173.4",
+                    "formula": "C3H4O5S",
+                    "KEGG": "C05527",
+                    "ppm": "0.07244666"
+                },
+                {
+                    "Metabolite": "4-Hydroxyphenylacetaldehyde",
+                    "mz": "136.0612",
+                    "RT": "56.5",
+                    "formula": "C8H8O2",
+                    "KEGG": "C03765",
+                    "ppm": "1.704268123"
+                },
+                {
+                    "Metabolite": "Trigonelline",
+                    "mz": "138.0555",
+                    "RT": "217",
+                    "formula": "C7H7NO2",
+                    "KEGG": "C01004",
+                    "ppm": "1.110811072"
+                },
+                {
+                    "Metabolite": "(3S,5S)-Carbapenam-3-carboxylic acid",
+                    "mz": "138.0546",
+                    "RT": "57.7",
+                    "formula": "C7H9NO3",
+                    "KEGG": "C17367",
+                    "ppm": "27.77162079"
+                },
+                {
+                    "Metabolite": "Acetylphosphate",
+                    "mz": "139.9871",
+                    "RT": "420.6",
+                    "formula": "C2H5O5P",
+                    "KEGG": "C00227",
+                    "ppm": "2.857406147"
+                },
+                {
+                    "Metabolite": "(R) 2,3-Dihydroxy-3-methylvalerate",
+                    "mz": "148.0748",
+                    "RT": "274.6",
+                    "formula": "C6H12O4",
+                    "KEGG": "C06007",
+                    "ppm": "7.63510338"
+                },
+                {
+                    "Metabolite": "2-Oxo-4-methylthiobutanoic acid",
+                    "mz": "149.0249",
+                    "RT": "276.9",
+                    "formula": "C5H8O3S",
+                    "KEGG": "C01180",
+                    "ppm": "7.679690495"
+                },
+                {
+                    "Metabolite": "threo-3-Hydroxy-D-aspartate",
+                    "mz": "149.0221",
+                    "RT": "590.9",
+                    "formula": "C4H7NO5",
+                    "KEGG": "C19813",
+                    "ppm": "7.945128897"
+                },
+                {
+                    "Metabolite": "erythro-3-Hydroxy-Ls-aspartate",
+                    "mz": "149.0237",
+                    "RT": "617.6",
+                    "formula": "C4H7NO5",
+                    "KEGG": "C03961",
+                    "ppm": "2.718718439"
+                },
+                {
+                    "Metabolite": "2-Amino-4-nitrotoluene",
+                    "mz": "152.057",
+                    "RT": "56.4",
+                    "formula": "C7H8N2O2",
+                    "KEGG": "C16398",
+                    "ppm": "10.5223699"
+                },
+                {
+                    "Metabolite": "2-Pyrocatechuic acid",
+                    "mz": "154.0421",
+                    "RT": "274.1",
+                    "formula": "C7H6O4",
+                    "KEGG": "C00196",
+                    "ppm": "2.18572933"
+                },
+                {
+                    "Metabolite": "Scopoline",
+                    "mz": "156.1023",
+                    "RT": "466.3",
+                    "formula": "C8H13NO2",
+                    "KEGG": "C10866",
+                    "ppm": "0.162966548"
+                },
+                {
+                    "Metabolite": "Swainsonine",
+                    "mz": "156.1015",
+                    "RT": "608.8",
+                    "formula": "C8H15NO3",
+                    "KEGG": "C10173",
+                    "ppm": "23.92033389"
+                },
+                {
+                    "Metabolite": "4-Hydroxycoumarin",
+                    "mz": "163.0405",
+                    "RT": "209.9",
+                    "formula": "C9H6O3",
+                    "KEGG": "C20414",
+                    "ppm": "7.803522008"
+                },
+                {
+                    "Metabolite": "4-Hydroxycinnamoylmethane",
+                    "mz": "163.0603",
+                    "RT": "52.5",
+                    "formula": "C10H10O2",
+                    "KEGG": "C12088",
+                    "ppm": "0.054210068"
+                },
+                {
+                    "Metabolite": "2-Deoxystreptamine",
+                    "mz": "163.1128",
+                    "RT": "413.4",
+                    "formula": "C6H14N2O3",
+                    "KEGG": "C02627",
+                    "ppm": "4.648225277"
+                },
+                {
+                    "Metabolite": "(R)-2-O-Sulfolactate",
+                    "mz": "169.9759",
+                    "RT": "309.9",
+                    "formula": "C3H6O6S",
+                    "KEGG": "C17205",
+                    "ppm": "7.477536321"
+                },
+                {
+                    "Metabolite": "Diphenylamine",
+                    "mz": "170.0966",
+                    "RT": "487.6",
+                    "formula": "C12H11N",
+                    "KEGG": "C11016",
+                    "ppm": "0.002008547"
+                },
+                {
+                    "Metabolite": "Tetrahydrodipicolinate",
+                    "mz": "171.0668",
+                    "RT": "278.7",
+                    "formula": "C7H9NO4",
+                    "KEGG": "C03972",
+                    "ppm": "23.53081835"
+                },
+                {
+                    "Metabolite": "Neocnidilide",
+                    "mz": "177.1285",
+                    "RT": "346.9",
+                    "formula": "C12H18O2",
+                    "KEGG": "C17002",
+                    "ppm": "29.54916911"
+                },
+                {
+                    "Metabolite": "(2Z,4S,5R)-2-Amino-4,5,6-trihydroxyhex-2-enoate",
+                    "mz": "178.087",
+                    "RT": "38.9",
+                    "formula": "C6H11NO5",
+                    "KEGG": "C20844",
+                    "ppm": "3.526434091"
+                },
+                {
+                    "Metabolite": "Se-Methylselenocysteine",
+                    "mz": "182.984",
+                    "RT": "234.4",
+                    "formula": "C4H9NO2Se",
+                    "KEGG": "C05689",
+                    "ppm": "6.907450783"
+                },
+                {
+                    "Metabolite": "Hydroxyphenyllactic acid",
+                    "mz": "183.0437",
+                    "RT": "274.3",
+                    "formula": "C9H10O4",
+                    "KEGG": "C03672",
+                    "ppm": "17.50803265"
+                },
+                {
+                    "Metabolite": "Carbendazim",
+                    "mz": "192.0771",
+                    "RT": "222.4",
+                    "formula": "C9H9N3O2",
+                    "KEGG": "C10897",
+                    "ppm": "0.00674274"
+                },
+                {
+                    "Metabolite": "Jasmonic acid",
+                    "mz": "193.1231",
+                    "RT": "486.1",
+                    "formula": "C12H18O3",
+                    "KEGG": "C08491",
+                    "ppm": "25.54847142"
+                },
+                {
+                    "Metabolite": "Thiabendazole",
+                    "mz": "202.045",
+                    "RT": "202.6",
+                    "formula": "C10H7N3S",
+                    "KEGG": "C07131",
+                    "ppm": "1.376861699"
+                },
+                {
+                    "Metabolite": "Confertifolin",
+                    "mz": "235.1693",
+                    "RT": "554.8",
+                    "formula": "C15H22O2",
+                    "KEGG": "C09376",
+                    "ppm": "0.07796439"
+                },
+                {
+                    "Metabolite": "Acacetin",
+                    "mz": "285.0801",
+                    "RT": "469.5",
+                    "formula": "C16H12O5",
+                    "KEGG": "C01470",
+                    "ppm": "14.17815556"
+                },
+                {
+                    "Metabolite": "Spiroxamine",
+                    "mz": "298.2734",
+                    "RT": "546.1",
+                    "formula": "C18H35NO2",
+                    "KEGG": "C11124",
+                    "ppm": "0.841922367"
+                },
+                {
+                    "Metabolite": "9,10-Dihydroxystearate",
+                    "mz": "299.2567",
+                    "RT": "470.6",
+                    "formula": "C18H36O4",
+                    "KEGG": "C19622",
+                    "ppm": "9.13596922"
+                },
+                {
+                    "Metabolite": "5a-Cholest-8-en-3b-ol",
+                    "mz": "369.3456",
+                    "RT": "501.4",
+                    "formula": "C27H46O",
+                    "KEGG": "C03845",
+                    "ppm": "5.052178772"
+                },
+                {
+                    "Metabolite": "Docosatetraenoyl Ethanolamide",
+                    "mz": "376.3201",
+                    "RT": "583.7",
+                    "formula": "C24H41NO2",
+                    "KEGG": "C13829",
+                    "ppm": "0.287512062"
+                }
+            ]
+        }
+    },
+    "AN006835": {
+        "METABOLOMICS WORKBENCH": {
+            "STUDY_ID": "ST004122",
+            "ANALYSIS_ID": "AN006835",
+            "PROJECT_ID": "PR002591",
+            "VERSION": "1",
+            "CREATED_ON": "August 20, 2025, 8:25 am"
+        },
+        "PROJECT": {
+            "PROJECT_TITLE": "Metabolomic responses of Artemisia argyi to synthetic microbial community inoculation under cadmium stress",
+            "PROJECT_TYPE": "Environmental metabolomics",
+            "PROJECT_SUMMARY": "This project aims to investigate the metabolic responses of Artemisia argyi to inoculation with a native synthetic microbial community (SynCom) in cadmium-contaminated soils. We will perform untargeted rhizosphere metabolomics and targeted leaf volatile metabolomics to assess how SynCom inoculation influences primary and secondary metabolic pathways under heavy metal stress. The study will focus on identifying key metabolites and metabolic pathways related to microbial carbon fixation, soil organic carbon accumulation, stress signaling, and essential oil biosynthesis. The findings are expected to provide insights into the mechanisms by which SynCom enhances phytoremediation efficiency, carbon sequestration, and the economic utilization potential of A. argyi in mining-impacted environments.",
+            "INSTITUTE": "Central South University, China",
+            "DEPARTMENT": "School of Metallurgy and Environment",
+            "LAST_NAME": "He",
+            "FIRST_NAME": "Xiao",
+            "ADDRESS": "No. 932 Lushan South Road, Changsha 410083, P.R. China",
+            "EMAIL": "hexiao0507@gmail.com",
+            "PHONE": "+86 13805204537",
+            "CONTRIBUTORS": "Rui Xu"
+        },
+        "STUDY": {
+            "STUDY_TITLE": "Untargeted rhizosphere metabolomics of Artemisia argyi under cadmium stress with synthetic microbial community inoculation",
+            "STUDY_TYPE": "LC-MS",
+            "STUDY_SUMMARY": "This study investigated rhizosphere metabolic responses of Artemisia argyi to inoculation with a native two-member synthetic microbial community (SynCom) in cadmium-contaminated soils. Pot experiments were conducted using soils from a historically polluted mining area in Hunan Province, China, with SynCom-inoculated and uninoculated plants grown for 60 days under 400 mg/kg Cd stress. Rhizosphere soil metabolites were extracted with methanol containing an internal standard and analyzed by UHPLC-Q Exactive MS in positive and negative ionization modes. Untargeted metabolomics revealed 39% fatty acyls, 14% organooxygen compounds, and 11% carboxylic acids and derivatives as dominant classes. SynCom inoculation significantly upregulated key intermediates in microbial respiration and carbon metabolism (e.g., 6-phosphogluconic acid, succinic acid, fumaric acid) and biomarkers of microbial biomass and root-derived carbon input (lanosterin, \u03b2-sitosterol). Enrichment of signaling molecules such as nobiletin suggested enhanced antioxidative capacity and potential chemoattraction of beneficial microbes including Pseudomonas, Rahnella, and functional partners. These results indicate that SynCom inoculation reshapes rhizosphere metabolic networks to promote carbon retention and microbial resilience under heavy metal stress.",
+            "INSTITUTE": "Central South University, China",
+            "DEPARTMENT": "School of Metallurgy and Environment",
+            "LAST_NAME": "He",
+            "FIRST_NAME": "Xiao",
+            "ADDRESS": "932 South Lushan Road",
+            "EMAIL": "hexiao0507@gmail.com",
+            "PHONE": "+86 13805204537"
+        },
+        "SUBJECT": {
+            "SUBJECT_TYPE": "Plant",
+            "SUBJECT_SPECIES": "Artemisia argyi",
+            "TAXONOMY_ID": "259893",
+            "GENOTYPE_STRAIN": "NA",
+            "AGE_OR_AGE_RANGE": "60 days",
+            "GENDER": "Not applicable"
+        },
+        "SUBJECT_SAMPLE_FACTORS": [
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_1_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_1_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_1_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_1_pos.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_2_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_2_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_2_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_2_pos.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_3_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_3_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "N_3_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "No SynCom",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "N_3_pos.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_1_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_1_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_1_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_1_pos.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_2_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_2_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_2_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_2_pos.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_3_neg",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Negative"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_3_neg.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "Syn_3_pos",
+                "Factors": {
+                    "Sample source": "rhizosphere soil",
+                    "Treatment": "SynCom inoculation",
+                    "IonMode": "Positive"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(Raw file name)": "Syn_3_pos.mzML"
+                }
+            }
+        ],
+        "COLLECTION": {
+            "COLLECTION_SUMMARY": "Rhizosphere soil was collected from Artemisia argyi plants grown in a greenhouse pot experiment under cadmium stress. Plants received either no inoculum (control) or a native two-member SynCom. At harvest, roots were gently shaken to remove bulk soil; tightly adhered rhizosphere soil was brushed/vortexed from roots into sterile 2 mL tubes, immediately placed on ice, flash-frozen in liquid nitrogen within 30 min, and stored at \u221280 \u00b0C until extraction for LC-MS metabolomics.",
+            "COLLECTION_PROTOCOL_FILENAME": "XH_LC-MS_protocol.pdf",
+            "SAMPLE_TYPE": "rhizosphere soil",
+            "COLLECTION_METHOD": "Roots excised; bulk soil removed by gentle shaking. Remaining root-adhered soil brushed/vortexed into sterile 2 mL polypropylene tubes using sterile spatulas; tubes kept on wet ice; samples flash-frozen in liquid N\u2082 within 30 min.",
+            "COLLECTION_LOCATION": "Central South University, Changsha, Hunan, China",
+            "COLLECTION_FREQUENCY": "Once at harvest (day 60 after transplanting)",
+            "COLLECTION_DURATION": "5 min per plant (from uprooting to freezing)",
+            "VOLUMEORAMOUNT_COLLECTED": "0.20 g rhizosphere soil per sample (fresh weight)",
+            "STORAGE_CONDITIONS": "-80\u2103"
+        },
+        "TREATMENT": {
+            "TREATMENT_SUMMARY": "Artemisia argyi plants were grown in pots containing cadmium-contaminated mining soil with or without inoculation of a native synthetic microbial community.",
+            "TREATMENT": "Biological treatment",
+            "TREATMENT_COMPOUND": "native synthetic microbial community",
+            "TREATMENT_ROUTE": "Soil application",
+            "TREATMENT_DOSE": "SynCom inoculation: 50 mL suspension (OD600=0.8) per pot",
+            "PLANT_GROWTH_LOCATION": "Central South University, Changsha, China",
+            "PLANT_LIGHT_PERIOD": "16 h light / 8 h dark photoperiod",
+            "PLANT_HUMIDITY": "60 \u00b1 5% RH",
+            "PLANT_TEMP": "25 \u00b1 2 \u00b0C",
+            "PLANT_WATERING_REGIME": "Watered with deionized water every 3 days to maintain ~60% field capacity",
+            "PLANT_NUTRITIONAL_REGIME": "No additional fertilizer applied",
+            "PLANT_ESTAB_DATE": "2024-04-15",
+            "PLANT_HARVEST_DATE": "2024-06-15"
+        },
+        "SAMPLEPREP": {
+            "SAMPLEPREP_SUMMARY": "Fresh rhizosphere soil samples of Artemisia argyi were collected in the field, immediately frozen in liquid nitrogen, and stored at \u201380 \u00b0C until extraction. For LC-MS analysis, 100 mg of freeze-dried and homogenized soil was extracted with 1 mL of 70% methanol (v/v) containing an internal standard. The mixture was vortexed for 3 min and sonicated in an ice-water bath for 10 min, followed by incubation at \u201320 \u00b0C for 1 h. Samples were centrifuged at 12,000 rpm for 10 min at 4 \u00b0C, and the supernatant was filtered through a 0.22 \u03bcm PTFE membrane and stored at \u201380 \u00b0C prior to LC-MS analysis. For GC-MS analysis, 100 mg of homogenized soil was extracted with 1 mL of methanol:chloroform:water (2.5:1:1, v/v/v), vortexed, sonicated, and centrifuged as above. The polar phase was transferred to a fresh vial, dried under vacuum, derivatized with 20 mg/mL methoxyamine hydrochloride in pyridine at 37 \u00b0C for 90 min, followed by silylation with MSTFA at 37 \u00b0C for 30 min, and stored at \u201380 \u00b0C until injection.",
+            "SAMPLEPREP_PROTOCOL_FILENAME": "XH_LC-MS_protocol.pdf",
+            "PROCESSING_METHOD": "Sample homogenization, solvent extraction, centrifugation, filtration",
+            "PROCESSING_STORAGE_CONDITIONS": "-80\u2103",
+            "EXTRACTION_METHOD": "Methanol-based extraction for LC-MS; Methanol:chloroform:water extraction for GC-MS",
+            "EXTRACT_ENRICHMENT": "Not applicable",
+            "EXTRACT_CLEANUP": "0.22 \u03bcm PTFE membrane filtration (LC-MS extracts only)",
+            "EXTRACT_STORAGE": "-80\u2103"
+        },
+        "CHROMATOGRAPHY": {
+            "CHROMATOGRAPHY_SUMMARY": "Negative mode: Reversed-phase UHPLC separation of rhizosphere metabolite extracts was performed on a Thermo Vanquish system using the same Waters ACQUITY UPLC HSS T3 column (100 \u00d7 2.1 mm, 1.8 \u03bcm). The mobile phases consisted of Solvent A3 (5 mM ammonium formate in water) and Solvent B3 (acetonitrile). A gradient elution was applied (0\u20131 min, 8% B3; 1\u20138 min, 8\u201398% B3; 8\u201310 min, 98% B3; 10\u201310.1 min, 98\u20138% B3; 10.1\u201312 min, 8% B3). The flow rate was 0.30 mL/min with a column temperature maintained at 40 \u00b0C.",
+            "CHROMATOGRAPHY_TYPE": "Reversed phase",
+            "INSTRUMENT_NAME": "Thermo Vanquish",
+            "COLUMN_NAME": "Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,1.8um)",
+            "SOLVENT_A": "100% water; 5 mM Ammonium formate",
+            "SOLVENT_B": "100% Acetonitrile",
+            "FLOW_GRADIENT": "0\u20131 min, 8% B\uff1b1\u20138 min, 8\u201398% B\uff1b8\u201310 min, 98% B\uff1b10\u201310.1 min, 98\u20138% B\uff1b10.1\u201312 min, 8% B",
+            "FLOW_RATE": "0.30 mL/min",
+            "COLUMN_TEMPERATURE": "40 \u00b0C",
+            "METHODS_FILENAME": "XH_LC-MS_protocol.pdf"
+        },
+        "ANALYSIS": {
+            "ANALYSIS_TYPE": "MS",
+            "ANALYSIS_PROTOCOL_FILE": "XH_LC-MS_protocol.pdf"
+        },
+        "MS": {
+            "INSTRUMENT_NAME": "Thermo Q Exactive Orbitrap",
+            "INSTRUMENT_TYPE": "Orbitrap",
+            "MS_TYPE": "ESI",
+            "ION_MODE": "NEGATIVE",
+            "MS_COMMENTS": "LC\u2013MS analysis was performed on a Vanquish UHPLC system (Thermo Fisher Scientific, USA) coupled to a Q Exactive Orbitrap mass spectrometer with an electrospray ionization (ESI) source operating in negative ion mode. Full MS-ddMS\u00b2 acquisition was applied with sheath gas pressure 40 arb, aux gas flow 10 arb, spray voltage \u20132.50 kV, capillary temperature 325 \u00b0C, MS1 scan range m/z 100\u20131000, resolving power 70,000 (MS1) and 17,500 (MS2), normalized collision energy 30 eV, dynamic exclusion enabled."
+        },
+        "MS_METABOLITE_DATA": {
+            "Units": "peak area",
+            "Data": [
+                {
+                    "Metabolite": "Caproic acid",
+                    "N_1_neg": "113184315.8",
+                    "N_2_neg": "120923833.7",
+                    "N_3_neg": "160948253.1",
+                    "Syn_1_neg": "61044165.34",
+                    "Syn_2_neg": "83784129.11",
+                    "Syn_3_neg": "140336459.8"
+                },
+                {
+                    "Metabolite": "5-Aminopentanoic acid",
+                    "N_1_neg": "8855574.86",
+                    "N_2_neg": "1980269.904",
+                    "N_3_neg": "6718028.387",
+                    "Syn_1_neg": "8942020.297",
+                    "Syn_2_neg": "2105428.526",
+                    "Syn_3_neg": "9658339.221"
+                },
+                {
+                    "Metabolite": "trans-1,2-Cyclohexanediol",
+                    "N_1_neg": "40150352.22",
+                    "N_2_neg": "175805381.2",
+                    "N_3_neg": "62839140.3",
+                    "Syn_1_neg": "181657676.4",
+                    "Syn_2_neg": "208486260.2",
+                    "Syn_3_neg": "31064438.91"
+                },
+                {
+                    "Metabolite": "Betaine",
+                    "N_1_neg": "29251952407",
+                    "N_2_neg": "29905978640",
+                    "N_3_neg": "28889304760",
+                    "Syn_1_neg": "7184217516",
+                    "Syn_2_neg": "32677381295",
+                    "Syn_3_neg": "31970899129"
+                },
+                {
+                    "Metabolite": "Guanidoacetic acid",
+                    "N_1_neg": "4425142.247",
+                    "N_2_neg": "158725689.9",
+                    "N_3_neg": "245133111.5",
+                    "Syn_1_neg": "114727492.6",
+                    "Syn_2_neg": "45591278.49",
+                    "Syn_3_neg": "304035946.5"
+                },
+                {
+                    "Metabolite": "Caprylic acid",
+                    "N_1_neg": "2203411.369",
+                    "N_2_neg": "885269.257",
+                    "N_3_neg": "515077.3476",
+                    "Syn_1_neg": "645451.7419",
+                    "Syn_2_neg": "407480.1209",
+                    "Syn_3_neg": "624093.5554"
+                },
+                {
+                    "Metabolite": "Phenyl acetate",
+                    "N_1_neg": "93852869.09",
+                    "N_2_neg": "52825686.35",
+                    "N_3_neg": "130118789.2",
+                    "Syn_1_neg": "68353737.01",
+                    "Syn_2_neg": "173324556.5",
+                    "Syn_3_neg": "66584751.04"
+                },
+                {
+                    "Metabolite": "L-Arabinose",
+                    "N_1_neg": "37667038.21",
+                    "N_2_neg": "83341181.99",
+                    "N_3_neg": "44322090.62",
+                    "Syn_1_neg": "5558025.932",
+                    "Syn_2_neg": "32302969.52",
+                    "Syn_3_neg": "33493806.06"
+                },
+                {
+                    "Metabolite": "D-Lyxose",
+                    "N_1_neg": "13075944.6",
+                    "N_2_neg": "3416306.026",
+                    "N_3_neg": "3179511.192",
+                    "Syn_1_neg": "2800231.237",
+                    "Syn_2_neg": "3482617.033",
+                    "Syn_3_neg": "38388655.8"
+                },
+                {
+                    "Metabolite": "D-Arabinose",
+                    "N_1_neg": "4643675.908",
+                    "N_2_neg": "151077605.2",
+                    "N_3_neg": "76274195.02",
+                    "Syn_1_neg": "87267266.47",
+                    "Syn_2_neg": "112322689.3",
+                    "Syn_3_neg": "95750840.26"
+                },
+                {
+                    "Metabolite": "Nicotine",
+                    "N_1_neg": "173366539.3",
+                    "N_2_neg": "56307889.15",
+                    "N_3_neg": "32716630.96",
+                    "Syn_1_neg": "25803838.03",
+                    "Syn_2_neg": "32369801.33",
+                    "Syn_3_neg": "175257514.7"
+                },
+                {
+                    "Metabolite": "Phthalic acid",
+                    "N_1_neg": "105803883.4",
+                    "N_2_neg": "9815991.303",
+                    "N_3_neg": "32542981.01",
+                    "Syn_1_neg": "16541786.81",
+                    "Syn_2_neg": "7519119.075",
+                    "Syn_3_neg": "25906418.41"
+                },
+                {
+                    "Metabolite": "Desaminotyrosine",
+                    "N_1_neg": "14866863.84",
+                    "N_2_neg": "16157947.7",
+                    "N_3_neg": "67362628.93",
+                    "Syn_1_neg": "25850806.74",
+                    "Syn_2_neg": "25073889.06",
+                    "Syn_3_neg": "74475729.59"
+                },
+                {
+                    "Metabolite": "Guanidinosuccinic acid",
+                    "N_1_neg": "1896546.425",
+                    "N_2_neg": "1834599.857",
+                    "N_3_neg": "1689523.425",
+                    "Syn_1_neg": "4064458.395",
+                    "Syn_2_neg": "4620720.98",
+                    "Syn_3_neg": "10346555.72"
+                },
+                {
+                    "Metabolite": "Mannitol",
+                    "N_1_neg": "8600992.585",
+                    "N_2_neg": "8147847.385",
+                    "N_3_neg": "19783909.83",
+                    "Syn_1_neg": "3432837.602",
+                    "Syn_2_neg": "21332632.54",
+                    "Syn_3_neg": "4736610.204"
+                },
+                {
+                    "Metabolite": "5-Hydroxyindoleacetic acid",
+                    "N_1_neg": "6041061.748",
+                    "N_2_neg": "4644633.381",
+                    "N_3_neg": "4971705.901",
+                    "Syn_1_neg": "6112697.672",
+                    "Syn_2_neg": "6040766.52",
+                    "Syn_3_neg": "4837494.752"
+                },
+                {
+                    "Metabolite": "N-Acetyl-D-glucosamine",
+                    "N_1_neg": "3328894.948",
+                    "N_2_neg": "3251909.662",
+                    "N_3_neg": "3488200.727",
+                    "Syn_1_neg": "3539362.341",
+                    "Syn_2_neg": "3039403.493",
+                    "Syn_3_neg": "3365823.977"
+                },
+                {
+                    "Metabolite": "Thymidine",
+                    "N_1_neg": "44271927.9",
+                    "N_2_neg": "88031586.74",
+                    "N_3_neg": "37198495.68",
+                    "Syn_1_neg": "31533188.26",
+                    "Syn_2_neg": "27796586.07",
+                    "Syn_3_neg": "41788987.53"
+                },
+                {
+                    "Metabolite": "gamma-Glutamylcysteine",
+                    "N_1_neg": "11041796.15",
+                    "N_2_neg": "7596265.701",
+                    "N_3_neg": "5469184.88",
+                    "Syn_1_neg": "5738951.276",
+                    "Syn_2_neg": "7158174.58",
+                    "Syn_3_neg": "6578187.192"
+                },
+                {
+                    "Metabolite": "Palmitic acid",
+                    "N_1_neg": "160639587.5",
+                    "N_2_neg": "165402718.3",
+                    "N_3_neg": "58496620.66",
+                    "Syn_1_neg": "103898022",
+                    "Syn_2_neg": "102192065.6",
+                    "Syn_3_neg": "163937953.8"
+                },
+                {
+                    "Metabolite": "Dehydroepiandrosterone",
+                    "N_1_neg": "9929841.294",
+                    "N_2_neg": "10260631.45",
+                    "N_3_neg": "37057612.11",
+                    "Syn_1_neg": "3327977.218",
+                    "Syn_2_neg": "20388943.41",
+                    "Syn_3_neg": "12349966.79"
+                },
+                {
+                    "Metabolite": "2-Methoxyestradiol",
+                    "N_1_neg": "1665844.379",
+                    "N_2_neg": "2362602.275",
+                    "N_3_neg": "2268054.716",
+                    "Syn_1_neg": "2182221.844",
+                    "Syn_2_neg": "2084521.153",
+                    "Syn_3_neg": "2038260.252"
+                },
+                {
+                    "Metabolite": "Kaempferide",
+                    "N_1_neg": "2700497.391",
+                    "N_2_neg": "9622017.31",
+                    "N_3_neg": "5400502.651",
+                    "Syn_1_neg": "8594582.487",
+                    "Syn_2_neg": "15538077.98",
+                    "Syn_3_neg": "10227071.59"
+                },
+                {
+                    "Metabolite": "Sphinganine",
+                    "N_1_neg": "3289903.059",
+                    "N_2_neg": "3397411.507",
+                    "N_3_neg": "4985754.864",
+                    "Syn_1_neg": "1218687.239",
+                    "Syn_2_neg": "4310061.841",
+                    "Syn_3_neg": "3691616.251"
+                },
+                {
+                    "Metabolite": "Arachidonic acid",
+                    "N_1_neg": "56085863.32",
+                    "N_2_neg": "74280707.2",
+                    "N_3_neg": "58236706.22",
+                    "Syn_1_neg": "62089872.01",
+                    "Syn_2_neg": "100368483",
+                    "Syn_3_neg": "72495940.73"
+                },
+                {
+                    "Metabolite": "Arachidic acid",
+                    "N_1_neg": "3076073.901",
+                    "N_2_neg": "6792155.93",
+                    "N_3_neg": "4796285.567",
+                    "Syn_1_neg": "853494.0034",
+                    "Syn_2_neg": "5525573.113",
+                    "Syn_3_neg": "2410509.705"
+                },
+                {
+                    "Metabolite": "Daidzin",
+                    "N_1_neg": "2103293.049",
+                    "N_2_neg": "1671873.1",
+                    "N_3_neg": "3470204.522",
+                    "Syn_1_neg": "1764577.844",
+                    "Syn_2_neg": "1527626.703",
+                    "Syn_3_neg": "1750226.775"
+                },
+                {
+                    "Metabolite": "L-Iditol",
+                    "N_1_neg": "12372590.17",
+                    "N_2_neg": "12678316.72",
+                    "N_3_neg": "4903806.414",
+                    "Syn_1_neg": "3948526.61",
+                    "Syn_2_neg": "4874829.626",
+                    "Syn_3_neg": "27988463.54"
+                },
+                {
+                    "Metabolite": "Dodecanedioic acid",
+                    "N_1_neg": "52153399.06",
+                    "N_2_neg": "12683139.01",
+                    "N_3_neg": "42932493.89",
+                    "Syn_1_neg": "11165919.55",
+                    "Syn_2_neg": "58411540.86",
+                    "Syn_3_neg": "19694867.36"
+                },
+                {
+                    "Metabolite": "Palmitoleic acid",
+                    "N_1_neg": "8308619.189",
+                    "N_2_neg": "1903426.594",
+                    "N_3_neg": "5412427.001",
+                    "Syn_1_neg": "6672380.846",
+                    "Syn_2_neg": "3894596.076",
+                    "Syn_3_neg": "1918515.585"
+                },
+                {
+                    "Metabolite": "Gamma-Linolenic acid",
+                    "N_1_neg": "27911899.7",
+                    "N_2_neg": "8809252.875",
+                    "N_3_neg": "8746424.118",
+                    "Syn_1_neg": "7943076.581",
+                    "Syn_2_neg": "37489093.15",
+                    "Syn_3_neg": "9141585.683"
+                },
+                {
+                    "Metabolite": "Bovinic acid",
+                    "N_1_neg": "252776425.5",
+                    "N_2_neg": "160190619",
+                    "N_3_neg": "316597987.5",
+                    "Syn_1_neg": "251923907.5",
+                    "Syn_2_neg": "215280729.7",
+                    "Syn_3_neg": "150498498.8"
+                },
+                {
+                    "Metabolite": "Glycitein",
+                    "N_1_neg": "75172917.19",
+                    "N_2_neg": "32930800.29",
+                    "N_3_neg": "22397729.37",
+                    "Syn_1_neg": "17271237.44",
+                    "Syn_2_neg": "67292498.22",
+                    "Syn_3_neg": "87273429.8"
+                },
+                {
+                    "Metabolite": "Stearic acid",
+                    "N_1_neg": "3715895.028",
+                    "N_2_neg": "6484177.54",
+                    "N_3_neg": "9982128.802",
+                    "Syn_1_neg": "3440923.627",
+                    "Syn_2_neg": "25497758.52",
+                    "Syn_3_neg": "19433970.43"
+                },
+                {
+                    "Metabolite": "13-L-Hydroperoxylinoleic acid",
+                    "N_1_neg": "9525548.531",
+                    "N_2_neg": "9376189.195",
+                    "N_3_neg": "11069177.68",
+                    "Syn_1_neg": "16124676.8",
+                    "Syn_2_neg": "14475139.07",
+                    "Syn_3_neg": "14278687.84"
+                },
+                {
+                    "Metabolite": "13S-hydroxyoctadecadienoic acid",
+                    "N_1_neg": "72778401.04",
+                    "N_2_neg": "76176460.52",
+                    "N_3_neg": "73586630.37",
+                    "Syn_1_neg": "24508978.81",
+                    "Syn_2_neg": "43765869.72",
+                    "Syn_3_neg": "82525840.52"
+                },
+                {
+                    "Metabolite": "Behenic acid",
+                    "N_1_neg": "2417260.764",
+                    "N_2_neg": "1150492.293",
+                    "N_3_neg": "1288637.572",
+                    "Syn_1_neg": "246691797.5",
+                    "Syn_2_neg": "186154130.7",
+                    "Syn_3_neg": "4620710.362"
+                },
+                {
+                    "Metabolite": "LysoPA(16_0_0_0)",
+                    "N_1_neg": "3222646.321",
+                    "N_2_neg": "3153331.953",
+                    "N_3_neg": "3781830.451",
+                    "Syn_1_neg": "4840076.036",
+                    "Syn_2_neg": "4562732.431",
+                    "Syn_3_neg": "1175302.295"
+                },
+                {
+                    "Metabolite": "Cholesterol sulfate",
+                    "N_1_neg": "4048798.847",
+                    "N_2_neg": "4672803.028",
+                    "N_3_neg": "4545654.56",
+                    "Syn_1_neg": "2438379.459",
+                    "Syn_2_neg": "2371517.486",
+                    "Syn_3_neg": "3009400.962"
+                },
+                {
+                    "Metabolite": "1-Kestose",
+                    "N_1_neg": "979919.4616",
+                    "N_2_neg": "1500844.609",
+                    "N_3_neg": "1599914.334",
+                    "Syn_1_neg": "1623446.301",
+                    "Syn_2_neg": "1642275.029",
+                    "Syn_3_neg": "1805290.465"
+                },
+                {
+                    "Metabolite": "Biochanin A",
+                    "N_1_neg": "10485738.72",
+                    "N_2_neg": "11284978.9",
+                    "N_3_neg": "27571733.58",
+                    "Syn_1_neg": "2603139.675",
+                    "Syn_2_neg": "3207816.569",
+                    "Syn_3_neg": "6089325.05"
+                },
+                {
+                    "Metabolite": "6-Hydroxynicotinic acid",
+                    "N_1_neg": "1650574.609",
+                    "N_2_neg": "13955682.05",
+                    "N_3_neg": "11278987.26",
+                    "Syn_1_neg": "4436203.33",
+                    "Syn_2_neg": "1797436.268",
+                    "Syn_3_neg": "10143094.36"
+                },
+                {
+                    "Metabolite": "4-Hydroxy-3-(3-methyl-2-butenyl)acetophenone",
+                    "N_1_neg": "421735.9874",
+                    "N_2_neg": "268410.0541",
+                    "N_3_neg": "496473.6253",
+                    "Syn_1_neg": "259726.701",
+                    "Syn_2_neg": "2767577.135",
+                    "Syn_3_neg": "343184.4267"
+                },
+                {
+                    "Metabolite": "Pentadecanoic acid",
+                    "N_1_neg": "45858535.76",
+                    "N_2_neg": "56818744.56",
+                    "N_3_neg": "27448579.15",
+                    "Syn_1_neg": "19850878.17",
+                    "Syn_2_neg": "31678583.23",
+                    "Syn_3_neg": "41005921.35"
+                },
+                {
+                    "Metabolite": "Alpha-Linolenic acid",
+                    "N_1_neg": "115740821.9",
+                    "N_2_neg": "113692787.5",
+                    "N_3_neg": "101222020",
+                    "Syn_1_neg": "120949702.9",
+                    "Syn_2_neg": "57586617.74",
+                    "Syn_3_neg": "66520810.96"
+                },
+                {
+                    "Metabolite": "Tetracosanoic acid",
+                    "N_1_neg": "262442998.7",
+                    "N_2_neg": "791826593.7",
+                    "N_3_neg": "1746945820",
+                    "Syn_1_neg": "16384563.67",
+                    "Syn_2_neg": "43973285.91",
+                    "Syn_3_neg": "69640717.56"
+                },
+                {
+                    "Metabolite": "12,13-DHOME",
+                    "N_1_neg": "4791998.133",
+                    "N_2_neg": "3707776.587",
+                    "N_3_neg": "1762106.641",
+                    "Syn_1_neg": "1472458.36",
+                    "Syn_2_neg": "7903271.101",
+                    "Syn_3_neg": "8480011.399"
+                },
+                {
+                    "Metabolite": "Coumafuryl",
+                    "N_1_neg": "1245942.399",
+                    "N_2_neg": "819305.948",
+                    "N_3_neg": "1164143.422",
+                    "Syn_1_neg": "2033051.274",
+                    "Syn_2_neg": "1869601.326",
+                    "Syn_3_neg": "1643103.192"
+                }
+            ],
+            "Metabolites": [
+                {
+                    "Metabolite": "Caproic acid",
+                    "mz": "114.9338",
+                    "RT": "688.2",
+                    "formula": "C6H12O2",
+                    "KEGG": "C01585",
+                    "ppm": "6.573926956"
+                },
+                {
+                    "Metabolite": "5-Aminopentanoic acid",
+                    "mz": "115.9212",
+                    "RT": "357.2",
+                    "formula": "C5H11NO2",
+                    "KEGG": "C00431",
+                    "ppm": "13.79005367"
+                },
+                {
+                    "Metabolite": "trans-1,2-Cyclohexanediol",
+                    "mz": "115.9206",
+                    "RT": "688.2",
+                    "formula": "C6H12O2",
+                    "KEGG": "C03739",
+                    "ppm": "7.626933021"
+                },
+                {
+                    "Metabolite": "Betaine",
+                    "mz": "116.9279",
+                    "RT": "635.5",
+                    "formula": "C5H11NO2",
+                    "KEGG": "C00719",
+                    "ppm": "5.450569915"
+                },
+                {
+                    "Metabolite": "Guanidoacetic acid",
+                    "mz": "116.9279",
+                    "RT": "470.3",
+                    "formula": "C3H7N3O2",
+                    "KEGG": "C00581",
+                    "ppm": "5.2227652"
+                },
+                {
+                    "Metabolite": "Caprylic acid",
+                    "mz": "124.9914",
+                    "RT": "54.3",
+                    "formula": "C8H16O2",
+                    "KEGG": "C06423",
+                    "ppm": "11.33994035"
+                },
+                {
+                    "Metabolite": "Phenyl acetate",
+                    "mz": "134.8954",
+                    "RT": "574.6",
+                    "formula": "C8H8O2",
+                    "KEGG": "C00548",
+                    "ppm": "15.60254771"
+                },
+                {
+                    "Metabolite": "L-Arabinose",
+                    "mz": "149.009",
+                    "RT": "592.3",
+                    "formula": "C5H10O5",
+                    "KEGG": "C00259",
+                    "ppm": "4.487656262"
+                },
+                {
+                    "Metabolite": "D-Lyxose",
+                    "mz": "149.9953",
+                    "RT": "377.8",
+                    "formula": "C5H10O5",
+                    "KEGG": "C00476",
+                    "ppm": "14.03657263"
+                },
+                {
+                    "Metabolite": "D-Arabinose",
+                    "mz": "149.9946",
+                    "RT": "520.3",
+                    "formula": "C5H10O5",
+                    "KEGG": "C00216",
+                    "ppm": "9.053513746"
+                },
+                {
+                    "Metabolite": "Nicotine",
+                    "mz": "160.9359",
+                    "RT": "474.1",
+                    "formula": "C10H14N2",
+                    "KEGG": "C00745",
+                    "ppm": "8.77240497"
+                },
+                {
+                    "Metabolite": "Phthalic acid",
+                    "mz": "165.0409",
+                    "RT": "640.3",
+                    "formula": "C8H6O4",
+                    "KEGG": "C01606",
+                    "ppm": "4.745294488"
+                },
+                {
+                    "Metabolite": "Desaminotyrosine",
+                    "mz": "165.0406",
+                    "RT": "592.4",
+                    "formula": "C9H10O3",
+                    "KEGG": "C01744",
+                    "ppm": "3.583694424"
+                },
+                {
+                    "Metabolite": "Guanidinosuccinic acid",
+                    "mz": "174.9566",
+                    "RT": "218.6",
+                    "formula": "C5H9N3O4",
+                    "KEGG": "C03139",
+                    "ppm": "9.570732919"
+                },
+                {
+                    "Metabolite": "Mannitol",
+                    "mz": "181.0737",
+                    "RT": "421.6",
+                    "formula": "C6H14O6",
+                    "KEGG": "C00392",
+                    "ppm": "10.91268362"
+                },
+                {
+                    "Metabolite": "5-Hydroxyindoleacetic acid",
+                    "mz": "191.1085",
+                    "RT": "450.7",
+                    "formula": "C10H9NO3",
+                    "KEGG": "C05635",
+                    "ppm": "9.960254473"
+                },
+                {
+                    "Metabolite": "N-Acetyl-D-glucosamine",
+                    "mz": "221.1549",
+                    "RT": "522.4",
+                    "formula": "C8H15NO6",
+                    "KEGG": "C00140",
+                    "ppm": "3.175657089"
+                },
+                {
+                    "Metabolite": "Thymidine",
+                    "mz": "223.0263",
+                    "RT": "686.2",
+                    "formula": "C10H14N2O5",
+                    "KEGG": "C00214",
+                    "ppm": "7.139888215"
+                },
+                {
+                    "Metabolite": "gamma-Glutamylcysteine",
+                    "mz": "248.9605",
+                    "RT": "59.9",
+                    "formula": "C8H14N2O5S",
+                    "KEGG": "C00669",
+                    "ppm": "1.239870622"
+                },
+                {
+                    "Metabolite": "Palmitic acid",
+                    "mz": "255.2304",
+                    "RT": "684",
+                    "formula": "C16H32O2",
+                    "KEGG": "C00249",
+                    "ppm": "8.758745224"
+                },
+                {
+                    "Metabolite": "Dehydroepiandrosterone",
+                    "mz": "269.2086",
+                    "RT": "674.6",
+                    "formula": "C19H28O2",
+                    "KEGG": "C01227",
+                    "ppm": "13.39530044"
+                },
+                {
+                    "Metabolite": "2-Methoxyestradiol",
+                    "mz": "283.1701",
+                    "RT": "552.1",
+                    "formula": "C19H26O3",
+                    "KEGG": "C05302",
+                    "ppm": "1.024119425"
+                },
+                {
+                    "Metabolite": "Kaempferide",
+                    "mz": "299.2539",
+                    "RT": "423.3",
+                    "formula": "C16H12O6",
+                    "KEGG": "C10098",
+                    "ppm": "16.43948526"
+                },
+                {
+                    "Metabolite": "Sphinganine",
+                    "mz": "301.1659",
+                    "RT": "554.6",
+                    "formula": "C18H39NO2",
+                    "KEGG": "C00836",
+                    "ppm": "0.586587512"
+                },
+                {
+                    "Metabolite": "Arachidonic acid",
+                    "mz": "303.2359",
+                    "RT": "604.9",
+                    "formula": "C20H32O2",
+                    "KEGG": "C00219",
+                    "ppm": "9.563511444"
+                },
+                {
+                    "Metabolite": "Arachidic acid",
+                    "mz": "311.1675",
+                    "RT": "683.7",
+                    "formula": "C20H40O2",
+                    "KEGG": "C06425",
+                    "ppm": "2.879465542"
+                },
+                {
+                    "Metabolite": "Daidzin",
+                    "mz": "397.2254",
+                    "RT": "462.8",
+                    "formula": "C21H20O9",
+                    "KEGG": "C10216",
+                    "ppm": "2.697588699"
+                },
+                {
+                    "Metabolite": "L-Iditol",
+                    "mz": "181.0704",
+                    "RT": "444.6",
+                    "formula": "C6H14O6",
+                    "KEGG": "C01507",
+                    "ppm": "7.312073094"
+                },
+                {
+                    "Metabolite": "Dodecanedioic acid",
+                    "mz": "211.1327",
+                    "RT": "556.9",
+                    "formula": "C12H22O4",
+                    "KEGG": "C02678",
+                    "ppm": "3.362814003"
+                },
+                {
+                    "Metabolite": "Palmitoleic acid",
+                    "mz": "253.2184",
+                    "RT": "676.6",
+                    "formula": "C16H30O2",
+                    "KEGG": "C08362",
+                    "ppm": "4.24929626"
+                },
+                {
+                    "Metabolite": "Gamma-Linolenic acid",
+                    "mz": "277.219",
+                    "RT": "681.7",
+                    "formula": "C18H30O2",
+                    "KEGG": "C06426",
+                    "ppm": "6.045761654"
+                },
+                {
+                    "Metabolite": "Bovinic acid",
+                    "mz": "279.2298",
+                    "RT": "615.5",
+                    "formula": "C18H32O2",
+                    "KEGG": "C04056",
+                    "ppm": "11.18791762"
+                },
+                {
+                    "Metabolite": "Glycitein",
+                    "mz": "283.0646",
+                    "RT": "548.8",
+                    "formula": "C16H12O5",
+                    "KEGG": "C14536",
+                    "ppm": "11.92660615"
+                },
+                {
+                    "Metabolite": "Stearic acid",
+                    "mz": "284.2677",
+                    "RT": "683.8",
+                    "formula": "C18H36O2",
+                    "KEGG": "C01530",
+                    "ppm": "13.36768124"
+                },
+                {
+                    "Metabolite": "13-L-Hydroperoxylinoleic acid",
+                    "mz": "293.2115",
+                    "RT": "504.9",
+                    "formula": "C18H32O4",
+                    "KEGG": "C04717",
+                    "ppm": "0.716206561"
+                },
+                {
+                    "Metabolite": "13S-hydroxyoctadecadienoic acid",
+                    "mz": "295.2246",
+                    "RT": "535.2",
+                    "formula": "C18H32O3",
+                    "KEGG": "C14762",
+                    "ppm": "10.92049917"
+                },
+                {
+                    "Metabolite": "Behenic acid",
+                    "mz": "339.3262",
+                    "RT": "677.2",
+                    "formula": "C22H44O2",
+                    "KEGG": "C08281",
+                    "ppm": "1.838938461"
+                },
+                {
+                    "Metabolite": "LysoPA(16_0_0_0)",
+                    "mz": "409.2354",
+                    "RT": "465.5",
+                    "formula": "C19H39O7P",
+                    "KEGG": "C04036",
+                    "ppm": "1.524794776"
+                },
+                {
+                    "Metabolite": "Cholesterol sulfate",
+                    "mz": "465.3061",
+                    "RT": "563.2",
+                    "formula": "C27H46O4S",
+                    "KEGG": "C18043",
+                    "ppm": "3.601929998"
+                },
+                {
+                    "Metabolite": "1-Kestose",
+                    "mz": "503.1619",
+                    "RT": "51.4",
+                    "formula": "C18H32O16",
+                    "KEGG": "C03661",
+                    "ppm": "0.198743188"
+                },
+                {
+                    "Metabolite": "Biochanin A",
+                    "mz": "283.0647",
+                    "RT": "486.2",
+                    "formula": "C16H12O5",
+                    "KEGG": "C00814",
+                    "ppm": "12.27987806"
+                },
+                {
+                    "Metabolite": "6-Hydroxynicotinic acid",
+                    "mz": "138.0191",
+                    "RT": "468.4",
+                    "formula": "C6H5NO3",
+                    "KEGG": "C01020",
+                    "ppm": "3.796575981"
+                },
+                {
+                    "Metabolite": "4-Hydroxy-3-(3-methyl-2-butenyl)acetophenone",
+                    "mz": "203.1077",
+                    "RT": "433.2",
+                    "formula": "C13H16O2",
+                    "KEGG": "C10702",
+                    "ppm": "0.11816391"
+                },
+                {
+                    "Metabolite": "Pentadecanoic acid",
+                    "mz": "241.2193",
+                    "RT": "613.4",
+                    "formula": "C15H30O2",
+                    "KEGG": "C16537",
+                    "ppm": "8.191716003"
+                },
+                {
+                    "Metabolite": "Alpha-Linolenic acid",
+                    "mz": "277.217",
+                    "RT": "583.8",
+                    "formula": "C18H30O2",
+                    "KEGG": "C06427",
+                    "ppm": "1.097335301"
+                },
+                {
+                    "Metabolite": "Tetracosanoic acid",
+                    "mz": "367.3571",
+                    "RT": "572.6",
+                    "formula": "C24H48O2",
+                    "KEGG": "C08320",
+                    "ppm": "2.787478451"
+                },
+                {
+                    "Metabolite": "12,13-DHOME",
+                    "mz": "295.2243",
+                    "RT": "422.3",
+                    "formula": "C18H34O4",
+                    "KEGG": "C14829",
+                    "ppm": "10.19563769"
+                },
+                {
+                    "Metabolite": "Coumafuryl",
+                    "mz": "297.0835",
+                    "RT": "447",
+                    "formula": "C17H14O5",
+                    "KEGG": "C18599",
+                    "ppm": "22.47179665"
+                }
+            ]
+        }
+    }
+}
