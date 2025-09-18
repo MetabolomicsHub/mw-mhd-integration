@@ -14,11 +14,6 @@ logger = logging.getLogger(__name__)
 
 @click.command(name="convert", no_args_is_help=True)
 @click.option(
-    "--study-id",
-    show_default=True,
-    help="Metabolomics Workbench study id (e.g. ST000001)",
-)
-@click.option(
     "--output-dir",
     default="outputs",
     show_default=True,
@@ -41,6 +36,9 @@ logger = logging.getLogger(__name__)
     default=MHD_MODEL_V0_1_LEGACY_PROFILE_NAME,
     show_default=True,
     help="Target MHD model profile. It is used to validate MHD model",
+)
+@click.argument(
+    "study_id",
 )
 def create_mhd_file(
     study_id: str,
@@ -66,10 +64,10 @@ def create_mhd_file(
             mhd_output_folder_path=mhd_output_root_path,
             mhd_output_filename=output_filename,
         )
-        logger.info("%s successful.", study_id)
+        click.echo(f"{study_id} is converted successfully.")
     except Exception as ex:
-        click.echo("%s failed. %s", study_id, ex)
+        click.echo(f"{study_id} conversion failed. {str(ex)}")
 
 
 if __name__ == "__main__":
-    create_mhd_file(["--study-id", "ST000001"])
+    create_mhd_file(["ST000001"])

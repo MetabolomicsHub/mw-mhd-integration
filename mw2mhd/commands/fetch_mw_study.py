@@ -9,11 +9,6 @@ logger = logging.getLogger(__name__)
 
 @click.command(name="fetch", no_args_is_help=True)
 @click.option(
-    "--study-id",
-    show_default=True,
-    help="Metabolomics Workbench study id (e.g. ST000001)",
-)
-@click.option(
     "--output-dir",
     default="outputs",
     show_default=True,
@@ -25,6 +20,10 @@ logger = logging.getLogger(__name__)
     show_default=True,
     help="MHD filename (e.g., MHD000001_mhd.json, ST000001_mhd.json)",
 )
+@click.argument(
+    "study_id",
+    help="Metabolomics Workbench study id (e.g. ST000001)",
+)
 def fetch_mw_study(
     study_id: str,
     output_dir: str,
@@ -35,10 +34,10 @@ def fetch_mw_study(
         study_id, output_folder_path=output_dir, output_filename=output_filename
     )
     if not data:
-        click.echo("%s failed.", study_id)
+        click.echo(f"{study_id} failed.")
         exit(1)
-    click.echo("%s is fetched", study_id)
+    click.echo(f"{study_id} is fetched")
 
 
 if __name__ == "__main__":
-    fetch_mw_study(["--study-id", "ST000001"])
+    fetch_mw_study(["ST000001"])
