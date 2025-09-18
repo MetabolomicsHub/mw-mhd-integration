@@ -12,7 +12,7 @@ from mw2mhd.convertor_factory import Mw2MhdConvertorFactory
 logger = logging.getLogger(__name__)
 
 
-@click.command(name="convert")
+@click.command(name="convert", no_args_is_help=True)
 @click.option(
     "--study-id",
     show_default=True,

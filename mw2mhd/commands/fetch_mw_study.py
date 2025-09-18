@@ -7,7 +7,7 @@ from mw2mhd.v0_1.legacy.mw_utils import fetch_mw_data
 logger = logging.getLogger(__name__)
 
 
-@click.command(name="fetch")
+@click.command(name="fetch", no_args_is_help=True)
 @click.option(
     "--study-id",
     show_default=True,
