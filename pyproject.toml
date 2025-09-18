@@ -29,7 +29,7 @@ test = [
 ]
 
 [project.scripts]
-mw-mhd-cli = "mw2mhd.commands:cli"
+mw-mhd-cli = "mw2mhd.commands.cli:cli"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
