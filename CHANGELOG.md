@@ -1,3 +1,10 @@
+## v0.0.12 (2025-09-24)
+
+### Fix
+
+- command line tool update
+- command line tool update
+
 ## v0.0.11 (2025-09-24)
 
 ### Fix
