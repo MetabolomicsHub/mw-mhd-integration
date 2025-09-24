@@ -78,7 +78,3 @@ def create_mhd_file_task(
         click.echo(f"{mw_study_id} is converted successfully.")
     except Exception as ex:
         click.echo(f"{mw_study_id} conversion failed. {str(ex)}")
-
-
-if __name__ == "__main__":
-    create_mhd_file(["ST000001"])
