@@ -54,7 +54,10 @@ include = ["mw2mhd"]
 exclude = ["outputs*", "tests*", "scripts"]
 
 [tool.setuptools.package-data]
-mw2mhd = ["**/*.json"]
+mw2mhd = ["**/*.json", "**/*.py", ]
+
+[tool.setuptools]
+include-package-data = true
 
 [tool.ruff.lint]
 extend-select = ["E4", "E7", "E9", "F", "I", "G", "SLF", "PTH", "Q", "T"]

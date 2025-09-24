@@ -125,5 +125,82 @@ mw-mhd-cli validate
 ####################################################################
 
 mw-mhd-cli validate mhd ST004083 outputs/ST004083.mhd.json
+####################################################################
+# ST004083: outputs/ST004083.mhd.json MHD file validation started.
+# Used schema: https://metabolomicshub.github.io/mhd-model/schemas/v0_1/common-data-model-v0.1.schema.json
+# Validation profile: https://metabolomicshub.github.io/mhd-model/schemas/v0_1/common-data-model-v0.1.legacy-profile.json
+# ST004083: File 'outputs/ST004083.mhd.json' is validated successfully.
+####################################################################
+mw-mhd-cli announcement
+
+####################################################################
+# Usage: mw-mhd-cli announcement [OPTIONS] MHD_STUDY_ID MHD_MODEL_FILE_PATH
+#                                TARGET_MHD_MODEL_FILE_URL
+
+#   Create announcement file from MHD data model file.
+
+#   Args:
+
+#   mhd_study_id (str): MHD study identifier
+
+#   mhd_model_file_path (str): MHD data model path
+
+#   target_mhd_model_file_url (str): target URL of MHD data model
+
+#   output_dir (str): Output directory of announcement file
+
+#   output_filename (str): Name of MHD announcement file. Default is <repository
+#   identifier>.announcement.json
+
+# Options:
+#   --output-dir TEXT       Output directory for MHD file  [default: outputs]
+#   --output-filename TEXT  MHD announcement filename (e.g.,
+#                           MHD000001.announcement.json,
+#                           ST000001.announcement.json)
+#   -h, --help              Show this message and exit.
+####################################################################
+
+
+# MHD identifier will be reserved for each private study 
+# The following command assumes that MHD999999 is reserved for ST004083
+mw-mhd-cli announcement MHD999999  outputs/ST004083.mhd.json --target_mhd_model_file_url=https://www.metabolomicsworkbench.org/data/study_textformat_list.php?MHD_ID=MHD999999
+
+####################################################################
+# MHD999999 announcement file conversion completed.
+# MHD identifier will be reserved for each private study 
+####################################################################
+
+ls outputs 
+####################################################################
+# MHD999999.announcement.json  ST004083.json  ST004083.mhd.json
+####################################################################
+
+mw-mhd-cli validate announcement
+
+####################################################################
+# Usage: mw-mhd-cli validate announcement [OPTIONS] MHD_STUDY_ID
+#                                         ANNOUNCEMENT_FILE_PATH
+
+#   Validate MHD announcement file.
+
+#   Args:
+
+#   mhd_study_id (str): MHD study id
+
+#   announcement_file_path (str): MHD announcement file path
+
+#   output_path (None | str): If it is defined, validation results are saved in
+#   output file path.
+
+# Options:
+#   --output-path TEXT  Validation output file path
+#   -h, --help          Show this message and exit.
+####################################################################
+
+mw-mhd-cli validate announcement MHD999999 outputs/MHD999999.announcement.json
+
+####################################################################
+# MHD999999: File 'outputs/MHD999999.announcement.json' is validated successfully.
+####################################################################
 
 ```
