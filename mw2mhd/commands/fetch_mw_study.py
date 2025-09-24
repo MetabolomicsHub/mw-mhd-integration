@@ -20,10 +20,7 @@ logger = logging.getLogger(__name__)
     show_default=True,
     help="MHD filename (e.g., MHD000001_mhd.json, ST000001_mhd.json)",
 )
-@click.argument(
-    "study_id",
-    help="Metabolomics Workbench study id (e.g. ST000001)",
-)
+@click.argument("study_id")
 def fetch_mw_study(
     study_id: str,
     output_dir: str,

@@ -12,7 +12,7 @@ from mw2mhd.convertor_factory import Mw2MhdConvertorFactory
 logger = logging.getLogger(__name__)
 
 
-@click.command(name="convert", no_args_is_help=True)
+@click.command(name="mhd", no_args_is_help=True)
 @click.option(
     "--output-dir",
     default="outputs",
@@ -37,9 +37,7 @@ logger = logging.getLogger(__name__)
     show_default=True,
     help="Target MHD model profile. It is used to validate MHD model",
 )
-@click.argument(
-    "study_id",
-)
+@click.argument("study_id")
 def create_mhd_file(
     study_id: str,
     output_dir: str,
@@ -47,7 +45,7 @@ def create_mhd_file(
     schema_uri: str,
     profile_uri: str,
 ):
-    """Convert a Metabolomics Workbench study to MHD format."""
+    """Convert a Metabolomics Workbench study to MHD file format."""
 
     factory = Mw2MhdConvertorFactory()
     convertor = factory.get_convertor(
