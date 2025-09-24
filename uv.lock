@@ -863,7 +863,7 @@ wheels = [
 
 [[package]]
 name = "mw-mhd-integration"
-version = "0.0.8"
+version = "0.0.9"
 source = { virtual = "." }
 dependencies = [
     { name = "asyncpg" },

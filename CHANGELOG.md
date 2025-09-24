@@ -1,3 +1,9 @@
+## v0.0.9 (2025-09-24)
+
+### Fix
+
+- command line tool errors and missing documentation
+
 ## v0.0.8 (2025-09-24)
 
 ### Fix
