@@ -83,9 +83,9 @@ mw-mhd-cli fetch ST004083
 ls outputs
 # ST004083.json
 
-mw-mhd-cli mhd
+mw-mhd-cli create mhd
 ####################################################################
-# Usage: mw-mhd-cli mhd [OPTIONS] MW_STUDY_ID MHD_IDENTIFIER
+# Usage: mw-mhd-cli create mhd [OPTIONS] MW_STUDY_ID MHD_IDENTIFIER
 
 #   Convert a Metabolomics Workbench study to MHD file format.
 
@@ -113,7 +113,7 @@ mw-mhd-cli mhd
 #   -h, --help              Show this message and exit.
 ####################################################################
 
-mw-mhd-cli mhd ST004083 ST004083
+mw-mhd-cli create mhd ST004083 ST004083
 ls outputs
 # ST004083.json  ST004083.mhd.json
 
@@ -138,10 +138,10 @@ mw-mhd-cli validate mhd ST004083 outputs/ST004083.mhd.json
 # Validation profile: https://metabolomicshub.github.io/mhd-model/schemas/v0_1/common-data-model-v0.1.legacy-profile.json
 # ST004083: File 'outputs/ST004083.mhd.json' is validated successfully.
 ####################################################################
-mw-mhd-cli announcement
+mw-mhd-cli create announcement
 
 ####################################################################
-# Usage: mw-mhd-cli announcement [OPTIONS] MHD_STUDY_ID MHD_MODEL_FILE_PATH
+# Usage: mw-mhd-cli create announcement [OPTIONS] MHD_STUDY_ID MHD_MODEL_FILE_PATH
 #                                TARGET_MHD_MODEL_FILE_URL
 
 #   Create announcement file from MHD data model file.
@@ -170,7 +170,7 @@ mw-mhd-cli announcement
 
 # MHD identifier will be reserved for each private study 
 # The following command assumes that MHD999999 is reserved for ST004083
-mw-mhd-cli announcement MHD999999  outputs/ST004083.mhd.json --target_mhd_model_file_url=https://www.metabolomicsworkbench.org/data/study_textformat_list.php?MHD_ID=MHD999999
+mw-mhd-cli create announcement MHD999999  outputs/ST004083.mhd.json --target_mhd_model_file_url=https://www.metabolomicsworkbench.org/data/study_textformat_list.php?MHD_ID=MHD999999
 
 ####################################################################
 # MHD999999 announcement file conversion completed.

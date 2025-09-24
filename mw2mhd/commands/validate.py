@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 @click.group(name="validate", no_args_is_help=True)
 def validation_cli():
-    """Validate MHD model and annoucenment file."""
+    """Validate MHD model or annoucenment file."""
     pass
 
 

@@ -39,7 +39,7 @@ logger = logging.getLogger(__name__)
 )
 @click.argument("mw_study_id")
 @click.argument("mhd_identifier")
-def create_mhd_file(
+def create_mhd_file_task(
     mw_study_id: str,
     mhd_identifier: str,
     output_dir: str,
