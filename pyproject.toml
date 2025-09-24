@@ -1,6 +1,6 @@
 [project]
 name = "mw-mhd-integration"
-version = "0.0.9"
+version = "0.0.10"
 description = "Metabolomics Workbench - Metabolomics Hub Integration"
 authors = [{"name" = "Metabolomics Workbench Team", "email" = "help@metabolomicsworkbench.org"}]
 license = "Apache-2.0"
@@ -33,7 +33,7 @@ mw-mhd-cli = "mw2mhd.commands.cli:cli"
 [tool.commitizen]
 name = "cz_conventional_commits"
 version_provider = "uv"
-version = "0.0.9"
+version = "0.0.10"
 tag_format = "v$major.$minor.$patch"
 version_files = [
     "pyproject.toml:version",
