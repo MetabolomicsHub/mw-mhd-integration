@@ -37,16 +37,29 @@ logger = logging.getLogger(__name__)
     show_default=True,
     help="Target MHD model profile. It is used to validate MHD model",
 )
-@click.argument("study_id")
+@click.argument("mw_study_id")
+@click.argument("mhd_identifier")
 def create_mhd_file(
-    study_id: str,
+    mw_study_id: str,
+    mhd_identifier: str,
     output_dir: str,
     output_filename: str,
     schema_uri: str,
     profile_uri: str,
 ):
-    """Convert a Metabolomics Workbench study to MHD file format."""
+    """Convert a Metabolomics Workbench study to MHD file format.
 
+    Args:
+
+        mw_study_id (str): MW study accession id. e.g, ST0000001.
+
+        mhd_identifier (str): MHD accession number. 
+        Use same value of mw_study_id if study profile is legacy. e.g., ST0000001.
+
+    """
+
+    if mhd_identifier == mw_study_id:
+        mhd_identifier = None
     factory = Mw2MhdConvertorFactory()
     convertor = factory.get_convertor(
         target_mhd_model_schema_uri=schema_uri,
@@ -57,14 +70,14 @@ def create_mhd_file(
     try:
         convertor.convert(
             repository_name="Metabolomics Workbench",
-            repository_identifier=study_id,
-            mhd_identifier=None,
+            repository_identifier=mw_study_id,
+            mhd_identifier=mhd_identifier,
             mhd_output_folder_path=mhd_output_root_path,
             mhd_output_filename=output_filename,
         )
-        click.echo(f"{study_id} is converted successfully.")
+        click.echo(f"{mw_study_id} is converted successfully.")
     except Exception as ex:
-        click.echo(f"{study_id} conversion failed. {str(ex)}")
+        click.echo(f"{mw_study_id} conversion failed. {str(ex)}")
 
 
 if __name__ == "__main__":

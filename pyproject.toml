@@ -54,7 +54,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["mhd_model*"]
+include = ["mw2mhd*"]
 exclude = ["tests*", "docs*"]
 
 [tool.setuptools.package-data]

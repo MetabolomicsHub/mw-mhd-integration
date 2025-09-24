@@ -85,9 +85,16 @@ ls outputs
 
 mw-mhd-cli mhd
 ####################################################################
-# Usage: mw-mhd-cli mhd [OPTIONS] STUDY_ID
+# Usage: mw-mhd-cli mhd [OPTIONS] MW_STUDY_ID MHD_IDENTIFIER
 
 #   Convert a Metabolomics Workbench study to MHD file format.
+
+#   Args:
+
+#       mw_study_id (str): MW study accession id. e.g, ST0000001.
+
+#       mhd_identifier (str): MHD accession number.      Use same value of
+#       mw_study_id if study profile is legacy. e.g., ST0000001.
 
 # Options:
 #   --output-dir TEXT       Output directory for MHD file  [default: outputs]
@@ -106,7 +113,7 @@ mw-mhd-cli mhd
 #   -h, --help              Show this message and exit.
 ####################################################################
 
-mw-mhd-cli mhd ST004083
+mw-mhd-cli mhd ST004083 ST004083
 ls outputs
 # ST004083.json  ST004083.mhd.json
 
