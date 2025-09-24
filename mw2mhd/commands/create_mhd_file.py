@@ -53,7 +53,7 @@ def create_mhd_file(
 
         mw_study_id (str): MW study accession id. e.g, ST0000001.
 
-        mhd_identifier (str): MHD accession number. 
+        mhd_identifier (str): MHD accession number.
         Use same value of mw_study_id if study profile is legacy. e.g., ST0000001.
 
     """
