@@ -1,3 +1,9 @@
+## v0.0.8 (2025-09-24)
+
+### Fix
+
+- model changes and cicd pipelene updates
+
 ## v0.0.7 (2025-09-18)
 
 ### Fix
