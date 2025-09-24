@@ -7,8 +7,7 @@ license = "Apache-2.0"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "asyncpg>=0.30.0",
-    "mhd-model>=0.1.19",
+    "mhd-model>=0.1.30",
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.1",
     "xmltodict>=0.15.1",
@@ -49,15 +48,17 @@ testpaths = [
     "tests"
 ]
 
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [tool.setuptools.packages.find]
-include = ["mw2mhd"]
-exclude = ["outputs*", "tests*", "scripts"]
+where = ["."]
+include = ["mhd_model*"]
+exclude = ["tests*", "docs*"]
 
 [tool.setuptools.package-data]
-mw2mhd = ["**/*.json", "**/*.py", ]
-
-[tool.setuptools]
-include-package-data = true
+"mhd_model" = ["**/*.json"]
 
 [tool.ruff.lint]
 extend-select = ["E4", "E7", "E9", "F", "I", "G", "SLF", "PTH", "Q", "T"]
