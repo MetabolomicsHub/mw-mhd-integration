@@ -58,17 +58,17 @@ mw-mhd-cli
 
 # Commands:
 #   announcement  Create announcement file from MHD data model file.
-#   fetch         Fetch a Metabolomics Workbench study as json file.
+#   download      Download a Metabolomics Workbench study as json file.
 #   mhd           Convert a Metabolomics Workbench study to MHD file format.
 #   validate      Validate MHD model and annoucenment file.
 ####################################################################
 
-mw-mhd-cli fetch 
+mw-mhd-cli download
 
 ####################################################################
-# Usage: mw-mhd-cli fetch [OPTIONS] STUDY_ID
+# Usage: mw-mhd-cli download [OPTIONS] STUDY_ID
 
-#   Fetch a Metabolomics Workbench study as json file.
+#   Download a Metabolomics Workbench study as json file.
 
 # Options:
 #   --output-dir TEXT       Output directory for MHD file  [default: outputs]
@@ -77,8 +77,8 @@ mw-mhd-cli fetch
 #   -h, --help              Show this message and exit.
 ####################################################################
 
-mw-mhd-cli fetch ST004083
-# ST004083 is fetched
+mw-mhd-cli download ST004083
+# ST004083 is downloaded
 
 ls outputs
 # ST004083.json
@@ -168,16 +168,16 @@ mw-mhd-cli create announcement
 ####################################################################
 
 
-# MHD identifier will be reserved for each private study 
+# MHD identifier will be reserved for each private study
 # The following command assumes that MHD999999 is reserved for ST004083
 mw-mhd-cli create announcement MHD999999  outputs/ST004083.mhd.json --target_mhd_model_file_url=https://www.metabolomicsworkbench.org/data/study_textformat_list.php?MHD_ID=MHD999999
 
 ####################################################################
 # MHD999999 announcement file conversion completed.
-# MHD identifier will be reserved for each private study 
+# MHD identifier will be reserved for each private study
 ####################################################################
 
-ls outputs 
+ls outputs
 ####################################################################
 # MHD999999.announcement.json  ST004083.json  ST004083.mhd.json
 ####################################################################

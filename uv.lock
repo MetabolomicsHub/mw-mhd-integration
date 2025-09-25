@@ -716,7 +716,7 @@ wheels = [
 
 [[package]]
 name = "mhd-model"
-version = "0.1.30"
+version = "0.1.31"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "bioregistry" },
@@ -733,9 +733,9 @@ dependencies = [
     { name = "pyyaml" },
     { name = "reachable" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ec/21/4b99b879bb71481af3a29a6042d5d55e63a16216389d1f29edefa6840742/mhd_model-0.1.30.tar.gz", hash = "sha256:fd2a77e1b92e9474b43b6106d07190cefe34cd8e1d52d77fa0f655a98cf7e757", size = 106254, upload-time = "2025-09-24T12:48:43.924Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/6c/37/14b19b6e3a8be0a668b92544cbe199e62582cc01d4c9816bd10bd5263e66/mhd_model-0.1.31.tar.gz", hash = "sha256:318c1d0fd7fbd132faf04659ee60be9a4162685f92b9c52b22a229e5a72e0a9a", size = 106294, upload-time = "2025-09-24T14:31:32.885Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/16/06/6267fe2c6fe6de9dd9e1f53d445b5914ccd88c0d1d6f49e5c3b03fcd698c/mhd_model-0.1.30-py3-none-any.whl", hash = "sha256:da67a3c694afa201487fbae261bd7c993e0ceb733d44fb4e85243b9c0e719586", size = 138953, upload-time = "2025-09-24T12:48:42.611Z" },
+    { url = "https://files.pythonhosted.org/packages/a0/c2/61aea66ce24f31e6772a8d4629a3fd6ed526a7615b014a91b63381a042f7/mhd_model-0.1.31-py3-none-any.whl", hash = "sha256:537a681ed12f33c86efb10dab6d9d67f678c18f59a6260a4b5aaaf1fcb4ed0d7", size = 138990, upload-time = "2025-09-24T14:31:31.599Z" },
 ]
 
 [[package]]
@@ -1037,16 +1037,16 @@ wheels = [
 
 [[package]]
 name = "pydantic-settings"
-version = "2.10.1"
+version = "2.11.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
     { name = "python-dotenv" },
     { name = "typing-inspection" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/68/85/1ea668bbab3c50071ca613c6ab30047fb36ab0da1b92fa8f17bbc38fd36c/pydantic_settings-2.10.1.tar.gz", hash = "sha256:06f0062169818d0f5524420a360d632d5857b83cffd4d42fe29597807a1614ee", size = 172583, upload-time = "2025-06-24T13:26:46.841Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/20/c5/dbbc27b814c71676593d1c3f718e6cd7d4f00652cefa24b75f7aa3efb25e/pydantic_settings-2.11.0.tar.gz", hash = "sha256:d0e87a1c7d33593beb7194adb8470fc426e95ba02af83a0f23474a04c9a08180", size = 188394, upload-time = "2025-09-24T14:19:11.764Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/58/f0/427018098906416f580e3cf1366d3b1abfb408a0652e9f31600c24a1903c/pydantic_settings-2.10.1-py3-none-any.whl", hash = "sha256:a60952460b99cf661dc25c29c0ef171721f98bfcb52ef8d9ea4c943d7c8cc796", size = 45235, upload-time = "2025-06-24T13:26:45.485Z" },
+    { url = "https://files.pythonhosted.org/packages/83/d6/887a1ff844e64aa823fb4905978d882a633cfe295c32eacad582b78a7d8b/pydantic_settings-2.11.0-py3-none-any.whl", hash = "sha256:fe2cea3413b9530d10f3a5875adffb17ada5c1e1bab0b2885546d7310415207c", size = 48608, upload-time = "2025-09-24T14:19:10.015Z" },
 ]
 
 [[package]]

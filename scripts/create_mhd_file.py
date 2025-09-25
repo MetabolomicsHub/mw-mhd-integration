@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
     setup_basic_logging_config(logging.WARNING)
-    # FETCH all public studies
+    # Download all public studies
     # study_ids = fetch_all_available_mw_studies()
     # study_ids = [x for x in study_ids if int(x.replace("ST", "")) <= 167]
 
