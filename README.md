@@ -170,7 +170,7 @@ mw-mhd-cli create announcement
 
 # MHD identifier will be reserved for each private study
 # The following command assumes that MHD999999 is reserved for ST004083
-mw-mhd-cli create announcement MHD999999  outputs/ST004083.mhd.json --target_mhd_model_file_url=https://www.metabolomicsworkbench.org/data/study_textformat_list.php?MHD_ID=MHD999999
+mw-mhd-cli create announcement MHD999999  outputs/ST004083.mhd.json "https://www.metabolomicsworkbench.org/data/study_textformat_list.php?MHD_ID=MHD999999"
 
 ####################################################################
 # MHD999999 announcement file conversion completed.
