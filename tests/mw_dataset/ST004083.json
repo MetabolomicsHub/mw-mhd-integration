@@ -1,0 +1,1154 @@
+{
+    "AN006761": {
+        "METABOLOMICS WORKBENCH": {
+            "STUDY_ID": "ST004083",
+            "ANALYSIS_ID": "AN006761",
+            "PROJECT_ID": "PR002564",
+            "VERSION": "1",
+            "CREATED_ON": "April 4, 2025, 5:02 pm"
+        },
+        "PROJECT": {
+            "PROJECT_TITLE": "Dietary methionine restriction in high-fat diet-fed male mice",
+            "PROJECT_SUMMARY": "25-week-old male mice (n=31) with diet-induced obesity were divided into four groups. The first group (n=8) was fed a high-fat diet (HFD, 60% kcal fat) for 15 weeks. The second, third, and fourth groups were fed a modified high-fat diet (HFD-MetR, 60% fat/0.12% methionine) for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7), respectively. The HFD group (60% fat/0.86% methionine) served as the control. Mice were fasted for 4 hours prior to sample collection. The goal of this study was to investigate the effect of methionine restriction on plasma, brown adipose, and liver metabolomes.",
+            "INSTITUTE": "Panome Bio",
+            "LAST_NAME": "Guzior",
+            "FIRST_NAME": "Douglas",
+            "ADDRESS": "4340 Duncan Ave, St. Louis, MO 63110",
+            "EMAIL": "douglas.guzior@panomebio.com",
+            "PHONE": "(314) 632-6588"
+        },
+        "STUDY": {
+            "STUDY_TITLE": "Dietary methionine restriction in high-fat diet-fed male mice, brown adipose tissue metabolomics",
+            "STUDY_SUMMARY": "25-week-old male mice (n=31) with diet-induced obesity were divided into four groups. The first group (n=8) was fed a high-fat diet (HFD, 60% kcal fat) for 15 weeks. The second, third, and fourth groups were fed a modified high-fat diet (HFD-MetR, 60% fat/0.12% methionine) for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7), respectively. The HFD group (60% fat/0.86% methionine) served as the control. Mice were fasted for 4 hours prior to sample collection. The goal of this study was to investigate the effect of methionine restriction on brown adipose tissues.",
+            "INSTITUTE": "Panome Bio",
+            "LAST_NAME": "Guzior",
+            "FIRST_NAME": "Douglas",
+            "ADDRESS": "4340 Duncan Ave, St. Louis, MO 63110",
+            "EMAIL": "douglas.guzior@panomebio.com",
+            "PHONE": "(314) 632-6588",
+            "NUM_GROUPS": "4",
+            "TOTAL_SUBJECTS": "31",
+            "NUM_MALES": "31",
+            "STUDY_COMMENTS": "Part 1 of 3"
+        },
+        "SUBJECT": {
+            "SUBJECT_TYPE": "Mammal",
+            "SUBJECT_SPECIES": "Mus musculus",
+            "TAXONOMY_ID": "10090",
+            "GENOTYPE_STRAIN": "C57BL/6J",
+            "AGE_OR_AGE_RANGE": "25 wk",
+            "WEIGHT_OR_WEIGHT_RANGE": "&gt;45g bodyweight at 25 w/o",
+            "GENDER": "Male",
+            "ANIMAL_LIGHT_CYCLE": "12-hour light/12-hour dark photoperiod (0700 \u2013 1900)",
+            "ANIMAL_FEED": "Research Diets D12492; Research Diets A14032002; Research Diets A14032001",
+            "ANIMAL_INCLUSION_CRITERIA": "&gt;45g bodyweight at 25 w/o"
+        },
+        "SUBJECT_SAMPLE_FACTORS": [
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-5",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-001_010.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-6",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-002_015.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-7",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-003_016.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-8",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-004_014.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-14",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-005_009.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-15",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-006_012.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-16",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-007_011.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-21",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-008_008.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-22",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-009_018.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-23",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-010_007.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-24",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-011_006.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-29",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-012_005.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-30",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-013_017.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-31",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-014_013.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "blank1",
+                "Factors": {
+                    "group": "blank",
+                    "Sample source": "blank"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-Blank_3_027.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc1",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_1_003.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc2",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_2_004.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc3",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_3_021.mzML"
+                }
+            }
+        ],
+        "COLLECTION": {
+            "COLLECTION_SUMMARY": "Brown adipose tissue samples were collected upon completion of the time course after fasting the mice for 4 h. A pooled QC sample was used for MS/MS collection.",
+            "SAMPLE_TYPE": "Brown adipose",
+            "STORAGE_CONDITIONS": "-80\u2103"
+        },
+        "TREATMENT": {
+            "TREATMENT_SUMMARY": "Mice were weight-matched and divided into two groups fed either High fat diet, HFD-control (60% fat/0.86% methionine; Research Diets A14032002) or HFD-MetR (60% fat/0.12% methionine; Research Diets A14032001). The HFD-MetR group was split into 3 groups, where the HFD-MetR was administered for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7). HFD-MetR groups were compared to each other and the control group (HFD, n=8).",
+            "TREATMENT": "Dietary intervention and duration of altered diet",
+            "TREATMENT_ROUTE": "Diet",
+            "TREATMENT_DOSE": "Research Diets A14032002; Research Diets A14032001",
+            "TREATMENT_DOSEVOLUME": "HFD-control (60% fat/0.86% methionine; Research Diets A14032002) or HFD-MetR (60% fat/0.12% methionine; Research Diets A14032001)",
+            "TREATMENT_DOSEDURATION": "3-10 days",
+            "TREATMENT_VEHICLE": "Food",
+            "ANIMAL_FASTING": "4h prior to sample collection",
+            "ANIMAL_ENDP_TISSUE_COLL_LIST": "Brown adipose tissue, liver, plasma"
+        },
+        "SAMPLEPREP": {
+            "SAMPLEPREP_SUMMARY": "Frozen tissue samples were homogenized with 80 \u03bcL 2:2:1 methanol:acetonitrile:water per mg tissue, centrifuged, and the supernatant was collected after a cold incubation and wash steps, then stored at -80\u00b0C. Plasma samples underwent solid-phase extraction (SPE) with sequential additions of acetonitrile:methanol and methanol:acetonitrile:water to separate polar and non-polar metabolites; polar metabolites were eluted and stored at -80\u00b0C, while non-polar metabolites were eluted using methyl tert-butyl ether:methanol, dried under nitrogen, reconstituted in isopropanol:methanol, and stored at -80\u00b0C.",
+            "PROCESSING_STORAGE_CONDITIONS": "-80\u2103",
+            "EXTRACT_STORAGE": "-80\u2103",
+            "SAMPLE_RESUSPENSION": "2:2:1 methanol:acetonitrile:water (polar), isopropanol:methanol (lipid)"
+        },
+        "CHROMATOGRAPHY": {
+            "CHROMATOGRAPHY_TYPE": "HILIC",
+            "INSTRUMENT_NAME": "Agilent 1290 Infinity II",
+            "COLUMN_NAME": "HILICON iHILIC (P)-Classic (100 x 2.1mm, 5um)",
+            "SOLVENT_A": "95% water/5% acetonitrile; 20mM ammonium bicarbonate; 0.1% ammonium hydroxide; 2.5 \u00b5M medronic acid",
+            "SOLVENT_B": "95% water/5% acetonitrile",
+            "FLOW_GRADIENT": "0-1 min: 90% B, 1-12 min: 90-35% B, 12-12.5 min: 35-20% B, 12.5 min-14.5 min: 20% B",
+            "FLOW_RATE": "250 uL/min",
+            "COLUMN_TEMPERATURE": "45"
+        },
+        "ANALYSIS": {
+            "ANALYSIS_TYPE": "MS"
+        },
+        "MS": {
+            "INSTRUMENT_NAME": "Agilent 6546 QTOF",
+            "INSTRUMENT_TYPE": "QTOF",
+            "MS_TYPE": "ESI",
+            "ION_MODE": "POSITIVE",
+            "MS_COMMENTS": "MS/MS data were acquired in a data-dependent iterative fashion with a 1.3 m/z isolation window. Features were detected in LC/MS data through in-house peak detection and curation software.",
+            "MS_RESULTS_FILE": "ST004083_AN006761_Results.txt UNITS:log2-transformed normalized relative abundance Has m/z:Yes Has RT:Yes RT units:Minutes"
+        }
+    },
+    "AN006762": {
+        "METABOLOMICS WORKBENCH": {
+            "STUDY_ID": "ST004083",
+            "ANALYSIS_ID": "AN006762",
+            "PROJECT_ID": "PR002564",
+            "VERSION": "1",
+            "CREATED_ON": "April 4, 2025, 5:02 pm"
+        },
+        "PROJECT": {
+            "PROJECT_TITLE": "Dietary methionine restriction in high-fat diet-fed male mice",
+            "PROJECT_SUMMARY": "25-week-old male mice (n=31) with diet-induced obesity were divided into four groups. The first group (n=8) was fed a high-fat diet (HFD, 60% kcal fat) for 15 weeks. The second, third, and fourth groups were fed a modified high-fat diet (HFD-MetR, 60% fat/0.12% methionine) for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7), respectively. The HFD group (60% fat/0.86% methionine) served as the control. Mice were fasted for 4 hours prior to sample collection. The goal of this study was to investigate the effect of methionine restriction on plasma, brown adipose, and liver metabolomes.",
+            "INSTITUTE": "Panome Bio",
+            "LAST_NAME": "Guzior",
+            "FIRST_NAME": "Douglas",
+            "ADDRESS": "4340 Duncan Ave, St. Louis, MO 63110",
+            "EMAIL": "douglas.guzior@panomebio.com",
+            "PHONE": "(314) 632-6588"
+        },
+        "STUDY": {
+            "STUDY_TITLE": "Dietary methionine restriction in high-fat diet-fed male mice, brown adipose tissue metabolomics",
+            "STUDY_SUMMARY": "25-week-old male mice (n=31) with diet-induced obesity were divided into four groups. The first group (n=8) was fed a high-fat diet (HFD, 60% kcal fat) for 15 weeks. The second, third, and fourth groups were fed a modified high-fat diet (HFD-MetR, 60% fat/0.12% methionine) for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7), respectively. The HFD group (60% fat/0.86% methionine) served as the control. Mice were fasted for 4 hours prior to sample collection. The goal of this study was to investigate the effect of methionine restriction on brown adipose tissues.",
+            "INSTITUTE": "Panome Bio",
+            "LAST_NAME": "Guzior",
+            "FIRST_NAME": "Douglas",
+            "ADDRESS": "4340 Duncan Ave, St. Louis, MO 63110",
+            "EMAIL": "douglas.guzior@panomebio.com",
+            "PHONE": "(314) 632-6588",
+            "NUM_GROUPS": "4",
+            "TOTAL_SUBJECTS": "31",
+            "NUM_MALES": "31",
+            "STUDY_COMMENTS": "Part 1 of 3"
+        },
+        "SUBJECT": {
+            "SUBJECT_TYPE": "Mammal",
+            "SUBJECT_SPECIES": "Mus musculus",
+            "TAXONOMY_ID": "10090",
+            "GENOTYPE_STRAIN": "C57BL/6J",
+            "AGE_OR_AGE_RANGE": "25 wk",
+            "WEIGHT_OR_WEIGHT_RANGE": "&gt;45g bodyweight at 25 w/o",
+            "GENDER": "Male",
+            "ANIMAL_LIGHT_CYCLE": "12-hour light/12-hour dark photoperiod (0700 \u2013 1900)",
+            "ANIMAL_FEED": "Research Diets D12492; Research Diets A14032002; Research Diets A14032001",
+            "ANIMAL_INCLUSION_CRITERIA": "&gt;45g bodyweight at 25 w/o"
+        },
+        "SUBJECT_SAMPLE_FACTORS": [
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-5",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-001_010.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-6",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-002_015.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-7",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-003_016.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-8",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-004_014.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-14",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-005_009.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-15",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-006_012.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-16",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-007_011.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-21",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-008_008.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-22",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-009_018.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-23",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-010_007.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-24",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-011_006.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-29",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-012_005.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-30",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-013_017.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-31",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-014_013.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "blank1",
+                "Factors": {
+                    "group": "blank",
+                    "Sample source": "blank"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-Blank_3_027.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc1",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_1_003.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc2",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_2_004.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc3",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_3_021.mzML"
+                }
+            }
+        ],
+        "COLLECTION": {
+            "COLLECTION_SUMMARY": "Brown adipose tissue samples were collected upon completion of the time course after fasting the mice for 4 h. A pooled QC sample was used for MS/MS collection.",
+            "SAMPLE_TYPE": "Brown adipose",
+            "STORAGE_CONDITIONS": "-80\u2103"
+        },
+        "TREATMENT": {
+            "TREATMENT_SUMMARY": "Mice were weight-matched and divided into two groups fed either High fat diet, HFD-control (60% fat/0.86% methionine; Research Diets A14032002) or HFD-MetR (60% fat/0.12% methionine; Research Diets A14032001). The HFD-MetR group was split into 3 groups, where the HFD-MetR was administered for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7). HFD-MetR groups were compared to each other and the control group (HFD, n=8).",
+            "TREATMENT": "Dietary intervention and duration of altered diet",
+            "TREATMENT_ROUTE": "Diet",
+            "TREATMENT_DOSE": "Research Diets A14032002; Research Diets A14032001",
+            "TREATMENT_DOSEVOLUME": "HFD-control (60% fat/0.86% methionine; Research Diets A14032002) or HFD-MetR (60% fat/0.12% methionine; Research Diets A14032001)",
+            "TREATMENT_DOSEDURATION": "3-10 days",
+            "TREATMENT_VEHICLE": "Food",
+            "ANIMAL_FASTING": "4h prior to sample collection",
+            "ANIMAL_ENDP_TISSUE_COLL_LIST": "Brown adipose tissue, liver, plasma"
+        },
+        "SAMPLEPREP": {
+            "SAMPLEPREP_SUMMARY": "Frozen tissue samples were homogenized with 80 \u03bcL 2:2:1 methanol:acetonitrile:water per mg tissue, centrifuged, and the supernatant was collected after a cold incubation and wash steps, then stored at -80\u00b0C. Plasma samples underwent solid-phase extraction (SPE) with sequential additions of acetonitrile:methanol and methanol:acetonitrile:water to separate polar and non-polar metabolites; polar metabolites were eluted and stored at -80\u00b0C, while non-polar metabolites were eluted using methyl tert-butyl ether:methanol, dried under nitrogen, reconstituted in isopropanol:methanol, and stored at -80\u00b0C.",
+            "PROCESSING_STORAGE_CONDITIONS": "-80\u2103",
+            "EXTRACT_STORAGE": "-80\u2103",
+            "SAMPLE_RESUSPENSION": "2:2:1 methanol:acetonitrile:water (polar), isopropanol:methanol (lipid)"
+        },
+        "CHROMATOGRAPHY": {
+            "CHROMATOGRAPHY_TYPE": "HILIC",
+            "INSTRUMENT_NAME": "Agilent 1290 Infinity II",
+            "COLUMN_NAME": "HILICON iHILIC (P)-Classic (100 x 2.1mm, 5um)",
+            "SOLVENT_A": "95% water/5% acetonitrile; 20mM ammonium bicarbonate; 0.1% ammonium hydroxide; 2.5 \u00b5M medronic acid",
+            "SOLVENT_B": "95% water/5% acetonitrile",
+            "FLOW_GRADIENT": "0-1 min: 90% B, 1-12 min: 90-35% B, 12-12.5 min: 35-20% B, 12.5 min-14.5 min: 20% B",
+            "FLOW_RATE": "250 uL/min",
+            "COLUMN_TEMPERATURE": "45"
+        },
+        "ANALYSIS": {
+            "ANALYSIS_TYPE": "MS"
+        },
+        "MS": {
+            "INSTRUMENT_NAME": "Agilent 6546 QTOF",
+            "INSTRUMENT_TYPE": "QTOF",
+            "MS_TYPE": "ESI",
+            "ION_MODE": "NEGATIVE",
+            "MS_COMMENTS": "MS/MS data were acquired in a data-dependent iterative fashion with a 1.3 m/z isolation window. Features were detected in LC/MS data through in-house peak detection and curation software.",
+            "MS_RESULTS_FILE": "ST004083_AN006762_Results.txt UNITS:log2-transformed normalized relative abundance Has m/z:Yes Has RT:Yes RT units:Minutes"
+        }
+    },
+    "AN006763": {
+        "METABOLOMICS WORKBENCH": {
+            "STUDY_ID": "ST004083",
+            "ANALYSIS_ID": "AN006763",
+            "PROJECT_ID": "PR002564",
+            "VERSION": "1",
+            "CREATED_ON": "April 4, 2025, 5:02 pm"
+        },
+        "PROJECT": {
+            "PROJECT_TITLE": "Dietary methionine restriction in high-fat diet-fed male mice",
+            "PROJECT_SUMMARY": "25-week-old male mice (n=31) with diet-induced obesity were divided into four groups. The first group (n=8) was fed a high-fat diet (HFD, 60% kcal fat) for 15 weeks. The second, third, and fourth groups were fed a modified high-fat diet (HFD-MetR, 60% fat/0.12% methionine) for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7), respectively. The HFD group (60% fat/0.86% methionine) served as the control. Mice were fasted for 4 hours prior to sample collection. The goal of this study was to investigate the effect of methionine restriction on plasma, brown adipose, and liver metabolomes.",
+            "INSTITUTE": "Panome Bio",
+            "LAST_NAME": "Guzior",
+            "FIRST_NAME": "Douglas",
+            "ADDRESS": "4340 Duncan Ave, St. Louis, MO 63110",
+            "EMAIL": "douglas.guzior@panomebio.com",
+            "PHONE": "(314) 632-6588"
+        },
+        "STUDY": {
+            "STUDY_TITLE": "Dietary methionine restriction in high-fat diet-fed male mice, brown adipose tissue metabolomics",
+            "STUDY_SUMMARY": "25-week-old male mice (n=31) with diet-induced obesity were divided into four groups. The first group (n=8) was fed a high-fat diet (HFD, 60% kcal fat) for 15 weeks. The second, third, and fourth groups were fed a modified high-fat diet (HFD-MetR, 60% fat/0.12% methionine) for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7), respectively. The HFD group (60% fat/0.86% methionine) served as the control. Mice were fasted for 4 hours prior to sample collection. The goal of this study was to investigate the effect of methionine restriction on brown adipose tissues.",
+            "INSTITUTE": "Panome Bio",
+            "LAST_NAME": "Guzior",
+            "FIRST_NAME": "Douglas",
+            "ADDRESS": "4340 Duncan Ave, St. Louis, MO 63110",
+            "EMAIL": "douglas.guzior@panomebio.com",
+            "PHONE": "(314) 632-6588",
+            "NUM_GROUPS": "4",
+            "TOTAL_SUBJECTS": "31",
+            "NUM_MALES": "31",
+            "STUDY_COMMENTS": "Part 1 of 3"
+        },
+        "SUBJECT": {
+            "SUBJECT_TYPE": "Mammal",
+            "SUBJECT_SPECIES": "Mus musculus",
+            "TAXONOMY_ID": "10090",
+            "GENOTYPE_STRAIN": "C57BL/6J",
+            "AGE_OR_AGE_RANGE": "25 wk",
+            "WEIGHT_OR_WEIGHT_RANGE": "&gt;45g bodyweight at 25 w/o",
+            "GENDER": "Male",
+            "ANIMAL_LIGHT_CYCLE": "12-hour light/12-hour dark photoperiod (0700 \u2013 1900)",
+            "ANIMAL_FEED": "Research Diets D12492; Research Diets A14032002; Research Diets A14032001",
+            "ANIMAL_INCLUSION_CRITERIA": "&gt;45g bodyweight at 25 w/o"
+        },
+        "SUBJECT_SAMPLE_FACTORS": [
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-5",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-001_010.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-6",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-002_015.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-7",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-003_016.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-8",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-004_014.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-14",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-005_009.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-15",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-006_012.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-16",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-007_011.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-21",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-008_008.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-22",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-009_018.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-23",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-010_007.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-24",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-011_006.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-29",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-012_005.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-30",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-013_017.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-31",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-014_013.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "blank1",
+                "Factors": {
+                    "group": "blank",
+                    "Sample source": "blank"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-Blank_3_027.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc1",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_1_003.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc2",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_2_004.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc3",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_3_021.mzML"
+                }
+            }
+        ],
+        "COLLECTION": {
+            "COLLECTION_SUMMARY": "Brown adipose tissue samples were collected upon completion of the time course after fasting the mice for 4 h. A pooled QC sample was used for MS/MS collection.",
+            "SAMPLE_TYPE": "Brown adipose",
+            "STORAGE_CONDITIONS": "-80\u2103"
+        },
+        "TREATMENT": {
+            "TREATMENT_SUMMARY": "Mice were weight-matched and divided into two groups fed either High fat diet, HFD-control (60% fat/0.86% methionine; Research Diets A14032002) or HFD-MetR (60% fat/0.12% methionine; Research Diets A14032001). The HFD-MetR group was split into 3 groups, where the HFD-MetR was administered for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7). HFD-MetR groups were compared to each other and the control group (HFD, n=8).",
+            "TREATMENT": "Dietary intervention and duration of altered diet",
+            "TREATMENT_ROUTE": "Diet",
+            "TREATMENT_DOSE": "Research Diets A14032002; Research Diets A14032001",
+            "TREATMENT_DOSEVOLUME": "HFD-control (60% fat/0.86% methionine; Research Diets A14032002) or HFD-MetR (60% fat/0.12% methionine; Research Diets A14032001)",
+            "TREATMENT_DOSEDURATION": "3-10 days",
+            "TREATMENT_VEHICLE": "Food",
+            "ANIMAL_FASTING": "4h prior to sample collection",
+            "ANIMAL_ENDP_TISSUE_COLL_LIST": "Brown adipose tissue, liver, plasma"
+        },
+        "SAMPLEPREP": {
+            "SAMPLEPREP_SUMMARY": "Frozen tissue samples were homogenized with 80 \u03bcL 2:2:1 methanol:acetonitrile:water per mg tissue, centrifuged, and the supernatant was collected after a cold incubation and wash steps, then stored at -80\u00b0C. Plasma samples underwent solid-phase extraction (SPE) with sequential additions of acetonitrile:methanol and methanol:acetonitrile:water to separate polar and non-polar metabolites; polar metabolites were eluted and stored at -80\u00b0C, while non-polar metabolites were eluted using methyl tert-butyl ether:methanol, dried under nitrogen, reconstituted in isopropanol:methanol, and stored at -80\u00b0C.",
+            "PROCESSING_STORAGE_CONDITIONS": "-80\u2103",
+            "EXTRACT_STORAGE": "-80\u2103",
+            "SAMPLE_RESUSPENSION": "2:2:1 methanol:acetonitrile:water (polar), isopropanol:methanol (lipid)"
+        },
+        "CHROMATOGRAPHY": {
+            "CHROMATOGRAPHY_TYPE": "Reversed phase",
+            "INSTRUMENT_NAME": "Agilent 1290 Infinity II",
+            "COLUMN_NAME": "Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,1.8um)",
+            "SOLVENT_A": "50% water/30% acetonitrile/20% isopropanol; 10 mM ammonium formate; 5 \u00b5M InfinityLab Deactivator Additive (Agilent)",
+            "SOLVENT_B": "90% isopropanol/10% acetonitrile; 10 mM ammonium formate; 0.1% formic acid; 2.5 mM medronic acid",
+            "FLOW_GRADIENT": "0-2 min: 30% B, 2-17 min: 30-75% B, 17-20 min: 75-85% B, 20-23 min: 85-100% B, 23-26 min: 100% B, 26-27 min: 100-30% B",
+            "FLOW_RATE": "400 uL/min",
+            "COLUMN_TEMPERATURE": "45"
+        },
+        "ANALYSIS": {
+            "ANALYSIS_TYPE": "MS"
+        },
+        "MS": {
+            "INSTRUMENT_NAME": "Agilent 6546 QTOF",
+            "INSTRUMENT_TYPE": "QTOF",
+            "MS_TYPE": "ESI",
+            "ION_MODE": "POSITIVE",
+            "MS_COMMENTS": "MS/MS data were acquired in a data-dependent iterative fashion with a 1.3 m/z isolation window. Features were detected in LC/MS data through in-house peak detection and curation software.",
+            "MS_RESULTS_FILE": "ST004083_AN006763_Results.txt UNITS:log2-transformed normalized relative abundance Has m/z:Yes Has RT:Yes RT units:Minutes"
+        }
+    },
+    "AN006764": {
+        "METABOLOMICS WORKBENCH": {
+            "STUDY_ID": "ST004083",
+            "ANALYSIS_ID": "AN006764",
+            "PROJECT_ID": "PR002564",
+            "VERSION": "1",
+            "CREATED_ON": "April 4, 2025, 5:02 pm"
+        },
+        "PROJECT": {
+            "PROJECT_TITLE": "Dietary methionine restriction in high-fat diet-fed male mice",
+            "PROJECT_SUMMARY": "25-week-old male mice (n=31) with diet-induced obesity were divided into four groups. The first group (n=8) was fed a high-fat diet (HFD, 60% kcal fat) for 15 weeks. The second, third, and fourth groups were fed a modified high-fat diet (HFD-MetR, 60% fat/0.12% methionine) for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7), respectively. The HFD group (60% fat/0.86% methionine) served as the control. Mice were fasted for 4 hours prior to sample collection. The goal of this study was to investigate the effect of methionine restriction on plasma, brown adipose, and liver metabolomes.",
+            "INSTITUTE": "Panome Bio",
+            "LAST_NAME": "Guzior",
+            "FIRST_NAME": "Douglas",
+            "ADDRESS": "4340 Duncan Ave, St. Louis, MO 63110",
+            "EMAIL": "douglas.guzior@panomebio.com",
+            "PHONE": "(314) 632-6588"
+        },
+        "STUDY": {
+            "STUDY_TITLE": "Dietary methionine restriction in high-fat diet-fed male mice, brown adipose tissue metabolomics",
+            "STUDY_SUMMARY": "25-week-old male mice (n=31) with diet-induced obesity were divided into four groups. The first group (n=8) was fed a high-fat diet (HFD, 60% kcal fat) for 15 weeks. The second, third, and fourth groups were fed a modified high-fat diet (HFD-MetR, 60% fat/0.12% methionine) for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7), respectively. The HFD group (60% fat/0.86% methionine) served as the control. Mice were fasted for 4 hours prior to sample collection. The goal of this study was to investigate the effect of methionine restriction on brown adipose tissues.",
+            "INSTITUTE": "Panome Bio",
+            "LAST_NAME": "Guzior",
+            "FIRST_NAME": "Douglas",
+            "ADDRESS": "4340 Duncan Ave, St. Louis, MO 63110",
+            "EMAIL": "douglas.guzior@panomebio.com",
+            "PHONE": "(314) 632-6588",
+            "NUM_GROUPS": "4",
+            "TOTAL_SUBJECTS": "31",
+            "NUM_MALES": "31",
+            "STUDY_COMMENTS": "Part 1 of 3"
+        },
+        "SUBJECT": {
+            "SUBJECT_TYPE": "Mammal",
+            "SUBJECT_SPECIES": "Mus musculus",
+            "TAXONOMY_ID": "10090",
+            "GENOTYPE_STRAIN": "C57BL/6J",
+            "AGE_OR_AGE_RANGE": "25 wk",
+            "WEIGHT_OR_WEIGHT_RANGE": "&gt;45g bodyweight at 25 w/o",
+            "GENDER": "Male",
+            "ANIMAL_LIGHT_CYCLE": "12-hour light/12-hour dark photoperiod (0700 \u2013 1900)",
+            "ANIMAL_FEED": "Research Diets D12492; Research Diets A14032002; Research Diets A14032001",
+            "ANIMAL_INCLUSION_CRITERIA": "&gt;45g bodyweight at 25 w/o"
+        },
+        "SUBJECT_SAMPLE_FACTORS": [
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-5",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-001_010.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-6",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-002_015.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-7",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-003_016.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-CF-8",
+                "Factors": {
+                    "group": "Control",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-004_014.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-14",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-005_009.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-15",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-006_012.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR3-16",
+                "Factors": {
+                    "group": "MetR3",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-007_011.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-21",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-008_008.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-22",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-009_018.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-23",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-010_007.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR5-24",
+                "Factors": {
+                    "group": "MetR5",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-011_006.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-29",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-012_005.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-30",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-013_017.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "BAT-MR10-31",
+                "Factors": {
+                    "group": "MetR10",
+                    "Sample source": "Brown adipose tissue"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0116-014_013.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "blank1",
+                "Factors": {
+                    "group": "blank",
+                    "Sample source": "blank"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-Blank_3_027.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc1",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_1_003.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc2",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_2_004.mzML"
+                }
+            },
+            {
+                "Subject ID": "-",
+                "Sample ID": "qc3",
+                "Factors": {
+                    "group": "qc",
+                    "Sample source": "pooled_qc"
+                },
+                "Additional sample data": {
+                    "RAW_FILE_NAME(filename)": "060-0145-QC_3_021.mzML"
+                }
+            }
+        ],
+        "COLLECTION": {
+            "COLLECTION_SUMMARY": "Brown adipose tissue samples were collected upon completion of the time course after fasting the mice for 4 h. A pooled QC sample was used for MS/MS collection.",
+            "SAMPLE_TYPE": "Brown adipose",
+            "STORAGE_CONDITIONS": "-80\u2103"
+        },
+        "TREATMENT": {
+            "TREATMENT_SUMMARY": "Mice were weight-matched and divided into two groups fed either High fat diet, HFD-control (60% fat/0.86% methionine; Research Diets A14032002) or HFD-MetR (60% fat/0.12% methionine; Research Diets A14032001). The HFD-MetR group was split into 3 groups, where the HFD-MetR was administered for 3 days (MetR3, n=8), 5 days (MetR5, n=8), or 10 days (MetR10, n=7). HFD-MetR groups were compared to each other and the control group (HFD, n=8).",
+            "TREATMENT": "Dietary intervention and duration of altered diet",
+            "TREATMENT_ROUTE": "Diet",
+            "TREATMENT_DOSE": "Research Diets A14032002; Research Diets A14032001",
+            "TREATMENT_DOSEVOLUME": "HFD-control (60% fat/0.86% methionine; Research Diets A14032002) or HFD-MetR (60% fat/0.12% methionine; Research Diets A14032001)",
+            "TREATMENT_DOSEDURATION": "3-10 days",
+            "TREATMENT_VEHICLE": "Food",
+            "ANIMAL_FASTING": "4h prior to sample collection",
+            "ANIMAL_ENDP_TISSUE_COLL_LIST": "Brown adipose tissue, liver, plasma"
+        },
+        "SAMPLEPREP": {
+            "SAMPLEPREP_SUMMARY": "Frozen tissue samples were homogenized with 80 \u03bcL 2:2:1 methanol:acetonitrile:water per mg tissue, centrifuged, and the supernatant was collected after a cold incubation and wash steps, then stored at -80\u00b0C. Plasma samples underwent solid-phase extraction (SPE) with sequential additions of acetonitrile:methanol and methanol:acetonitrile:water to separate polar and non-polar metabolites; polar metabolites were eluted and stored at -80\u00b0C, while non-polar metabolites were eluted using methyl tert-butyl ether:methanol, dried under nitrogen, reconstituted in isopropanol:methanol, and stored at -80\u00b0C.",
+            "PROCESSING_STORAGE_CONDITIONS": "-80\u2103",
+            "EXTRACT_STORAGE": "-80\u2103",
+            "SAMPLE_RESUSPENSION": "2:2:1 methanol:acetonitrile:water (polar), isopropanol:methanol (lipid)"
+        },
+        "CHROMATOGRAPHY": {
+            "CHROMATOGRAPHY_TYPE": "Reversed phase",
+            "INSTRUMENT_NAME": "Agilent 1290 Infinity II",
+            "COLUMN_NAME": "Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,1.8um)",
+            "SOLVENT_A": "50% water/30% acetonitrile/20% isopropanol; 10 mM ammonium formate; 5 \u00b5M InfinityLab Deactivator Additive (Agilent)",
+            "SOLVENT_B": "90% isopropanol/10% acetonitrile; 10 mM ammonium formate; 0.1% formic acid; 2.5 mM medronic acid",
+            "FLOW_GRADIENT": "0-2 min: 30% B, 2-17 min: 30-75% B, 17-20 min: 75-85% B, 20-23 min: 85-100% B, 23-26 min: 100% B, 26-27 min: 100-30% B",
+            "FLOW_RATE": "400 uL/min",
+            "COLUMN_TEMPERATURE": "45"
+        },
+        "ANALYSIS": {
+            "ANALYSIS_TYPE": "MS"
+        },
+        "MS": {
+            "INSTRUMENT_NAME": "Agilent 6546 QTOF",
+            "INSTRUMENT_TYPE": "QTOF",
+            "MS_TYPE": "ESI",
+            "ION_MODE": "NEGATIVE",
+            "MS_COMMENTS": "MS/MS data were acquired in a data-dependent iterative fashion with a 1.3 m/z isolation window. Features were detected in LC/MS data through in-house peak detection and curation software.",
+            "MS_RESULTS_FILE": "ST004083_AN006764_Results.txt UNITS:log2-transformed normalized relative abundance Has m/z:Yes Has RT:Yes RT units:Minutes"
+        }
+    }
+}
