@@ -1,3 +1,9 @@
+## v0.0.14 (2025-11-19)
+
+### Fix
+
+- new test output and documentation fix
+
 ## v0.0.13 (2025-09-25)
 
 ### Fix
