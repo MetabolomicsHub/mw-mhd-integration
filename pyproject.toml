@@ -7,7 +7,7 @@ license = "Apache-2.0"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "mhd-model>=0.1.30",
+    "mhd-model>=0.1.33",
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.1",
     "xmltodict>=0.15.1",
