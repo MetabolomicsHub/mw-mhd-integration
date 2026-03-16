@@ -26,7 +26,7 @@ if __name__ == "__main__":
     config = Mw2MhdConfiguration()
 
     factory = Mw2MhdConvertorFactory()
-    
+
     convertor = factory.get_convertor(
         target_mhd_model_schema_uri=mw2mhd_config.target_mhd_model_schema_uri,
         target_mhd_model_profile_uri=mw2mhd_config.target_mhd_model_legacy_profile_uri,
