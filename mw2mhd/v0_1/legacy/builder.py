@@ -30,23 +30,23 @@ logger = logging.getLogger(__name__)
 ## METABOLOMICS WORKBENCH RELATED CONFIGURATION ###
 ##############################################################################################################
 MW_ASSAY_TYPES = {
-    "LC-MS": COMMON_ASSAY_TYPES["OBI:0003097S"],
-    "GC-MS": COMMON_ASSAY_TYPES["OBI:0003110"],
+    "LC-MS": COMMON_ASSAY_TYPES["lc-ms"],
+    "GC-MS": COMMON_ASSAY_TYPES["gc-ms"],
     # TODO: Add more assay types if needed
 }
 MW_MEASUREMENT_TYPES = {
-    "targeted": COMMON_MEASUREMENT_TYPES["MSIO:0000100"],
-    "untargeted": COMMON_MEASUREMENT_TYPES["MSIO:0000101"],
+    "targeted": COMMON_MEASUREMENT_TYPES["targeted"],
+    "untargeted": COMMON_MEASUREMENT_TYPES["untargeted"],
 }
 
-DEFAULT_OMICS_TYPE = COMMON_OMICS_TYPES["EDAM:3172"]
+DEFAULT_OMICS_TYPE = COMMON_OMICS_TYPES["metabolomics"]
 
 COMMON_PROTOCOLS_MAP = {
-    "sample collection": COMMON_PROTOCOLS["EFO:0005518"],
-    "sample preparation": COMMON_PROTOCOLS["MS:1000831"],
-    "mass spectrometry": COMMON_PROTOCOLS["CHMO:0000470"],
-    "chromatography": COMMON_PROTOCOLS["CHMO:0001000"],
-    "treatment": COMMON_PROTOCOLS["EFO:0003969"],
+    "sample collection": COMMON_PROTOCOLS["sample collection"],
+    "sample preparation": COMMON_PROTOCOLS["sample preparation"],
+    "mass spectrometry": COMMON_PROTOCOLS["mass spectrometry"],
+    "chromatography": COMMON_PROTOCOLS["chromatography"],
+    "treatment": COMMON_PROTOCOLS["treatment"],
     # TODO: Update after adding to managed CV terms
 }
 
@@ -61,13 +61,17 @@ COMMON_PROTOCOL_PARAMETER_DEFINITIONS_MAP = {
     "sample preparation": {},
     "treatment": {},
     "mass spectrometry": {
-        "instrument name": COMMON_PARAMETER_DEFINITIONS["MSIO:0000171"],
-        "instrument type": COMMON_PARAMETER_DEFINITIONS["OBI:0000345"],
-        "ms type": COMMON_PARAMETER_DEFINITIONS["CHMO:0000960"],
-        "ion mode": COMMON_PARAMETER_DEFINITIONS["MS:1000465"],
+        "instrument name": COMMON_PARAMETER_DEFINITIONS["mass spectrometry instrument"],
+        "instrument type": COMMON_PARAMETER_DEFINITIONS["instrument class"],
+        "ms type": COMMON_PARAMETER_DEFINITIONS["ionization type"],
+        "ion mode": COMMON_PARAMETER_DEFINITIONS["acquisition polarity"],
     },
     "chromatography": {
-        "instrument name": COMMON_PARAMETER_DEFINITIONS["OBI:0000485"],
+        "instrument name": COMMON_PARAMETER_DEFINITIONS["chromatography instrument"],
+        "column name": COMMON_PARAMETER_DEFINITIONS["chromatography column"],
+        "chromatography type": COMMON_PARAMETER_DEFINITIONS[
+            "chromatography separation"
+        ],
     },
 }
 MW_PROTOCOL_PARAMETER_DEFINITIONS_MAP = COMMON_PROTOCOL_PARAMETER_DEFINITIONS_MAP.copy()
@@ -84,34 +88,32 @@ MW_PROTOCOL_PARAMETER_DEFINITIONS_MAP.update(
         "sample preparation": {},
         "treatment": {},
         "mass spectrometry": {
-            "instrument name": COMMON_PARAMETER_DEFINITIONS["MSIO:0000171"],
-            "instrument type": COMMON_PARAMETER_DEFINITIONS["OBI:0000345"],
-            "ms type": COMMON_PARAMETER_DEFINITIONS["CHMO:0000960"],
-            "ion mode": COMMON_PARAMETER_DEFINITIONS["MS:1000465"],
+            "instrument name": COMMON_PARAMETER_DEFINITIONS[
+                "mass spectrometry instrument"
+            ],
+            "instrument type": COMMON_PARAMETER_DEFINITIONS["instrument class"],
+            "ms type": COMMON_PARAMETER_DEFINITIONS["ionization type"],
+            "ion mode": COMMON_PARAMETER_DEFINITIONS["acquisition polarity"],
         },
         "chromatography": {
-            "instrument name": COMMON_PARAMETER_DEFINITIONS["OBI:0000485"],
-            "chromatography type": CvTerm(
-                source="",
-                accession="",
-                name="column type",
-            ),
-            "column name": CvTerm(
-                source="",
-                accession="",
-                name="column name",
-            ),
+            "instrument name": COMMON_PARAMETER_DEFINITIONS[
+                "chromatography instrument"
+            ],
+            "chromatography type": COMMON_PARAMETER_DEFINITIONS[
+                "chromatography separation"
+            ],
+            "column name": COMMON_PARAMETER_DEFINITIONS["chromatography column"],
         },
     }
 )
 MANAGED_CHARACTERISTICS_MAP = {
-    "organism": COMMON_CHARACTERISTIC_DEFINITIONS["NCIT:C14250"],
-    "organism part": COMMON_CHARACTERISTIC_DEFINITIONS["NCIT:C103199"],
-    "disease": COMMON_CHARACTERISTIC_DEFINITIONS["EFO:0000408"],
-    "cell type": COMMON_CHARACTERISTIC_DEFINITIONS["EFO:0000324"],
+    "organism": COMMON_CHARACTERISTIC_DEFINITIONS["organism"],
+    "organism part": COMMON_CHARACTERISTIC_DEFINITIONS["organism part"],
+    "disease": COMMON_CHARACTERISTIC_DEFINITIONS["disease"],
+    "cell type": COMMON_CHARACTERISTIC_DEFINITIONS["cell type"],
 }
 COMON_STUDY_FACTOR_MAP = {
-    "disease": COMMON_STUDY_FACTOR_DEFINITIONS["EFO:0000408"],
+    "disease": COMMON_STUDY_FACTOR_DEFINITIONS["disease"],
 }
 MANAGED_STUDY_FACTOR_MAP = COMON_STUDY_FACTOR_MAP.copy()
 MANAGED_STUDY_FACTOR_MAP.update(
@@ -128,11 +130,20 @@ PUBLIC_MW_FTP_BASE_URL = "ftp://www.metabolomicsworkbench.org/Studies"
 
 # TODO: Add REFMET to EDAM ontology
 COMMON_COMPOUND_IDENTIFIERS_MAP: dict[str, CvTerm] = {
-    "CHEBI": CvTerm(source="EDAM", accession="EDAM:1174", name="ChEBI ID"),
-    "PUBCHEM CID": CvTerm(source="EDAM", accession="EDAM:1172", name="PubChem CID"),
-    "HMDB": CvTerm(source="EDAM", accession="EDAM:2622", name="Compound ID (HMDB)"),
-    "KEGG": CvTerm(source="EDAM", accession="EDAM:2605", name="Compound ID (KEGG)"),
-    "SMILES": CvTerm(source="EDAM", accession="EDAM:1196", name="SMILES"),
+    "CHEBI": CvTerm(
+        source="CHEMINF", accession="CHEMINF:000407", name="ChEBI identifier"
+    ),
+    "PUBCHEM CID": CvTerm(
+        source="CHEMINF",
+        accession="CHEMINF:000140",
+        name="PubChem compound identifier (CID)",
+    ),
+    "HMDB": CvTerm(
+        source="CHEMINF", accession="CHEMINF:000408", name="HMDB identifier"
+    ),
+    "KEGG": CvTerm(
+        source="CHEMINF", accession="CHEMINF:000409", name="KEGG identifier"
+    ),
     "REFMET": CvTerm(source="", accession="", name="RefMet"),
 }
 
@@ -574,7 +585,7 @@ class MhdLegacyDatasetBuilder:
 
         characteristic_type = self.create_cv_term_object_from(
             "characteristic-type",
-            cv=COMMON_CHARACTERISTIC_DEFINITIONS["NCIT:C103199"],
+            cv=COMMON_CHARACTERISTIC_DEFINITIONS["organism part"],
         )
         mhd_builder.add(characteristic_type)
         definition_name = "organism part"
@@ -931,7 +942,7 @@ class MhdLegacyDatasetBuilder:
         analysis_list.sort()
 
         tsv_file_format = self.create_cv_term_object(
-            type_="descriptor", accession="EDAM:3475", source="EDAM", name="TSV"
+            type_="descriptor", accession="EDAM:format_3475", source="EDAM", name="TSV"
         )  # TODO: update mwTab is defined in EDAM
 
         mhd_builder.add(tsv_file_format)
@@ -1128,7 +1139,7 @@ class MhdLegacyDatasetBuilder:
         if organism_name:
             characteristic_type = self.create_cv_term_object_from(
                 "characteristic-type",
-                cv=COMMON_CHARACTERISTIC_DEFINITIONS["NCIT:C14250"],
+                cv=COMMON_CHARACTERISTIC_DEFINITIONS["organism"],
             )
             definition_name = "organism"
             characteristic_definition = mhd_domain.CharacteristicDefinition(
