@@ -1,3 +1,9 @@
+## v0.0.17 (2026-03-18)
+
+### Fix
+
+- validation script does not validate announcement file
+
 ## v0.0.16 (2026-03-16)
 
 ### Fix
