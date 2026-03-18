@@ -681,7 +681,7 @@ wheels = [
 
 [[package]]
 name = "mhd-model"
-version = "0.1.51"
+version = "0.1.53"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "bioregistry" },
@@ -698,9 +698,9 @@ dependencies = [
     { name = "pyyaml" },
     { name = "reachable" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8f/11/d54f7a91c845b9a12f78334dd6c78792dae6f9c50c36dbebc0b5bfffdf1e/mhd_model-0.1.51.tar.gz", hash = "sha256:6f76922ee4134ec15995de33eb57b6626f6af52185f1b3c4fc12ca9999d0c1b5", size = 110326, upload-time = "2026-03-15T13:10:30.652Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/48/84/b30dfafce2bfb39355d20e90003c2bb120c001dabaed0c6086457458adda/mhd_model-0.1.53.tar.gz", hash = "sha256:fb209cbe9d4a9f513a1903ab9597bd067428e94d71905321e89f5317c4f03840", size = 110234, upload-time = "2026-03-18T06:57:48.423Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/18/06/e3fc4683862298f6fe45560d572b66336e9a3208474501fffa30b5391894/mhd_model-0.1.51-py3-none-any.whl", hash = "sha256:8298f4e6b3bcc4785c21e8d42543873fa5271d034b3412146dc06ec6fa01962c", size = 141991, upload-time = "2026-03-15T13:10:31.957Z" },
+    { url = "https://files.pythonhosted.org/packages/50/a3/5dc89466c98424018c1b669bdc9ec00630b3b752a01145a0f13a20c61302/mhd_model-0.1.53-py3-none-any.whl", hash = "sha256:5aa886fd6dac6d8e9f48e18a308017d5716c37570c12b45ac9cabe84e2a4dec2", size = 141960, upload-time = "2026-03-18T06:57:47.214Z" },
 ]
 
 [[package]]
@@ -811,7 +811,7 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "mhd-model", specifier = ">=0.1.51" },
+    { name = "mhd-model", specifier = ">=0.1.53" },
     { name = "pydantic", specifier = ">=2.11.7" },
     { name = "pydantic-settings", specifier = ">=2.10.1" },
     { name = "xmltodict", specifier = ">=0.15.1" },
