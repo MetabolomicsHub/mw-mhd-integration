@@ -1,3 +1,9 @@
+## v0.0.18 (2026-03-20)
+
+### Fix
+
+- upgrade mhd-model dependency and use validate_mhd_model method for validation
+
 ## v0.0.17 (2026-03-18)
 
 ### Fix

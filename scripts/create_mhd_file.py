@@ -38,7 +38,10 @@ def convert_mw_study_to_mhd_legacy(
         mhd_output_filename=mhd_output_filename,
     )
     mhd_file_path = mhd_output_root_path / Path(mhd_output_filename)
-    return validate_mhd_model(mw_study_id, mhd_file_path, )
+    return validate_mhd_model(
+        mw_study_id,
+        mhd_file_path,
+    )
 
 
 if __name__ == "__main__":
