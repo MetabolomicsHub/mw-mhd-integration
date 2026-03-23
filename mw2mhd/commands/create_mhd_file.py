@@ -26,13 +26,13 @@ logger = logging.getLogger(__name__)
     help="MHD filename (e.g., MHD000001_mhd.json, ST000001_mhd.json)",
 )
 @click.option(
-    "--schema_uri",
+    "--schema-uri",
     default=MHD_MODEL_V0_1_DEFAULT_SCHEMA_NAME,
     show_default=True,
     help="Target MHD model schema. It defines format of MHD model structure.",
 )
 @click.option(
-    "--profile_uri",
+    "--profile-uri",
     default=MHD_MODEL_V0_1_LEGACY_PROFILE_NAME,
     show_default=True,
     help="Target MHD model profile. It is used to validate MHD model",
