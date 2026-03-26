@@ -122,6 +122,15 @@ wheels = [
 ]
 
 [[package]]
+name = "cachetools"
+version = "7.0.5"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/af/dd/57fe3fdb6e65b25a5987fd2cdc7e22db0aef508b91634d2e57d22928d41b/cachetools-7.0.5.tar.gz", hash = "sha256:0cd042c24377200c1dcd225f8b7b12b0ca53cc2c961b43757e774ebe190fd990", size = 37367, upload-time = "2026-03-09T20:51:29.451Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/06/f3/39cf3367b8107baa44f861dc802cbf16263c945b62d8265d36034fc07bea/cachetools-7.0.5-py3-none-any.whl", hash = "sha256:46bc8ebefbe485407621d0a4264b23c080cedd913921bad7ac3ed2f26c183114", size = 13918, upload-time = "2026-03-09T20:51:27.33Z" },
+]
+
+[[package]]
 name = "certifi"
 version = "2026.2.25"
 source = { registry = "https://pypi.org/simple" }
@@ -789,10 +798,11 @@ wheels = [
 
 [[package]]
 name = "mhd-model"
-version = "0.1.57"
+version = "0.1.70"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "bioregistry" },
+    { name = "cachetools" },
     { name = "charset-normalizer" },
     { name = "dependency-injector" },
     { name = "email-validator" },
@@ -806,9 +816,9 @@ dependencies = [
     { name = "pyyaml" },
     { name = "reachable" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/72/34/b4c6b2b723ba8d67825b23cc0a828251570d6fcedf8900de1d99382cdcc6/mhd_model-0.1.57.tar.gz", hash = "sha256:646a19ca5395f13ec818f0e029578db7ad8a1b28d4674112e95046fb3e6799cd", size = 111005, upload-time = "2026-03-23T09:48:54.569Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/d5/a9/97107a1263fea117579009bbb31e2b502cabc6576022e765270c49435b0d/mhd_model-0.1.70.tar.gz", hash = "sha256:649fd3e1bf3c62f587b1244fd86e031b8230a18d32fb0db1c5c5c192374fd182", size = 111684, upload-time = "2026-03-26T15:15:10.56Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c7/b2/190db2a265add093a5987d565a92740328d6296d34125ce6b05be129732e/mhd_model-0.1.57-py3-none-any.whl", hash = "sha256:65cd421484d9dd3fad40e7c5c9906ad9544c8b4a4896955ecb6e0ca0ae2c34c4", size = 143109, upload-time = "2026-03-23T09:48:53.293Z" },
+    { url = "https://files.pythonhosted.org/packages/4f/8d/55b851407e6f51baf38babcd5f776e0703c9bfed5ddfcb6596b8cbfc96bb/mhd_model-0.1.70-py3-none-any.whl", hash = "sha256:9e43eb8a34f647dd1a9c340a697d915d1a658ef11b77cf681240194d3f0b2e4d", size = 143780, upload-time = "2026-03-26T15:15:11.727Z" },
 ]
 
 [[package]]
@@ -918,7 +928,7 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "mhd-model", specifier = ">=0.1.57" },
+    { name = "mhd-model", specifier = ">=0.1.70" },
     { name = "pydantic", specifier = ">=2.11.7" },
     { name = "pydantic-settings", specifier = ">=2.10.1" },
     { name = "xmltodict", specifier = ">=0.15.1" },
