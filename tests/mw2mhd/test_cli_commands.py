@@ -22,7 +22,6 @@ def output_dir():
 
 
 def test_cli_help_01():
-
     runner = CliRunner()
     result = runner.invoke(cli, ["--help"])
     assert result.exit_code == 0
@@ -35,7 +34,6 @@ def test_cli_help_01():
     "study_id", ["ST000253", "ST001315", "ST002238", "ST004083", "ST004122", "ST004186"]
 )
 def test_download_studies(study_id: str, output_dir: Path):
-
     runner = CliRunner()
     result = runner.invoke(
         cli,
@@ -54,7 +52,6 @@ def test_download_studies(study_id: str, output_dir: Path):
     "study_id", ["ST000253", "ST001315", "ST002238", "ST004083", "ST004122", "ST004186"]
 )
 def test_create_mhd_files_01(study_id: str, output_dir: Path):
-
     runner = CliRunner()
     result = runner.invoke(cli, ["create", "mhd", "--help"])
     assert result.exit_code == 0

@@ -34,9 +34,12 @@ def fetch_all_available_mw_studies() -> list[str]:
         return []
 
 
-def fetch_mw_metabolites(study_id: str) -> list[MetaboliteIdentification]:
+def fetch_mw_metabolites(
+    study_id: str, data_path: None | Path = None
+) -> list[MetaboliteIdentification]:
     try:
-        data_path: Path = Path("tests/mw_dataset")
+        if not data_path:
+            data_path: Path = Path(".outputs/mw_dataset")
         data_path.mkdir(parents=True, exist_ok=True)
         study_path = data_path / Path(f"{study_id}_metabolites.json")
         if study_path.exists():
@@ -77,7 +80,7 @@ def fetch_mw_metabolites(study_id: str) -> list[MetaboliteIdentification]:
 
 def fetch_mw_data(
     study_id: str,
-    output_folder_path: str = "tests/mw_dataset",
+    output_folder_path: str = ".outputs/mw_dataset",
     output_filename: None | str = None,
 ) -> dict[str, Any]:
     try:

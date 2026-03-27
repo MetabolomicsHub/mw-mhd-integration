@@ -37,6 +37,12 @@ logger = logging.getLogger(__name__)
     show_default=True,
     help="Target MHD model profile. It is used to validate MHD model",
 )
+@click.option(
+    "--data-path",
+    default=".outputs/mw_dataset",
+    show_default=True,
+    help="Path to the directory containing the metadata",
+)
 @click.argument("mw_study_id")
 @click.argument("mhd_identifier")
 def create_mhd_file_task(
@@ -46,6 +52,7 @@ def create_mhd_file_task(
     output_filename: str,
     schema_uri: str,
     profile_uri: str,
+    data_path: str,
 ):
     """Convert a Metabolomics Workbench study to MHD file format.
 
@@ -74,6 +81,7 @@ def create_mhd_file_task(
             mhd_identifier=mhd_identifier,
             mhd_output_folder_path=mhd_output_root_path,
             mhd_output_filename=output_filename,
+            data_path=Path(data_path),
         )
         click.echo(f"{mw_study_id} is converted successfully.")
     except Exception as ex:

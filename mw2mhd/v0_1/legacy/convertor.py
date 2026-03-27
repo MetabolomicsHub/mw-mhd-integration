@@ -23,6 +23,7 @@ class LegacyProfileV01Convertor(BaseMhdConvertor):
         mhd_identifier: None | str,
         mhd_output_folder_path: Path,
         repository_revision: None | Revision = None,
+        data_path: None | Path = None,
         **kwargs,
     ):
         mhd_dataset_builder = MhdLegacyDatasetBuilder()
@@ -35,5 +36,6 @@ class LegacyProfileV01Convertor(BaseMhdConvertor):
             config=mw2mhd_config,
             revision=repository_revision,
             repository_name=repository_name,
+            data_path=data_path,
             **kwargs,
         )

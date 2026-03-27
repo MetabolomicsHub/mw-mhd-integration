@@ -159,14 +159,16 @@ class MhdLegacyDatasetBuilder:
         config: Mw2MhdConfiguration,
         repository_name: str,
         revision: None | Revision = None,
+        data_path: None | Path = None,
         **kwargs,
     ) -> MhDatasetLegacyProfile:
         #####################################################################################
         # Fetch metadata as json from MW. If it is not valid return error
         # TODO: Fetch other files or connect to a database to use more information
         #####################################################################################
-
-        mwtab: dict[str, Any] = fetch_mw_data(mw_study_id)
+        if not data_path:
+            data_path = Path(".outputs/mw_dataset")
+        mwtab: dict[str, Any] = fetch_mw_data(mw_study_id, output_folder_path=data_path)
         if not mwtab:
             raise ValueError(f"Could not fetch metadata for study {mw_study_id}")
 
@@ -339,7 +341,9 @@ class MhdLegacyDatasetBuilder:
         # #####################################################################################
         # # Add metabolites and metabolite-identifiers
         # #####################################################################################
-        self.create_reported_metabolites(mhd_builder, mwtab, mhd_study, mhd_assays)
+        self.create_reported_metabolites(
+            mhd_builder, mwtab, mhd_study, mhd_assays, data_path=data_path
+        )
 
         #####################################################################################
         # Build and save dataset
@@ -415,11 +419,12 @@ class MhdLegacyDatasetBuilder:
             )
         )
 
-        for item in sample_factors_section:
+        for idx, item in enumerate(sample_factors_section, start=1):
             sample_id = item.get("Sample ID", "").replace("-", "")
 
             subject_id = item.get("Subject ID", "").replace("-", "")
-            subject_id = subject_id or sample_id
+            subject_id = subject_id or sample_id or f"subject-{idx:03d}"
+            sample_id = sample_id or f"sample-{idx:03d}"
             subject = mhd_domain.Subject(
                 name=subject_id, repository_identifier=subject_id
             )
@@ -428,13 +433,13 @@ class MhdLegacyDatasetBuilder:
                 sample_ref=sample.id_, raw_data_file_refs=[]
             )
             sample_runs[sample.name] = sample_run
-            mhd_builder.add(sample_run)
+            mhd_builder.add(sample_run, use_label_for_invalid_cv_term=True)
             if mhd_assays[analysis_list[0]].sample_run_refs is None:
                 mhd_assays[analysis_list[0]].sample_run_refs = []
             mhd_assays[analysis_list[0]].sample_run_refs.append(sample_run.id_)
 
-            mhd_builder.add(subject)
-            mhd_builder.add(sample)
+            mhd_builder.add(subject, use_label_for_invalid_cv_term=True)
+            mhd_builder.add(sample, use_label_for_invalid_cv_term=True)
             mhd_builder.link(
                 subject,
                 "source-of",
@@ -458,6 +463,8 @@ class MhdLegacyDatasetBuilder:
                         raw_data_file_names = [raw_data_file_names]
                     if raw_data_file_names:
                         for raw_data_file_name in raw_data_file_names:
+                            if not raw_data_file_name or len(raw_data_file_name) < 2:
+                                continue
                             extension = Path(raw_data_file_name).suffix
                             # TODO: URL may not a valid URL.
                             url = f"https://dashboard.gnps2.org/?usi=mzspec:{mw_study_id}:{raw_data_file_name}"
@@ -588,7 +595,11 @@ class MhdLegacyDatasetBuilder:
             cv=COMMON_CHARACTERISTIC_DEFINITIONS["organism part"],
         )
         mhd_builder.add(characteristic_type)
-        definition_name = "organism part"
+        definition_name = (
+            organism_part_field.lower().replace("_", " ")
+            if organism_part_field
+            else "organism part"
+        )
         characteristic_definition = mhd_domain.CharacteristicDefinition(
             name=definition_name,
             characteristic_type_ref=characteristic_type.id_,
@@ -632,12 +643,17 @@ class MhdLegacyDatasetBuilder:
         mwtab_data: dict[str, Any],
         mhd_study: mhd_domain.Study,
         mhd_assays: dict[str, mhd_domain.Assay],
+        data_path: None | Path = None,
     ):
         reported_metabolite_names = {}
 
-        metabolites = fetch_mw_metabolites(mhd_study.repository_identifier)
+        metabolites = fetch_mw_metabolites(
+            mhd_study.repository_identifier, data_path=data_path
+        )
         for item in metabolites:
             name = item.metabolite_name
+            if not name or len(name.strip()) < 2:
+                continue
             analysis = item.analysis_id
             # Skip if analysis id is not defined in study
             if not mhd_assays.get(analysis):
@@ -1141,7 +1157,7 @@ class MhdLegacyDatasetBuilder:
                 "characteristic-type",
                 cv=COMMON_CHARACTERISTIC_DEFINITIONS["organism"],
             )
-            definition_name = "organism"
+            definition_name = "subject species"
             characteristic_definition = mhd_domain.CharacteristicDefinition(
                 name=definition_name,
                 characteristic_type_ref=characteristic_type.id_,
@@ -1221,7 +1237,7 @@ class MhdLegacyDatasetBuilder:
             protocol_refs=[],
         )
         mhd_builder.add(mhd_study)
-        mhd_builder.add_node(dataset_provider)
+        mhd_builder.add_node(dataset_provider, use_label_for_invalid_cv_term=True)
         mhd_builder.link(
             dataset_provider,
             "provides",
@@ -1234,7 +1250,7 @@ class MhdLegacyDatasetBuilder:
             descriptor_cv = self.create_cv_term_object(
                 type_="descriptor", name=study_type, accession="", source=""
             )
-            mhd_builder.add(descriptor_cv)
+            mhd_builder.add(descriptor_cv, use_label_for_invalid_cv_term=True)
             mhd_builder.link(
                 mhd_study,
                 "described-as",
@@ -1273,9 +1289,9 @@ class MhdLegacyDatasetBuilder:
         characteristic_definition,
         characteristic_value,
     ):
-        mhd_builder.add(characteristic_type)
-        mhd_builder.add(characteristic_definition)
-        mhd_builder.add(characteristic_value)
+        mhd_builder.add(characteristic_type, use_label_for_invalid_cv_term=True)
+        mhd_builder.add(characteristic_definition, use_label_for_invalid_cv_term=True)
+        mhd_builder.add(characteristic_value, use_label_for_invalid_cv_term=True)
         mhd_builder.link(
             characteristic_definition,
             "has-type",
@@ -1329,12 +1345,12 @@ class MhdLegacyDatasetBuilder:
                         accession="",
                         name=definition_name,
                     )
-                mhd_builder.add(parameter_type)
+                mhd_builder.add(parameter_type, use_label_for_invalid_cv_term=True)
                 definition = mhd_domain.ParameterDefinition(
                     name=definition_name,
                     parameter_type_ref=parameter_type.id_,
                 )
-                mhd_builder.add(definition)
+                mhd_builder.add(definition, use_label_for_invalid_cv_term=True)
                 # Define parameter value type.
                 # If it is type of a definition that has custom type, create custom value with prefix x-mw-
                 type_ = (
@@ -1348,7 +1364,7 @@ class MhdLegacyDatasetBuilder:
                     source="",
                     name=protocol_section.get(field),
                 )
-                mhd_builder.add(field_value)
+                mhd_builder.add(field_value, use_label_for_invalid_cv_term=True)
                 mhd_builder.link(
                     definition,
                     "has-type",
@@ -1389,13 +1405,13 @@ class MhdLegacyDatasetBuilder:
             protocol_type = self.create_cv_term_object_from(
                 type_="protocol-type", cv=MW_PROTOCOLS_MAP[protocol_name]
             )
-            mhd_builder.add(protocol_type)
+            mhd_builder.add(protocol_type, use_label_for_invalid_cv_term=True)
             protocol = mhd_domain.Protocol(
                 name=protocol_name,
                 protocol_type_ref=protocol_type.id_,
                 description=desc,
             )
-            mhd_builder.add(protocol)
+            mhd_builder.add(protocol, use_label_for_invalid_cv_term=True)
             mhd_builder.link(
                 mhd_study,
                 "has-protocol",
