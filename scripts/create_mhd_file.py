@@ -71,9 +71,10 @@ def write_to_file(errors_file_path, success, errors):
 if __name__ == "__main__":
     setup_basic_logging_config(logging.INFO)
     # study_ids = ["ST001315", "ST002238", "ST004122", "ST004186", "ST001315", "ST000253"]
-    study_ids = [
+    study_ids = set([
         x.strip() for x in Path("legacy.txt").read_text().split("\n") if x and x.strip()
-    ]
+    ])
+    study_ids = list(study_ids)
     study_ids.sort(reverse=True)
     mw2mhd_config = Mw2MhdConfiguration()
     mhd_output_root_path = Path(".outputs/mhd_legacy")
