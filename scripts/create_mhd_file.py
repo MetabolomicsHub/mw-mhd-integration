@@ -1,8 +1,10 @@
 import json
 import logging
+import traceback
 from pathlib import Path
 
 import jsonschema
+from jsonschema import ValidationError
 from mhd_model.model.v0_1.dataset.validation.validator import validate_mhd_model
 
 from mw2mhd.config import (
@@ -43,12 +45,19 @@ def convert_mw_study_to_mhd_legacy(
         )
     except Exception as ex:
         logger.error("Error converting study %s: %s", mw_study_id, ex)
-        return False, {}
+        traceback.print_exc()
+        return False, {
+            "conversion_error": [("convertion", ValidationError(message=str(ex)))]
+        }
 
     mhd_file_path = mhd_output_root_path / Path(mhd_output_filename)
+    mhd_file_url = (
+        f"https://www.metabolomicsworkbench.org/data/mhd.php?MHD_ID={mw_study_id}"
+    )
     return validate_mhd_model(
         mw_study_id,
         mhd_file_path,
+        mhd_file_url=mhd_file_url,
     )
 
 
@@ -74,6 +83,7 @@ if __name__ == "__main__":
     study_ids = [
         x.strip() for x in Path("legacy.txt").read_text().split("\n") if x and x.strip()
     ]
+    # study_ids = ["ST002478"]
     study_ids.sort(reverse=True)
     mw2mhd_config = Mw2MhdConfiguration()
     mhd_output_root_path = Path(".outputs/mhd_legacy")

@@ -1,4 +1,5 @@
 import logging
+import traceback
 from pathlib import Path
 
 import click
@@ -85,4 +86,5 @@ def create_mhd_file_task(
         )
         click.echo(f"{mw_study_id} is converted successfully.")
     except Exception as ex:
+        traceback.print_exc()
         click.echo(f"{mw_study_id} conversion failed. {str(ex)}")

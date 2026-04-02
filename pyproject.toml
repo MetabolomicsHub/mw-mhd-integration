@@ -7,7 +7,7 @@ license = "Apache-2.0"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "mhd-model>=0.1.71",
+    "mhd-model>=0.1.73",
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.1",
     "xmltodict>=0.15.1",
@@ -21,9 +21,7 @@ dev = [
     "mkdocs-material>=9.5.49",
     "pre-commit>=4.2.0",
     "ruff>=0.12.0",
-]
-test = [
-    "pytest>=8.4.1",
+    "pytest>=9.0.2",
     "pytest-cov>=6.2.1",
 ]
 
@@ -47,6 +45,11 @@ addopts = "-ra -q -v"
 testpaths = [
     "tests"
 ]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
 
 [build-system]
 requires = ["setuptools>=61.0"]
@@ -58,7 +61,7 @@ include = ["mw2mhd*"]
 exclude = ["tests*", "docs*"]
 
 [tool.setuptools.package-data]
-"mhd_model" = ["**/*.json"]
+"mw2mhd" = ["**/*.json", "**/*.tsv", "**/*.csv"]
 
 [tool.ruff.lint]
 extend-select = ["E4", "E7", "E9", "F", "I", "G", "SLF", "PTH", "Q", "T"]
