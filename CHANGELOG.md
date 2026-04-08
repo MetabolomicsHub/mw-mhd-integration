@@ -1,3 +1,15 @@
+## v0.0.22 (2026-04-08)
+
+### Fix
+
+- cicd pipeline error
+- invalid sample - raw data file mappings
+- invalid sample - raw data file mappings
+- raw data extension error
+- raw data folder filter error
+- mw summary and files endpoint usage for submission date, release date, license and files.
+- email, uuid, parameter value, missing publication description, mhd file url
+
 ## v0.0.21 (2026-03-27)
 
 ### Fix
