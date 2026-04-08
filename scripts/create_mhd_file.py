@@ -3,8 +3,10 @@ import logging
 from pathlib import Path
 
 import jsonschema
+from mhd_model.convertors.announcement.convertor import create_announcement_file
 from mhd_model.model.v0_1.dataset.validation.validator import validate_mhd_model
 
+from mw2mhd.announcement_enricher import enrich_announcement_file
 from mw2mhd.config import (
     Mw2MhdConfiguration,
     mw2mhd_config,
@@ -15,6 +17,16 @@ from mw2mhd.convertor_factory import (
 from scripts.utils import setup_basic_logging_config
 
 logger = logging.getLogger(__name__)
+
+
+def ensure_announcement_file(
+    mhd_file_path: Path, announcement_file_path: Path
+) -> None:
+    if not announcement_file_path.exists():
+        mhd_data_json = json.loads(mhd_file_path.read_text())
+        create_announcement_file(mhd_data_json, None, str(announcement_file_path))
+    if announcement_file_path.exists():
+        enrich_announcement_file(mhd_file_path, announcement_file_path)
 
 
 def convert_mw_study_to_mhd_legacy(
@@ -46,10 +58,16 @@ def convert_mw_study_to_mhd_legacy(
         return False, {}
 
     mhd_file_path = mhd_output_root_path / Path(mhd_output_filename)
-    return validate_mhd_model(
+    success, errors = validate_mhd_model(
         mw_study_id,
         mhd_file_path,
     )
+    announcement_file_path = mhd_output_root_path / f"{mw_study_id}.announcement.json"
+    try:
+        ensure_announcement_file(mhd_file_path, announcement_file_path)
+    except Exception as ex:
+        logger.error("Error creating announcement file for study %s: %s", mw_study_id, ex)
+    return success, errors
 
 
 def write_to_file(errors_file_path, success, errors):

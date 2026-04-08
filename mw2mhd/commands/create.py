@@ -1,8 +1,8 @@
 import logging
 
 import click
-from mhd_model.commands.create.announcement import create_announcement_file_task
 
+from mw2mhd.commands.create_announcement import create_announcement_file_task
 from mw2mhd.commands.create_mhd_file import create_mhd_file_task
 
 logger = logging.getLogger(__name__)

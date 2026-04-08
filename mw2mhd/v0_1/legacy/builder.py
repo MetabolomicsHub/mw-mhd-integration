@@ -837,9 +837,9 @@ class MhdLegacyDatasetBuilder:
                 pi_emails = self.parse_email(mhd_study.repository_identifier, pi_email)
                 mhd_pi = mhd_domain.Person(
                     full_name=pi_full_name,
-                    emails=pi_emails,
-                    addresses=[pi_address],
-                    phones=[pi_phone],
+                    email_list=pi_emails or None,
+                    address_list=[pi_address] if pi_address else None,
+                    phone_list=[pi_phone] if pi_phone else None,
                 )
                 mhd_builder.add(mhd_pi)
             mhd_builder.link(
@@ -881,7 +881,7 @@ class MhdLegacyDatasetBuilder:
 
     def parse_email(self, mw_study_id, email: str) -> list[str]:
         if not email or len(email) < 5:
-            logger.warning("%s: '%s' email is not valid. %s", mw_study_id, email)
+            logger.warning("%s: '%s' email is not valid.", mw_study_id, email)
             return []
         email = email.replace(";", ",")
         email = email.replace(" ", "")
@@ -919,9 +919,9 @@ class MhdLegacyDatasetBuilder:
             )
             mhd_submitter = mhd_domain.Person(
                 full_name=submitter_full_name,
-                emails=submitter_emails,
-                addresses=[submitter_address],
-                phones=[submitter_phone],
+                email_list=submitter_emails or None,
+                address_list=[submitter_address] if submitter_address else None,
+                phone_list=[submitter_phone] if submitter_phone else None,
             )
             mhd_builder.add(mhd_submitter)
             mhd_builder.link(
