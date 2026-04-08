@@ -67,7 +67,7 @@ class CompressedFileItem(BaseModel):
 class StudyFiles(BaseModel):
     study_id: str = ""
     files: list[str] = []
-    compressed_file_content: dict[str, list[CompressedFileItem]]
+    compressed_file_content: dict[str, list[CompressedFileItem]] = {}
 
 
 def fetch_all_available_mw_studies() -> list[str]:

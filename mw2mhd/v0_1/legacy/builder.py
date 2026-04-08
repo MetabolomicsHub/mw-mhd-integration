@@ -473,14 +473,18 @@ class MhdLegacyDatasetBuilder:
         #     mhd_builder, mwtab, mhd_study, mhd_assays
         # )
         # chromotography_protocols: dict[str, mhd_domain.Protocol] = protocols
+
+        # #####################################################################################
+        # # Add raw and result data files
+        # #####################################################################################
+        raw_data_files = self.process_study_files(mhd_builder, mhd_study, study_files)
+
         # #####################################################################################
         # # Add study factors, raw-data-files, samples, subjects, factor values.
         # #####################################################################################
         self.process_study_design(
-            mhd_builder, mwtab, mhd_study, mhd_assays, mw_study_id
+            mhd_builder, mwtab, mhd_study, mhd_assays, mw_study_id, raw_data_files
         )
-
-        self.process_study_files(mhd_builder, mhd_study, study_files, mw_study_id)
 
         # #####################################################################################
         # # Add metabolites and metabolite-identifiers
@@ -515,8 +519,9 @@ class MhdLegacyDatasetBuilder:
         mhd_builder: MhDatasetBuilder,
         mhd_study: mhd_domain.Study,
         study_files: StudyFiles,
-        mw_study_id: str,
-    ):
+    ) -> dict[str, list[mhd_domain.RawDataFile]]:
+        data_files: dict[str, list[mhd_domain.RawDataFile]] = {}
+
         for filename in study_files.files:
             extension = Path(filename).suffix
             url = f"https://www.metabolomicsworkbench.org/studydownload/{filename}"
@@ -549,15 +554,22 @@ class MhdLegacyDatasetBuilder:
                     reverse_relationship_name="created-in",
                 )
         raw_data_folders = set()
+        if not study_files.compressed_file_content:
+            return data_files
         for k, v in study_files.compressed_file_content.items():
             for item in v:
                 raw_data_name = re.sub(r"(?i)(\.(raw|d))/.*$", r"\1", item.name)
                 if raw_data_name in raw_data_folders:
                     continue
-                raw_data_folders.add(raw_data_name)
+
                 url = f"https://www.metabolomicsworkbench.org/studydownload/{k}#{raw_data_name}"
-                ext = Path(raw_data_name).suffix
-                file = RawDataFile(
+                file_path = Path(raw_data_name)
+                filename = file_path.name
+                if filename not in data_files:
+                    data_files[filename] = []
+
+                ext = file_path.suffix
+                file = mhd_domain.RawDataFile(
                     repository_identifier=f"{k}#{raw_data_name}",
                     name=f"{k}#{raw_data_name}",
                     extension=ext,
@@ -565,12 +577,16 @@ class MhdLegacyDatasetBuilder:
                     url_list=[url],
                 )
                 mhd_builder.add(file)
+                raw_data_folders.add(raw_data_name)
+
+                data_files[filename].append(file)
                 mhd_builder.link(
                     mhd_study,
                     "has-raw-data-file",
                     file,
                     reverse_relationship_name="created-in",
                 )
+        return data_files
 
     def process_study_design(
         self,
@@ -579,6 +595,7 @@ class MhdLegacyDatasetBuilder:
         mhd_study: mhd_domain.Study,
         mhd_assays: dict[str, mhd_domain.Assay],
         mw_study_id: str,
+        raw_data_files: dict[str, list[mhd_domain.RawDataFile]],
     ):
         """Process study design on SUBJECT_SAMPLE_FACTORS section and create
         subject, sample, factor definition, factor value.
@@ -667,7 +684,6 @@ class MhdLegacyDatasetBuilder:
             )
             sample_factors: dict[str, Any] = item.get("Factors", {})
             sample_additional_data = item.get("Additional sample data", {})
-            raw_data_files = []
             for field in sample_additional_data:
                 if field.upper().startswith("RAW_FILE_NAME"):
                     raw_data_file_names = sample_additional_data[field]
@@ -677,24 +693,23 @@ class MhdLegacyDatasetBuilder:
                         for raw_data_file_name in raw_data_file_names:
                             if not raw_data_file_name or len(raw_data_file_name) < 2:
                                 continue
-                            extension = Path(raw_data_file_name).suffix
-                            # TODO: URL may not a valid URL.
-                            url = f"https://dashboard.gnps2.org/?usi=mzspec:{mw_study_id}:{raw_data_file_name}"
-                            raw_data_file = mhd_domain.RawDataFile(
-                                repository_identifier=f"{mhd_study.repository_identifier}:{raw_data_file_name}",
-                                name=raw_data_file_name,
-                                extension=extension,
-                                url_list=[url],
+                            # link sample run with raw data file
+                            file_path = Path(raw_data_file_name)
+                            raw_data_files_list: None | list[mhd_domain.RawDataFile] = (
+                                raw_data_files.get(file_path.name)
                             )
-                            mhd_builder.add(raw_data_file)
-                            sample_run.raw_data_file_refs.append(raw_data_file.id_)
-                            mhd_builder.link(
-                                mhd_study,
-                                "has-raw-data-file",
-                                raw_data_file,
-                                reverse_relationship_name="created-in",
-                            )
-                            raw_data_files.append(raw_data_file)
+                            if not raw_data_files_list:
+                                raw_data_files_list = raw_data_files.get(file_path.stem)
+                            if not raw_data_files_list:
+                                continue
+                            data_file = raw_data_files_list[0]
+                            if len(raw_data_files_list) > 1:
+                                logger.warning(
+                                    "Multiple raw data file nodes found for %s, "
+                                    "using the first one",
+                                    raw_data_file_name,
+                                )
+                            sample_run.raw_data_file_refs.append(data_file.id_)
 
             # map sample source or tissue -> organism part
             # others will be sample factor
