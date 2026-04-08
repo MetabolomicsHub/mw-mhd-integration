@@ -521,8 +521,8 @@ class MhdLegacyDatasetBuilder:
         mhd_builder: MhDatasetBuilder,
         mhd_study: mhd_domain.Study,
         study_files: StudyFiles,
-    ) -> dict[str, list[mhd_domain.RawDataFile]]:
-        data_files: dict[str, list[mhd_domain.RawDataFile]] = {}
+    ) -> dict[str, dict[str, mhd_domain.RawDataFile]]:
+        data_files: dict[str, dict[str, mhd_domain.RawDataFile]] = {}
 
         for filename in study_files.files:
             extension = Path(filename).suffix
@@ -568,8 +568,9 @@ class MhdLegacyDatasetBuilder:
                 file_path = Path(raw_data_name)
                 filename = file_path.name
                 if filename not in data_files:
-                    data_files[filename] = []
-
+                    data_files[filename] = {}
+                if raw_data_name not in data_files[filename]:
+                    data_files[filename][raw_data_name] = []
                 ext = file_path.suffix
                 file = mhd_domain.RawDataFile(
                     repository_identifier=f"{k}#{raw_data_name}",
@@ -581,7 +582,7 @@ class MhdLegacyDatasetBuilder:
                 mhd_builder.add(file)
                 raw_data_folders.add(raw_data_name)
 
-                data_files[filename].append(file)
+                data_files[filename][raw_data_name].append(file)
                 mhd_builder.link(
                     mhd_study,
                     "has-raw-data-file",
@@ -597,7 +598,7 @@ class MhdLegacyDatasetBuilder:
         mhd_study: mhd_domain.Study,
         mhd_assays: dict[str, mhd_domain.Assay],
         mw_study_id: str,
-        raw_data_files: dict[str, list[mhd_domain.RawDataFile]],
+        raw_data_files: dict[str, dict[str, mhd_domain.RawDataFile]],
     ):
         """Process study design on SUBJECT_SAMPLE_FACTORS section and create
         subject, sample, factor definition, factor value.
@@ -704,13 +705,19 @@ class MhdLegacyDatasetBuilder:
                                 raw_data_files_list = raw_data_files.get(file_path.stem)
                             if not raw_data_files_list:
                                 continue
-                            data_file = raw_data_files_list[0]
+
                             if len(raw_data_files_list) > 1:
-                                logger.warning(
-                                    "Multiple raw data file nodes found for %s, "
-                                    "using the first one",
-                                    raw_data_file_name,
-                                )
+                                data_file = raw_data_files_list.get(raw_data_file_name)
+                                if not data_file:
+                                    logger.warning(
+                                        "Multiple raw data file nodes found for %s: %s",
+                                        raw_data_file_name,
+                                        ", ".join(list(raw_data_files_list.keys())),
+                                    )
+                                    continue
+                            else:
+                                data_file = list(raw_data_files_list.values())[0][0]
+
                             sample_run.raw_data_file_refs.append(data_file.id_)
 
             # map sample source or tissue -> organism part
