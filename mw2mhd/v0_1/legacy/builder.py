@@ -1,8 +1,3 @@
-from mhd_model.model.v0_1.dataset.profiles.base.graph_nodes import RawDataFile
-from mw2mhd.v0_1.legacy.mw_utils import StudyFiles
-from mw2mhd.v0_1.legacy.mw_utils import StudySummary
-from mw2mhd.v0_1.legacy.mw_utils import fetch_mw_study_files
-from mw2mhd.v0_1.legacy.mw_utils import fetch_mw_study_summary
 import csv
 import datetime
 import logging
@@ -32,7 +27,14 @@ from pydantic import HttpUrl
 
 import mw2mhd
 from mw2mhd.config import Mw2MhdConfiguration
-from mw2mhd.v0_1.legacy.mw_utils import fetch_mw_data, fetch_mw_metabolites
+from mw2mhd.v0_1.legacy.mw_utils import (
+    StudyFiles,
+    StudySummary,
+    fetch_mw_data,
+    fetch_mw_metabolites,
+    fetch_mw_study_files,
+    fetch_mw_study_summary,
+)
 
 logger = logging.getLogger(__name__)
 

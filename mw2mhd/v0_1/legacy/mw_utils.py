@@ -1,4 +1,3 @@
-from pydantic import field_validator
 import json
 import logging
 import re
@@ -7,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 import httpx
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 logger = logging.getLogger(__name__)
 
