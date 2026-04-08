@@ -556,7 +556,7 @@ class MhdLegacyDatasetBuilder:
                     continue
                 raw_data_folders.add(raw_data_name)
                 url = f"https://www.metabolomicsworkbench.org/studydownload/{k}#{raw_data_name}"
-                ext = Path(item.name).suffix
+                ext = Path(raw_data_name).suffix
                 file = RawDataFile(
                     repository_identifier=f"{k}#{raw_data_name}",
                     name=f"{k}#{raw_data_name}",
