@@ -1,9 +1,11 @@
 import json
 import logging
+import traceback
 from pathlib import Path
 
 import jsonschema
 from mhd_model.convertors.announcement.convertor import create_announcement_file
+from jsonschema import ValidationError
 from mhd_model.model.v0_1.dataset.validation.validator import validate_mhd_model
 
 from mw2mhd.announcement_enricher import enrich_announcement_file
@@ -55,12 +57,20 @@ def convert_mw_study_to_mhd_legacy(
         )
     except Exception as ex:
         logger.error("Error converting study %s: %s", mw_study_id, ex)
-        return False, {}
+        traceback.print_exc()
+        return False, {
+            "conversion_error": [("convertion", ValidationError(message=str(ex)))]
+        }
 
     mhd_file_path = mhd_output_root_path / Path(mhd_output_filename)
+    
+    mhd_file_url = (
+        f"https://www.metabolomicsworkbench.org/data/mhd.php?MHD_ID={mw_study_id}"
+    )
     success, errors = validate_mhd_model(
         mw_study_id,
         mhd_file_path,
+        mhd_file_url=mhd_file_url,
     )
     announcement_file_path = mhd_output_root_path / f"{mw_study_id}.announcement.json"
     try:
