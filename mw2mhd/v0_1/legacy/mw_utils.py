@@ -1,3 +1,4 @@
+from pydantic import field_validator
 import json
 import logging
 import re
@@ -11,12 +12,62 @@ from pydantic import BaseModel
 logger = logging.getLogger(__name__)
 
 
+class MwDataResponse(BaseModel): ...
+
+
 class MetaboliteIdentification(BaseModel):
     study_id: str = ""
     analysis_id: str = ""
     analysis_summary: str = ""
     metabolite_name: str = ""
     refmet_name: str = ""
+
+
+class StudySummary(BaseModel):
+    study_id: str = ""
+    submission_date: str = ""
+    release_date: str = ""
+    version: str = ""
+    revision_no: str = ""
+    revision_datetime: str = ""
+    revision_comment: str = ""
+    license: str = ""
+    license_url: str = ""
+    study_url: str = ""
+
+    @field_validator(
+        "revision_comment",
+        "revision_datetime",
+        "revision_no",
+        "version",
+        "submission_date",
+        "release_date",
+        "license",
+        "study_url",
+    )
+    @classmethod
+    def field_validator_empty_string(cls, value):
+        if value is None or value == "-":
+            return ""
+        return value
+
+    @field_validator("license_url")
+    @classmethod
+    def license_url_validator(cls, value):
+        if value is None or value == "-":
+            return ""
+        return value.rstrip("/") + "/"
+
+
+class CompressedFileItem(BaseModel):
+    name: str = ""
+    size: int = 0
+
+
+class StudyFiles(BaseModel):
+    study_id: str = ""
+    files: list[str] = []
+    compressed_file_content: dict[str, list[CompressedFileItem]]
 
 
 def fetch_all_available_mw_studies() -> list[str]:
@@ -32,6 +83,74 @@ def fetch_all_available_mw_studies() -> list[str]:
     except Exception as ex:
         logger.error(ex)
         return []
+
+
+def fetch_mw_study_files(
+    study_id: str, data_path: None | Path = None
+) -> None | StudyFiles:
+    try:
+        if not data_path:
+            data_path: Path = Path(".outputs/mw_dataset")
+        data_path.mkdir(parents=True, exist_ok=True)
+        study_path = data_path / Path(f"{study_id}_files.json")
+        if study_path.exists():
+            with study_path.open() as f:
+                content = json.JSONDecoder(object_pairs_hook=OrderedDict).decode(
+                    f.read()
+                )
+            return StudyFiles.model_validate(content.get("files", {}))
+        else:
+            url = f"https://www.metabolomicsworkbench.org/data/study_files.php?STUDY_ID={study_id}"
+            response = httpx.get(url, timeout=20)
+            response.raise_for_status()
+            data_list = get_response_json(response.text)
+            if not data_list or not isinstance(data_list, list):
+                return None
+            data = data_list[0]
+            with study_path.open("w") as f:
+                json.dump({"files": data}, f, indent=4)
+            return StudyFiles.model_validate(data)
+
+    except Exception as ex:
+        import traceback
+
+        traceback.print_exc()
+        logger.error("%s: %s", study_id, ex)
+        return None
+
+
+def fetch_mw_study_summary(
+    study_id: str, data_path: None | Path = None
+) -> None | StudySummary:
+    try:
+        if not data_path:
+            data_path: Path = Path(".outputs/mw_dataset")
+        data_path.mkdir(parents=True, exist_ok=True)
+        study_path = data_path / Path(f"{study_id}_summary.json")
+        if study_path.exists():
+            with study_path.open() as f:
+                content = json.JSONDecoder(object_pairs_hook=OrderedDict).decode(
+                    f.read()
+                )
+            return StudySummary.model_validate(content.get("summary", {}))
+        else:
+            url = f"https://www.metabolomicsworkbench.org/rest/study/study_id/{study_id}/summary"
+            response = httpx.get(url, timeout=20)
+            response.raise_for_status()
+            data_list = get_response_json(response.text)
+            if not data_list or not isinstance(data_list, list):
+                return None
+            data = data_list[0]
+            with study_path.open("w") as f:
+                json.dump({"summary": data}, f, indent=4)
+            return StudySummary.model_validate(data)
+
+    except Exception as ex:
+        import traceback
+
+        traceback.print_exc()
+        logger.error("%s: %s", study_id, ex)
+        return None
 
 
 def fetch_mw_metabolites(
