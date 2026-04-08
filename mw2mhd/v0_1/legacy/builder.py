@@ -1,3 +1,4 @@
+from mhd_model.model.v0_1.dataset.profiles.base.graph_nodes import RawDataFile
 from mw2mhd.v0_1.legacy.mw_utils import StudyFiles
 from mw2mhd.v0_1.legacy.mw_utils import StudySummary
 from mw2mhd.v0_1.legacy.mw_utils import fetch_mw_study_files
@@ -5,6 +6,7 @@ from mw2mhd.v0_1.legacy.mw_utils import fetch_mw_study_summary
 import csv
 import datetime
 import logging
+import re
 from importlib import resources
 from pathlib import Path
 from typing import Any, OrderedDict
@@ -546,13 +548,18 @@ class MhdLegacyDatasetBuilder:
                     file,
                     reverse_relationship_name="created-in",
                 )
+        raw_data_folders = set()
         for k, v in study_files.compressed_file_content.items():
             for item in v:
-                url = f"https://www.metabolomicsworkbench.org/studydownload/{k}#{item.name}"
+                raw_data_name = re.sub(r"(?i)(\.(raw|d))/.*$", r"\1", item.name)
+                if raw_data_name in raw_data_folders:
+                    continue
+                raw_data_folders.add(raw_data_name)
+                url = f"https://www.metabolomicsworkbench.org/studydownload/{k}#{raw_data_name}"
                 ext = Path(item.name).suffix
-                file = mhd_domain.RawDataFile(
-                    repository_identifier=f"{k}#{item.name}",
-                    name=f"{k}#{item.name}",
+                file = RawDataFile(
+                    repository_identifier=f"{k}#{raw_data_name}",
+                    name=f"{k}#{raw_data_name}",
                     extension=ext,
                     size=item.size,
                     url_list=[url],
