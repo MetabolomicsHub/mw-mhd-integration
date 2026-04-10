@@ -800,7 +800,7 @@ wheels = [
 
 [[package]]
 name = "mhd-model"
-version = "0.1.74"
+version = "0.1.76"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "bioregistry" },
@@ -813,14 +813,16 @@ dependencies = [
     { name = "jsonschema" },
     { name = "pre-commit" },
     { name = "pydantic" },
+    { name = "pygments" },
     { name = "python-dateutil" },
     { name = "pytz" },
     { name = "pyyaml" },
     { name = "reachable" },
+    { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8c/98/fffd3be22e8e3dc820fff750543da046147e53cb3d22cd4a235fb0037938/mhd_model-0.1.74.tar.gz", hash = "sha256:e1db8c3f1f09674074f0da95a6ba11204dc8205b39ef9207c869e9264426e7b2", size = 113272, upload-time = "2026-04-07T15:11:00.207Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/1b/1f/69b1e5c6bc616c489db6ce5319cab2a235ae132714bc897ca841fa87c158/mhd_model-0.1.76.tar.gz", hash = "sha256:8c173b32db27157b3ce26604510da1470ee2f45c77672740943830c1a1d08b34", size = 113432, upload-time = "2026-04-10T22:56:00.97Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/18/23/393bccf7333dd0666633823413a77fd32e9d5ac7977076452a103965f57b/mhd_model-0.1.74-py3-none-any.whl", hash = "sha256:4aec1b1ed632b4d255821832bac1d21a02208fd0c055b44e30fe334d640bee4d", size = 145231, upload-time = "2026-04-07T15:11:01.382Z" },
+    { url = "https://files.pythonhosted.org/packages/6b/15/12ffce6508961569708aa42239a1931594a04cf124683fdcae51302bafd1/mhd_model-0.1.76-py3-none-any.whl", hash = "sha256:99324eb9010476c3c9eb09f2a09f3eb1a7aa33c8700af1b9289a1d84c3bba9a5", size = 145290, upload-time = "2026-04-10T22:56:01.85Z" },
 ]
 
 [[package]]
@@ -928,7 +930,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "mhd-model", specifier = ">=0.1.74" },
+    { name = "mhd-model", specifier = ">=0.1.76" },
     { name = "pydantic", specifier = ">=2.11.7" },
     { name = "pydantic-settings", specifier = ">=2.10.1" },
     { name = "xmltodict", specifier = ">=0.15.1" },
