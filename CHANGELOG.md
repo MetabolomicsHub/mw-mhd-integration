@@ -1,3 +1,9 @@
+## v0.0.24 (2026-04-10)
+
+### Fix
+
+- announcement file updates and security fixes
+
 ## v0.0.23 (2026-04-08)
 
 ### Fix

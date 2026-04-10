@@ -908,7 +908,7 @@ wheels = [
 
 [[package]]
 name = "mw-mhd-integration"
-version = "0.0.23"
+version = "0.0.24"
 source = { editable = "." }
 dependencies = [
     { name = "mhd-model" },
