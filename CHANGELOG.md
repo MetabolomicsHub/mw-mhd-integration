@@ -1,3 +1,9 @@
+## v0.0.23 (2026-04-08)
+
+### Fix
+
+- multiple filename in different folder causes conflicts. Ignore conflicts
+
 ## v0.0.22 (2026-04-08)
 
 ### Fix
