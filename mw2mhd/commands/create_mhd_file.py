@@ -9,6 +9,7 @@ from mhd_model.model.definitions import (
 )
 
 from mw2mhd.convertor_factory import Mw2MhdConvertorFactory
+from mw2mhd.mhd_enricher import enrich_mhd_file
 
 logger = logging.getLogger(__name__)
 
@@ -84,6 +85,8 @@ def create_mhd_file_task(
             mhd_output_filename=output_filename,
             data_path=Path(data_path),
         )
+        filename = output_filename or f"{mw_study_id}.mhd.json"
+        enrich_mhd_file(mhd_output_root_path / filename, data_path=Path(data_path))
         click.echo(f"{mw_study_id} is converted successfully.")
     except Exception as ex:
         traceback.print_exc()

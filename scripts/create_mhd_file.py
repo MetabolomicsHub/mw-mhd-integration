@@ -16,6 +16,7 @@ from mw2mhd.config import (
 from mw2mhd.convertor_factory import (
     Mw2MhdConvertorFactory,
 )
+from mw2mhd.mhd_enricher import enrich_mhd_file
 from scripts.utils import setup_basic_logging_config
 
 logger = logging.getLogger(__name__)
@@ -46,6 +47,7 @@ def convert_mw_study_to_mhd_legacy(
     data_path = Path(".outputs/mw_dataset")
     mhd_output_root_path.mkdir(exist_ok=True, parents=True)
     mhd_output_filename = f"{mw_study_id}.mhd.json"
+    mhd_file_path = mhd_output_root_path / Path(mhd_output_filename)
     try:
         convertor.convert(
             repository_name="Metabolomics Workbench",
@@ -55,6 +57,7 @@ def convert_mw_study_to_mhd_legacy(
             mhd_output_filename=mhd_output_filename,
             data_path=data_path,
         )
+        enrich_mhd_file(mhd_file_path, data_path=data_path)
     except Exception as ex:
         logger.error("Error converting study %s: %s", mw_study_id, ex)
         traceback.print_exc()
@@ -62,8 +65,6 @@ def convert_mw_study_to_mhd_legacy(
             "conversion_error": [("convertion", ValidationError(message=str(ex)))]
         }
 
-    mhd_file_path = mhd_output_root_path / Path(mhd_output_filename)
-    
     mhd_file_url = (
         f"https://www.metabolomicsworkbench.org/data/mhd.php?MHD_ID={mw_study_id}"
     )
