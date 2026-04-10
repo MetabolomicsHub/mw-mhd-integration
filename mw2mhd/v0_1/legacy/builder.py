@@ -1,6 +1,7 @@
 import csv
 import datetime
 import logging
+import re
 from importlib import resources
 from pathlib import Path
 from typing import Any, OrderedDict
@@ -26,7 +27,14 @@ from pydantic import HttpUrl
 
 import mw2mhd
 from mw2mhd.config import Mw2MhdConfiguration
-from mw2mhd.v0_1.legacy.mw_utils import fetch_mw_data, fetch_mw_metabolites
+from mw2mhd.v0_1.legacy.mw_utils import (
+    StudyFiles,
+    StudySummary,
+    fetch_mw_data,
+    fetch_mw_metabolites,
+    fetch_mw_study_files,
+    fetch_mw_study_summary,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -286,9 +294,9 @@ class MhdLegacyDatasetBuilder:
             raise ValueError(f"{mw_study_id} has non-MS analysis: {analysis_types}")
 
         analysis_id = analysis_list[0]
-        mw_section: dict[str, Any] = mwtab.get(analysis_id, {}).get(
-            "METABOLOMICS WORKBENCH", {}
-        )
+        # mw_section: dict[str, Any] = mwtab.get(analysis_id, {}).get(
+        #     "METABOLOMICS WORKBENCH", {}
+        # )
         # select first analysis to fetch study level metadata
         first_analysis = mwtab.get(analysis_id, {})
         study_section: dict[str, Any] = first_analysis.get("STUDY", {})
@@ -299,17 +307,40 @@ class MhdLegacyDatasetBuilder:
         # Create a dataset builder
         # TODO: fetch revision and revision date information from other source if it exists.
         #####################################################################################
+        study_summary = fetch_mw_study_summary(mw_study_id, data_path=data_path)
+        if not study_summary:
+            raise ValueError(f"Could not fetch study summary for study {mw_study_id}")
+        if not study_summary.license_url:
+            raise ValueError(f"Could not fetch license url for study {mw_study_id}")
+        if not study_summary.submission_date:
+            raise ValueError(f"Could not fetch submission date for study {mw_study_id}")
+        if not study_summary.release_date:
+            raise ValueError(f"Could not fetch release date for study {mw_study_id}")
 
-        revision_number = int(mw_section.get("VERSION", 1))
+        study_files = fetch_mw_study_files(mw_study_id, data_path=data_path)
+        if not study_files:
+            raise ValueError(f"Could not fetch study files for study {mw_study_id}")
+        if not revision and study_summary.revision_datetime:
+            revision = Revision(
+                revision=int(study_summary.revision_no)
+                if study_summary.revision_no and study_summary.revision_no.isnumeric()
+                else 0,
+                revision_datetime=datetime.datetime.strptime(
+                    study_summary.revision_datetime, "%Y-%m-%d"
+                )
+                if study_summary.revision_datetime
+                else None,
+                comment=study_summary.revision_comment,
+            )
         mhd_builder = MhDatasetBuilder(
             repository_name=repository_name,
             mhd_identifier=None,
             repository_identifier=mw_study_id,
             schema_name=target_mhd_model_schema_uri,
             profile_uri=target_mhd_model_profile_uri,
-            repository_revision=revision_number,
+            repository_revision=revision.revision if revision else 0,
             repository_revision_datetime=revision.revision_datetime
-            if revision
+            if revision and revision.revision_datetime
             else None,
             change_log=[revision] if revision else None,
         )
@@ -324,7 +355,7 @@ class MhdLegacyDatasetBuilder:
         # protocols and links will be defined after initial creation.
         #####################################################################################
         mhd_study = self.create_study(
-            mhd_builder, study_section, mw_study_id, dataset_provider
+            mhd_builder, study_section, mw_study_id, dataset_provider, study_summary
         )
 
         # #####################################################################################
@@ -444,11 +475,17 @@ class MhdLegacyDatasetBuilder:
         #     mhd_builder, mwtab, mhd_study, mhd_assays
         # )
         # chromotography_protocols: dict[str, mhd_domain.Protocol] = protocols
+
+        # #####################################################################################
+        # # Add raw and result data files
+        # #####################################################################################
+        raw_data_files = self.process_study_files(mhd_builder, mhd_study, study_files)
+
         # #####################################################################################
         # # Add study factors, raw-data-files, samples, subjects, factor values.
         # #####################################################################################
         self.process_study_design(
-            mhd_builder, mwtab, mhd_study, mhd_assays, mw_study_id
+            mhd_builder, mwtab, mhd_study, mhd_assays, mw_study_id, raw_data_files
         )
 
         # #####################################################################################
@@ -479,6 +516,81 @@ class MhdLegacyDatasetBuilder:
         )
         return mhd_dataset
 
+    def process_study_files(
+        self,
+        mhd_builder: MhDatasetBuilder,
+        mhd_study: mhd_domain.Study,
+        study_files: StudyFiles,
+    ) -> dict[str, dict[str, mhd_domain.RawDataFile]]:
+        data_files: dict[str, dict[str, mhd_domain.RawDataFile]] = {}
+
+        for filename in study_files.files:
+            extension = Path(filename).suffix
+            url = f"https://www.metabolomicsworkbench.org/studydownload/{filename}"
+            if extension.lower() in [".txt"]:
+                file = mhd_domain.ResultFile(
+                    repository_identifier=filename,
+                    name=filename,
+                    extension=extension,
+                    url_list=[url],
+                )
+                mhd_builder.add(file)
+                mhd_builder.link(
+                    mhd_study,
+                    "has-result-file",
+                    file,
+                    reverse_relationship_name="created-in",
+                )
+            else:
+                file = mhd_domain.RawDataFile(
+                    repository_identifier=filename,
+                    name=filename,
+                    extension=extension,
+                    url_list=[url],
+                )
+                mhd_builder.add(file)
+                mhd_builder.link(
+                    mhd_study,
+                    "has-raw-data-file",
+                    file,
+                    reverse_relationship_name="created-in",
+                )
+        raw_data_folders = set()
+        if not study_files.compressed_file_content:
+            return data_files
+        for k, v in study_files.compressed_file_content.items():
+            for item in v:
+                raw_data_name = re.sub(r"(?i)(\.(raw|d))/.*$", r"\1", item.name)
+                if raw_data_name in raw_data_folders:
+                    continue
+
+                url = f"https://www.metabolomicsworkbench.org/studydownload/{k}#{raw_data_name}"
+                file_path = Path(raw_data_name)
+                filename = file_path.name
+                if filename not in data_files:
+                    data_files[filename] = {}
+                if raw_data_name not in data_files[filename]:
+                    data_files[filename][raw_data_name] = []
+                ext = file_path.suffix
+                file = mhd_domain.RawDataFile(
+                    repository_identifier=f"{k}#{raw_data_name}",
+                    name=f"{k}#{raw_data_name}",
+                    extension=ext,
+                    size=item.size,
+                    url_list=[url],
+                )
+                mhd_builder.add(file)
+                raw_data_folders.add(raw_data_name)
+
+                data_files[filename][raw_data_name].append(file)
+                mhd_builder.link(
+                    mhd_study,
+                    "has-raw-data-file",
+                    file,
+                    reverse_relationship_name="created-in",
+                )
+        return data_files
+
     def process_study_design(
         self,
         mhd_builder: MhDatasetBuilder,
@@ -486,6 +598,7 @@ class MhdLegacyDatasetBuilder:
         mhd_study: mhd_domain.Study,
         mhd_assays: dict[str, mhd_domain.Assay],
         mw_study_id: str,
+        raw_data_files: dict[str, dict[str, mhd_domain.RawDataFile]],
     ):
         """Process study design on SUBJECT_SAMPLE_FACTORS section and create
         subject, sample, factor definition, factor value.
@@ -574,7 +687,6 @@ class MhdLegacyDatasetBuilder:
             )
             sample_factors: dict[str, Any] = item.get("Factors", {})
             sample_additional_data = item.get("Additional sample data", {})
-            raw_data_files = []
             for field in sample_additional_data:
                 if field.upper().startswith("RAW_FILE_NAME"):
                     raw_data_file_names = sample_additional_data[field]
@@ -584,24 +696,29 @@ class MhdLegacyDatasetBuilder:
                         for raw_data_file_name in raw_data_file_names:
                             if not raw_data_file_name or len(raw_data_file_name) < 2:
                                 continue
-                            extension = Path(raw_data_file_name).suffix
-                            # TODO: URL may not a valid URL.
-                            url = f"https://dashboard.gnps2.org/?usi=mzspec:{mw_study_id}:{raw_data_file_name}"
-                            raw_data_file = mhd_domain.RawDataFile(
-                                repository_identifier=f"{mhd_study.repository_identifier}:{raw_data_file_name}",
-                                name=raw_data_file_name,
-                                extension=extension,
-                                url_list=[url],
+                            # link sample run with raw data file
+                            file_path = Path(raw_data_file_name)
+                            raw_data_files_list: None | list[mhd_domain.RawDataFile] = (
+                                raw_data_files.get(file_path.name)
                             )
-                            mhd_builder.add(raw_data_file)
-                            sample_run.raw_data_file_refs.append(raw_data_file.id_)
-                            mhd_builder.link(
-                                mhd_study,
-                                "has-raw-data-file",
-                                raw_data_file,
-                                reverse_relationship_name="created-in",
-                            )
-                            raw_data_files.append(raw_data_file)
+                            if not raw_data_files_list:
+                                raw_data_files_list = raw_data_files.get(file_path.stem)
+                            if not raw_data_files_list:
+                                continue
+
+                            if len(raw_data_files_list) > 1:
+                                data_file = raw_data_files_list.get(raw_data_file_name)
+                                if not data_file:
+                                    logger.warning(
+                                        "Multiple raw data file nodes found for %s: %s",
+                                        raw_data_file_name,
+                                        ", ".join(list(raw_data_files_list.keys())),
+                                    )
+                                    continue
+                            else:
+                                data_file = list(raw_data_files_list.values())[0][0]
+
+                            sample_run.raw_data_file_refs.append(data_file.id_)
 
             # map sample source or tissue -> organism part
             # others will be sample factor
@@ -1402,6 +1519,7 @@ class MhdLegacyDatasetBuilder:
         study_section: dict[str, Any],
         mw_study_id: str,
         dataset_provider: mhd_domain.CvTermValueObject,
+        study_summary: StudySummary,
     ) -> mhd_domain.Study:
         """Create a study node, set initial property values and link to data-provider
 
@@ -1419,26 +1537,16 @@ class MhdLegacyDatasetBuilder:
         study_title = study_section.get("STUDY_TITLE", "")
         study_description = study_section.get("STUDY_SUMMARY", "")
 
-        # Submittion and release date values are same now!!!
-        # TODO: submission and release dates may be fetched from database.
-        # TODO: Some studies does not have SUBMIT_DATE. eg., ST004186
-        submission_date = self.convert_str_to_datetime(
-            study_section.get("SUBMIT_DATE", None)
-        )
-        release_date = self.convert_str_to_datetime(
-            study_section.get("SUBMIT_DATE", None)
-        )
+        submission_date = self.convert_str_to_datetime(study_summary.submission_date)
+        release_date = self.convert_str_to_datetime(study_summary.release_date)
 
         if not submission_date:
-            # TODO: !!UPDATE IT
             submission_date = datetime.datetime.now(datetime.timezone.utc)
             release_date = submission_date
         mw_study_repository_url = HttpUrl(f"{PUBLIC_MW_STUDY_URL_PREFIX}{mw_study_id}")
 
         #####################################################################################
-        # license_url is None. Incomment if study has a default licence
-        license_url = HttpUrl("https://creativecommons.org/licenses/by/4.0/")
-        # license_url = HttpUrl("https://creativecommons.org/licenses/by/4.0/")
+        license_url = HttpUrl(study_summary.license_url)
         #####################################################################################
 
         mhd_study = mhd_domain.Study(
