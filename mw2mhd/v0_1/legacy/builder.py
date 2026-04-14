@@ -1,3 +1,4 @@
+from mhd_model.model.v0_1.rules.managed_cv_terms import MISSING_PUBLICATION_REASON
 import csv
 import datetime
 import logging
@@ -433,13 +434,14 @@ class MhdLegacyDatasetBuilder:
         )
 
         #####################################################################################
-        # Define publication status TODO: No doi so default value is pending status
+        # Define publication status: No doi so default value is pending status
         #####################################################################################
+        pending = MISSING_PUBLICATION_REASON["pending publication"]
         mhd_publication_status = self.create_cv_term_object(
             type_="descriptor",
-            accession="MS:1002858",
-            name="Dataset with its publication pending",
-            source="MS",
+            accession=pending.accession,
+            name=pending.name,
+            source=pending.source,
         )
         mhd_builder.add(mhd_publication_status)
         mhd_builder.link(
