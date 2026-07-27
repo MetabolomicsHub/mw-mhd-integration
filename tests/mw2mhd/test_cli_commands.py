@@ -25,6 +25,14 @@ def test_cli_help_01():
     runner = CliRunner()
     result = runner.invoke(cli, ["--help"])
     assert result.exit_code == 0
+    result = runner.invoke(cli, ["create", "mhd", "--help"])
+    assert result.exit_code == 0
+    assert "--log-file" in result.output
+    assert "--verbose" in result.output
+    result = runner.invoke(cli, ["create", "legacy-batch", "--help"])
+    assert result.exit_code == 0
+    assert "--log-file" in result.output
+    assert "--verbose" in result.output
     result = runner.invoke(cli)
     assert result.exit_code == 2
     assert result.output.startswith("Usage")
