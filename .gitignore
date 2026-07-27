@@ -200,3 +200,4 @@ cython_debug/
 .codex/
 .DS_Store
 legacy.txt
+.claude/

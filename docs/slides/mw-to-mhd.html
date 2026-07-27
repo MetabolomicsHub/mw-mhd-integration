@@ -1,0 +1,1118 @@
+<title>MW → MHD: Following One Study Through the Machine</title>
+
+<style>
+  :root {
+    --slate:   #5f7d8c;
+    --teal:    #1f6f63;
+    --indigo:  #4a5794;
+    --amber:   #c26f1c;
+
+    --ink:     #131a1d;
+    --ink-2:   #3f4d53;
+    --ink-3:   #6b7a80;
+    --paper:   #f4f6f6;
+    --card:    #ffffff;
+    --rule:    #d3dcdc;
+    --rule-2:  #e6ecec;
+
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    --s1: .28rem; --s2: .55rem; --s3: .9rem; --s4: 1.4rem; --s5: 2.1rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --slate:  #8fb0c0;
+      --teal:   #52b3a2;
+      --indigo: #8e9ad8;
+      --amber:  #e59b45;
+
+      --ink:    #eef3f3;
+      --ink-2:  #b9c6c8;
+      --ink-3:  #849699;
+      --paper:  #0e1416;
+      --card:   #161f22;
+      --rule:   #2b3a3e;
+      --rule-2: #202c2f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --slate:  #8fb0c0; --teal: #52b3a2; --indigo: #8e9ad8; --amber: #e59b45;
+    --ink: #eef3f3; --ink-2: #b9c6c8; --ink-3: #849699;
+    --paper: #0e1416; --card: #161f22; --rule: #2b3a3e; --rule-2: #202c2f;
+  }
+  :root[data-theme="light"] {
+    --slate: #5f7d8c; --teal: #1f6f63; --indigo: #4a5794; --amber: #c26f1c;
+    --ink: #131a1d; --ink-2: #3f4d53; --ink-3: #6b7a80;
+    --paper: #f4f6f6; --card: #ffffff; --rule: #d3dcdc; --rule-2: #e6ecec;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- deck shell ---------- */
+
+  .deck {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: var(--s4) var(--s3) var(--s5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s3);
+  }
+
+  .stage {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    aspect-ratio: 16 / 9.6;
+    min-height: 420px;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    padding: clamp(1.1rem, 3.1vw, 2.5rem);
+    display: none;
+    flex-direction: column;
+    gap: var(--s3);
+    overflow-y: auto;
+  }
+  .slide.is-active { display: flex; }
+
+  /* ---------- type ---------- */
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: clamp(.6rem, 1.05vw, .72rem);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: flex;
+    align-items: baseline;
+    gap: var(--s2);
+    flex-wrap: wrap;
+  }
+  .eyebrow > span + span:not(.opt)::before { content: "· "; color: var(--ink-3); }
+  .eyebrow .owner { color: var(--teal); }
+  .eyebrow .owner.model { color: var(--indigo); }
+  .eyebrow .owner.ext { color: var(--slate); }
+
+  h1 {
+    font-family: var(--mono);
+    font-size: clamp(1.5rem, 4vw, 2.7rem);
+    line-height: 1.1;
+    letter-spacing: -.015em;
+    margin: 0;
+    text-wrap: balance;
+    font-weight: 600;
+  }
+  h2 {
+    font-family: var(--mono);
+    font-size: clamp(1.05rem, 2.5vw, 1.6rem);
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    margin: 0;
+    text-wrap: balance;
+    font-weight: 600;
+  }
+  .lede {
+    font-size: clamp(.86rem, 1.55vw, 1.02rem);
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin: 0;
+  }
+  p { margin: 0; }
+  strong { font-weight: 650; color: var(--ink); }
+
+  code, .m { font-family: var(--mono); font-size: .88em; }
+  code {
+    background: var(--rule-2);
+    padding: .08em .34em;
+    border-radius: 2px;
+    color: var(--ink);
+  }
+
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+  /* ---------- building blocks ---------- */
+
+  .cols { display: grid; gap: var(--s4); align-items: start; }
+  .cols.two   { grid-template-columns: 1fr 1fr; }
+  .cols.d3070 { grid-template-columns: 1fr 1.5fr; }
+  .cols.d7030 { grid-template-columns: 1.5fr 1fr; }
+  @media (max-width: 760px) { .cols.two, .cols.d3070, .cols.d7030 { grid-template-columns: 1fr; } }
+
+  .grow { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: var(--s3); }
+
+  ul.plain { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--s2); }
+  ul.plain > li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s3);
+    align-items: baseline;
+    font-size: clamp(.8rem, 1.4vw, .95rem);
+    color: var(--ink-2);
+  }
+  ul.plain > li .k {
+    font-family: var(--mono);
+    font-size: .78em;
+    color: var(--ink-3);
+    letter-spacing: .08em;
+    white-space: nowrap;
+  }
+
+  .hardparts { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+  @media (max-width: 760px) { .hardparts { grid-template-columns: 1fr; } }
+  .hardpart {
+    border-top: 2px solid var(--amber);
+    padding-top: var(--s2);
+    display: flex; flex-direction: column; gap: var(--s1);
+  }
+  .hardpart .t { font-family: var(--mono); font-size: clamp(.78rem, 1.35vw, .92rem); font-weight: 600; }
+  .hardpart .d { font-size: clamp(.74rem, 1.25vw, .86rem); color: var(--ink-2); }
+
+  /* legend */
+  .legend { display: flex; flex-wrap: wrap; gap: var(--s3); }
+  .chip {
+    display: inline-flex; align-items: center; gap: var(--s2);
+    font-family: var(--mono); font-size: clamp(.62rem, 1.1vw, .74rem);
+    letter-spacing: .04em; color: var(--ink-2);
+  }
+  .chip::before {
+    content: ""; width: .72rem; height: .72rem; border-radius: 2px;
+    background: var(--sw, var(--ink-3)); flex: none;
+  }
+  .chip.ext    { --sw: var(--slate); }
+  .chip.repo   { --sw: var(--teal); }
+  .chip.model  { --sw: var(--indigo); }
+  .chip.signal { --sw: var(--amber); }
+
+  /* data table */
+  .tw { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: clamp(.72rem, 1.25vw, .85rem); }
+  th, td { text-align: left; padding: .34rem .6rem .34rem 0; border-bottom: 1px solid var(--rule-2); }
+  th {
+    font-family: var(--mono); font-weight: 600; font-size: .78em;
+    text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3);
+  }
+  td.n { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; padding-right: var(--s3); white-space: nowrap; }
+
+  /* code block */
+  pre {
+    margin: 0; padding: var(--s3);
+    background: var(--rule-2);
+    border-left: 2px solid var(--slate);
+    border-radius: 0 2px 2px 0;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: clamp(.66rem, 1.15vw, .8rem);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  pre b { color: var(--amber); font-weight: 600; }
+  pre .c { color: var(--ink-3); }
+
+  .callout {
+    border-left: 2px solid var(--amber);
+    padding: var(--s2) 0 var(--s2) var(--s3);
+    font-size: clamp(.76rem, 1.3vw, .88rem);
+    color: var(--ink-2);
+  }
+
+  .stat { display: flex; flex-wrap: wrap; gap: var(--s5); }
+  .stat > div { display: flex; flex-direction: column; gap: .1rem; }
+  .stat .v {
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+    font-size: clamp(1.4rem, 3.4vw, 2.3rem); line-height: 1; font-weight: 600;
+  }
+  .stat .l {
+    font-family: var(--mono); font-size: clamp(.6rem, 1.05vw, .7rem);
+    letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3);
+  }
+  .stat .v.good { color: var(--teal); }
+  .stat .v.warn { color: var(--amber); }
+
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .dg { font-family: var(--mono); }
+  .dg text { fill: var(--ink-2); font-size: 11px; }
+  .dg .lbl { fill: var(--ink); font-size: 12px; font-weight: 600; }
+  .dg .sub { fill: var(--ink-3); font-size: 9.5px; letter-spacing: .06em; }
+
+  /* ---------- pipeline strip ---------- */
+
+  .strip { margin-top: auto; padding-top: var(--s3); border-top: 1px solid var(--rule-2); }
+  .strip ol {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; gap: 3px; align-items: stretch;
+  }
+  .strip li {
+    flex: 1 1 0;
+    font-family: var(--mono);
+    font-size: clamp(.5rem, .92vw, .62rem);
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    border-top: 2px solid var(--rule);
+    padding-top: var(--s1);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .strip li[data-on="1"] { color: var(--amber); border-top-color: var(--amber); }
+  .strip li[data-done="1"] { border-top-color: var(--teal); }
+
+  /* ---------- chrome ---------- */
+
+  .bar { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; }
+  .bar .prog { flex: 1 1 120px; height: 2px; background: var(--rule); position: relative; }
+  .bar .prog i { position: absolute; inset: 0 auto 0 0; background: var(--amber); transition: width .2s ease; }
+  .count {
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+    font-size: .74rem; letter-spacing: .08em; color: var(--ink-3); white-space: nowrap;
+  }
+  .btns { display: flex; gap: var(--s2); }
+  button {
+    font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-2); background: var(--card);
+    border: 1px solid var(--rule); border-radius: 2px;
+    padding: .32rem .7rem; cursor: pointer;
+  }
+  button:hover { border-color: var(--amber); color: var(--ink); }
+  button:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .hint { font-family: var(--mono); font-size: .66rem; color: var(--ink-3); letter-spacing: .06em; }
+
+  .opt {
+    font-family: var(--mono); font-size: .58rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--amber); border: 1px solid var(--amber); border-radius: 2px; padding: .04rem .3rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="deck">
+  <div class="stage" id="stage">
+
+    <!-- 1 ................................................................ -->
+    <section class="slide is-active">
+      <div class="eyebrow"><span>Metabolomics Workbench → MetabolomicsHub</span></div>
+      <div class="grow">
+        <h1>Following one study<br>through the machine</h1>
+        <p class="lede">
+          How <code>mw-mhd-integration</code> turns a Metabolomics Workbench accession
+          into a validated MetabolomicsHub dataset — traced end to end on a real study,
+          <strong>ST004083</strong>.
+        </p>
+        <div class="legend">
+          <span class="chip ext">MW services</span>
+          <span class="chip repo">mw2mhd — this repo</span>
+          <span class="chip model">mhd-model — library</span>
+          <span class="chip signal">the study / current stage</span>
+        </div>
+      </div>
+      <p class="hint">→ or space to advance · ← to go back</p>
+    </section>
+
+    <!-- 2 ................................................................ -->
+    <section class="slide">
+      <div class="eyebrow"><span>01 · The problem</span></div>
+      <h2>Many repositories, one schema</h2>
+      <div class="grow">
+        <div class="cols d7030">
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <p class="lede">
+              MetabolomicsHub aggregates datasets from many source repositories. For
+              cross-repository search, indexing and announcement to work at all, every
+              dataset has to arrive in <strong>one common, validated schema</strong>.
+            </p>
+            <p class="lede">
+              Metabolomics Workbench is one such source. This repository is the adapter
+              between them — and nothing more than that.
+            </p>
+            <div class="callout">
+              It does <strong>not</strong> define the target model. The schema, the graph
+              builder, the validators and the announcement format all live in
+              <code>mhd-model</code>. This repo supplies only what it means to be
+              Metabolomics Workbench.
+            </div>
+          </div>
+          <svg viewBox="0 0 300 210" class="dg" role="img" aria-label="Several source repositories converging on MetabolomicsHub">
+            <g fill="none" stroke="var(--slate)" stroke-width="1.2">
+              <path d="M84 30 C130 30 130 95 168 95" />
+              <path d="M84 66 C130 66 130 95 168 95" />
+              <path d="M84 138 C130 138 130 95 168 95" />
+              <path d="M84 174 C130 174 130 95 168 95" />
+            </g>
+            <path d="M84 102 C130 102 130 95 168 95" fill="none" stroke="var(--teal)" stroke-width="2.4" />
+            <g>
+              <rect x="4" y="18" width="80" height="24" rx="2" fill="none" stroke="var(--slate)" />
+              <text x="14" y="34">MetaboLights</text>
+              <rect x="4" y="54" width="80" height="24" rx="2" fill="none" stroke="var(--slate)" />
+              <text x="14" y="70">GNPS</text>
+              <rect x="4" y="90" width="80" height="24" rx="2" fill="var(--teal)" fill-opacity=".12" stroke="var(--teal)" stroke-width="1.6" />
+              <text x="14" y="106" class="lbl" fill="var(--teal)">Workbench</text>
+              <rect x="4" y="126" width="80" height="24" rx="2" fill="none" stroke="var(--slate)" />
+              <text x="14" y="142">Other repos</text>
+              <rect x="4" y="162" width="80" height="24" rx="2" fill="none" stroke="var(--slate)" />
+              <text x="14" y="178">…</text>
+            </g>
+            <rect x="168" y="72" width="124" height="46" rx="2" fill="var(--indigo)" fill-opacity=".12" stroke="var(--indigo)" stroke-width="1.6" />
+            <text x="180" y="92" class="lbl" fill="var(--indigo)">MetabolomicsHub</text>
+            <text x="180" y="107" class="sub">ONE COMMON MODEL</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 ................................................................ -->
+    <section class="slide">
+      <div class="eyebrow"><span>02 · The problem</span></div>
+      <h2>Four things make this genuinely hard</h2>
+      <p class="lede">Almost every apparent oddity in the code traces back to one of these.</p>
+      <div class="grow">
+        <div class="hardparts">
+          <div class="hardpart">
+            <span class="t">The JSON isn't valid JSON</span>
+            <span class="d">Responses arrive with concatenated objects, duplicated keys and
+            illegal control characters. They must be repaired before they can be parsed.</span>
+          </div>
+          <div class="hardpart">
+            <span class="t">Free text must become ontology terms</span>
+            <span class="d">MHD wants <code>{source, accession, name}</code> triples.
+            Workbench gives human-typed strings like <span class="m">“ABI Sciex 4000 Qtrap”</span>.</span>
+          </div>
+          <div class="hardpart">
+            <span class="t">One study holds many analyses</span>
+            <span class="d">Often heterogeneous — MS and NMR side by side in the same
+            record, needing different treatment.</span>
+          </div>
+          <div class="hardpart">
+            <span class="t">Required fields are often absent</span>
+            <span class="d">Titles, descriptions and licenses that the target profile
+            requires are simply missing from older source records.</span>
+          </div>
+        </div>
+        <div class="callout">
+          None of this is a criticism of Workbench — it is why an adapter layer has to
+          exist at all, rather than a direct schema translation.
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 ................................................................ -->
+    <section class="slide">
+      <div class="eyebrow"><span>03 · The map</span><span class="owner">learn this once — it colours every later diagram</span></div>
+      <h2>Two repositories, one contract</h2>
+      <div class="grow">
+        <svg viewBox="0 0 640 250" class="dg" role="img" aria-label="Architecture: MW services feed this repository, which builds on mhd-model">
+          <text x="8" y="12" class="sub" fill="var(--slate)">EXTERNAL · WORKBENCH</text>
+          <rect x="8" y="20" width="150" height="200" rx="3" fill="var(--slate)" fill-opacity=".08" stroke="var(--slate)" stroke-dasharray="3 3" />
+          <rect x="20" y="36" width="126" height="30" rx="2" fill="var(--card)" stroke="var(--slate)" />
+          <text x="30" y="55">REST /mwtab</text>
+          <rect x="20" y="74" width="126" height="30" rx="2" fill="var(--card)" stroke="var(--slate)" />
+          <text x="30" y="93">REST /summary</text>
+          <rect x="20" y="112" width="126" height="30" rx="2" fill="var(--card)" stroke="var(--slate)" />
+          <text x="30" y="131">REST /files</text>
+          <rect x="20" y="150" width="126" height="30" rx="2" fill="var(--card)" stroke="var(--slate)" />
+          <text x="30" y="169">REST /metabolites</text>
+          <rect x="20" y="188" width="126" height="22" rx="2" fill="none" stroke="var(--slate)" stroke-dasharray="2 2" />
+          <text x="30" y="203" class="sub">STUDY FILE STORE</text>
+
+          <text x="196" y="12" class="sub" fill="var(--teal)">THIS REPO · MW2MHD</text>
+          <rect x="196" y="20" width="212" height="200" rx="3" fill="var(--teal)" fill-opacity=".08" stroke="var(--teal)" stroke-width="1.6" />
+          <rect x="208" y="36" width="188" height="32" rx="2" fill="var(--card)" stroke="var(--teal)" />
+          <text x="218" y="51" class="lbl">fetch + repair</text>
+          <text x="218" y="63" class="sub">MW_UTILS.PY</text>
+          <rect x="208" y="76" width="188" height="32" rx="2" fill="var(--card)" stroke="var(--teal)" />
+          <text x="218" y="91" class="lbl">MW → CV term maps</text>
+          <text x="218" y="103" class="sub">BUILDER.PY + CSV CROSSWALK</text>
+          <rect x="208" y="116" width="188" height="32" rx="2" fill="var(--card)" stroke="var(--teal)" stroke-width="1.8" />
+          <text x="218" y="131" class="lbl">graph construction order</text>
+          <text x="218" y="143" class="sub">MHDLEGACYDATASETBUILDER</text>
+          <rect x="208" y="156" width="188" height="30" rx="2" fill="var(--amber)" fill-opacity=".12" stroke="var(--amber)" />
+          <text x="218" y="171" class="lbl" fill="var(--amber)">enrichment pass</text>
+          <text x="218" y="182" class="sub">*_ENRICHER.PY</text>
+          <rect x="208" y="192" width="188" height="20" rx="2" fill="none" stroke="var(--teal)" stroke-dasharray="2 2" />
+          <text x="218" y="206" class="sub">BATCH RUNNER · CLI</text>
+
+          <text x="446" y="12" class="sub" fill="var(--indigo)">LIBRARY · MHD-MODEL</text>
+          <rect x="446" y="20" width="186" height="200" rx="3" fill="var(--indigo)" fill-opacity=".08" stroke="var(--indigo)" stroke-width="1.6" />
+          <rect x="458" y="36" width="162" height="28" rx="2" fill="var(--card)" stroke="var(--indigo)" />
+          <text x="468" y="54">node + edge types</text>
+          <rect x="458" y="72" width="162" height="28" rx="2" fill="var(--card)" stroke="var(--indigo)" />
+          <text x="468" y="90">MhDatasetBuilder</text>
+          <rect x="458" y="108" width="162" height="28" rx="2" fill="var(--card)" stroke="var(--indigo)" />
+          <text x="468" y="126">profiles</text>
+          <rect x="458" y="144" width="162" height="28" rx="2" fill="var(--card)" stroke="var(--indigo)" />
+          <text x="468" y="162">managed CV terms</text>
+          <rect x="458" y="180" width="162" height="30" rx="2" fill="var(--card)" stroke="var(--indigo)" />
+          <text x="468" y="195">validator</text>
+          <text x="468" y="206" class="sub">+ ANNOUNCEMENT BUILDER</text>
+
+          <g stroke="var(--slate)" stroke-width="1.6" fill="none">
+            <path d="M158 120 L196 120" marker-end="url(#ar-s)" />
+          </g>
+          <g stroke="var(--indigo)" stroke-width="1.6" fill="none">
+            <path d="M446 120 L408 120" marker-end="url(#ar-i)" />
+          </g>
+          <defs>
+            <marker id="ar-s" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0 0 L8 4 L0 8 z" fill="var(--slate)" />
+            </marker>
+            <marker id="ar-i" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0 0 L8 4 L0 8 z" fill="var(--indigo)" />
+            </marker>
+          </defs>
+        </svg>
+        <div class="callout">
+          The rule of thumb for the rest of the talk: <strong>this repository knows about
+          Metabolomics Workbench; <code>mhd-model</code> knows about MetabolomicsHub.</strong>
+          Neither knows the other's internals.
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 ................................................................ -->
+    <section class="slide">
+      <div class="eyebrow"><span>04 · The map</span><span class="owner model">defined by mhd-model</span></div>
+      <h2>An MHD file is a graph, not a record</h2>
+      <div class="grow">
+        <div class="cols d3070">
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <ul class="plain">
+              <li><span class="k">NODES</span><span>Typed entities — <code>study</code>, <code>person</code>, <code>protocol</code>, <code>assay</code>, <code>sample</code>, <code>raw-data-file</code>.</span></li>
+              <li><span class="k">EDGES</span><span>Typed and directional, each carrying a forward <em>and</em> reverse name.</span></li>
+              <li><span class="k">VALUES</span><span>Not strings but CV terms — <code>{source, accession, name}</code> pointing at real ontologies.</span></li>
+            </ul>
+            <div class="callout">
+              That third point is the whole job. Turning Workbench's free text into
+              controlled terms is what the converter actually spends its time doing.
+            </div>
+          </div>
+          <svg viewBox="0 0 380 210" class="dg" role="img" aria-label="Graph fragment centred on a study node">
+            <g stroke="var(--rule)" stroke-width="1.1" fill="none">
+              <path d="M190 96 L88 40" /><path d="M190 96 L88 96" /><path d="M190 96 L88 156" />
+              <path d="M190 96 L292 40" /><path d="M190 96 L292 96" /><path d="M190 96 L292 156" />
+            </g>
+            <g class="sub" fill="var(--ink-3)">
+              <text x="104" y="60">has-submitter</text>
+              <text x="104" y="90">has-protocol</text>
+              <text x="104" y="146">has-project</text>
+              <text x="228" y="60">has-assay</text>
+              <text x="240" y="90">has-sample</text>
+              <text x="212" y="146">has-raw-data-file</text>
+            </g>
+            <g>
+              <rect x="18" y="28" width="70" height="24" rx="2" fill="var(--card)" stroke="var(--indigo)" /><text x="28" y="44">person</text>
+              <rect x="18" y="84" width="70" height="24" rx="2" fill="var(--card)" stroke="var(--indigo)" /><text x="28" y="100">protocol</text>
+              <rect x="18" y="144" width="70" height="24" rx="2" fill="var(--card)" stroke="var(--indigo)" /><text x="28" y="160">project</text>
+              <rect x="292" y="28" width="70" height="24" rx="2" fill="var(--card)" stroke="var(--indigo)" /><text x="302" y="44">assay</text>
+              <rect x="292" y="84" width="70" height="24" rx="2" fill="var(--card)" stroke="var(--indigo)" /><text x="302" y="100">sample</text>
+              <rect x="292" y="144" width="70" height="24" rx="2" fill="var(--card)" stroke="var(--indigo)" /><text x="302" y="160">raw-data-file</text>
+            </g>
+            <rect x="146" y="82" width="88" height="30" rx="2" fill="var(--amber)" fill-opacity=".14" stroke="var(--amber)" stroke-width="1.8" />
+            <text x="176" y="101" class="lbl" fill="var(--amber)">study</text>
+            <rect x="18" y="184" width="344" height="22" rx="2" fill="none" stroke="var(--rule)" stroke-dasharray="2 2" />
+            <text x="28" y="199" class="sub">ST004083 REAL OUTPUT · 342 NODES · 930 RELATIONSHIPS · 25 NODE TYPES</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 ................................................................ -->
+    <section class="slide" data-stage="0">
+      <div class="eyebrow"><span>05 · The journey</span><span class="owner ext">source data</span></div>
+      <h2>The input: what we're handed</h2>
+      <div class="grow">
+        <div class="cols two">
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <p class="lede">
+              One accession, <strong>ST004083</strong>, resolves to four separate analyses —
+              each a full record with its own sections.
+            </p>
+            <pre><span class="c"># cached · .outputs/mw_dataset/ST004083.json</span>
+analysis ids : [<b>'AN006761'</b>, 'AN006762',
+                'AN006763', 'AN006764']
+
+sections     : METABOLOMICS WORKBENCH, PROJECT,
+               STUDY, SUBJECT,
+               SUBJECT_SAMPLE_FACTORS, COLLECTION,
+               TREATMENT, SAMPLEPREP,
+               CHROMATOGRAPHY, ANALYSIS, MS</pre>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <div class="tw">
+              <table>
+                <tbody>
+                  <tr><th>Title</th><td>Dietary methionine restriction in high-fat diet-fed male mice, brown adipose tissue metabolomics</td></tr>
+                  <tr><th>Institute</th><td>Panome Bio</td></tr>
+                  <tr><th>Species</th><td><span class="m">Mus musculus</span></td></tr>
+                  <tr><th>Analysis</th><td><span class="m">LC-MS</span></td></tr>
+                  <tr><th>Samples</th><td class="n" style="text-align:left">18</td></tr>
+                  <tr><th>License</th><td><span class="m">CC BY-NC-ND</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout">
+              Note the shape mismatch already: MHD wants one <em>study</em>; Workbench
+              gives four <em>analyses</em> that each restate the study.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 ................................................................ -->
+    <section class="slide" data-stage="1">
+      <div class="eyebrow"><span>06 · The journey</span><span class="owner">mw2mhd · mw_utils.py</span></div>
+      <h2>Download, then repair</h2>
+      <div class="grow">
+        <div class="cols two">
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <h2 style="font-size:1rem">Cache-first, always</h2>
+            <p class="lede">
+              Every fetch checks disk before the network. After one pass the whole
+              pipeline runs offline — which is what makes a 3,700-study batch tractable
+              and re-runnable.
+            </p>
+            <h2 style="font-size:1rem">Repair before parse</h2>
+            <p class="lede">
+              Four regex passes make the response parseable at all; duplicate keys are
+              then collapsed into lists via a JSON <code>object_pairs_hook</code> instead
+              of silently overwriting each other.
+            </p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <pre><span class="c"># mw_utils.py:257 — patch_json_text()</span>
+<b>}{</b>            → <b>}, {</b>        <span class="c">join objects</span>
+<b>"x":"y":"z"</b>   → <b>"x":"y z"</b>   <span class="c">fix pairs</span>
+<b>"x":}</b>         → <b>"x":{}}</b>      <span class="c">fill empties</span>
+<b>\x00-\x1F</b>     → <span class="c">stripped   control chars</span></pre>
+            <div class="callout">
+              This reads like a hack until you see the input. It is the reason
+              <strong>3,712 of 3,718</strong> studies parse at all.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 ................................................................ -->
+    <section class="slide" data-stage="2">
+      <div class="eyebrow"><span>07 · The journey</span><span class="owner">mw2mhd · builder.py:280</span></div>
+      <h2>Select the analyses</h2>
+      <div class="grow">
+        <div class="cols d7030">
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <ul class="plain">
+              <li><span class="k">KEEP</span><span>Analyses whose type contains <code>MS</code>.</span></li>
+              <li><span class="k">DROP</span><span>Anything else — logged as a warning, not a failure.</span></li>
+              <li><span class="k">FAIL</span><span>Only when <em>no</em> MS analysis remains.</span></li>
+            </ul>
+            <p class="lede">
+              This is why mixed studies survive: <strong>ST000019</strong> (NMR + MS) and
+              <strong>ST000098</strong> (3 MS + 3 NMR) both convert, keeping only their
+              MS analyses.
+            </p>
+            <div class="callout">
+              A simplifying assumption worth flagging: study-level metadata is taken from
+              the <strong>first analysis after sorting</strong>. Where analyses disagree,
+              that one silently wins.
+            </div>
+          </div>
+          <svg viewBox="0 0 240 170" class="dg" role="img" aria-label="MS analyses kept, NMR analyses dropped">
+            <text x="4" y="12" class="sub">ST000098 · SOURCE</text>
+            <g>
+              <rect x="4" y="22" width="64" height="20" rx="2" fill="var(--teal)" fill-opacity=".14" stroke="var(--teal)" /><text x="26" y="36">MS</text>
+              <rect x="4" y="46" width="64" height="20" rx="2" fill="var(--teal)" fill-opacity=".14" stroke="var(--teal)" /><text x="26" y="60">MS</text>
+              <rect x="4" y="70" width="64" height="20" rx="2" fill="var(--teal)" fill-opacity=".14" stroke="var(--teal)" /><text x="26" y="84">MS</text>
+              <rect x="4" y="94" width="64" height="20" rx="2" fill="none" stroke="var(--ink-3)" stroke-dasharray="3 2" /><text x="22" y="108" fill="var(--ink-3)">NMR</text>
+              <rect x="4" y="118" width="64" height="20" rx="2" fill="none" stroke="var(--ink-3)" stroke-dasharray="3 2" /><text x="22" y="132" fill="var(--ink-3)">NMR</text>
+              <rect x="4" y="142" width="64" height="20" rx="2" fill="none" stroke="var(--ink-3)" stroke-dasharray="3 2" /><text x="22" y="156" fill="var(--ink-3)">NMR</text>
+            </g>
+            <g fill="none" stroke="var(--teal)" stroke-width="1.4">
+              <path d="M68 32 L132 56" /><path d="M68 56 L132 62" /><path d="M68 80 L132 68" />
+            </g>
+            <g fill="none" stroke="var(--ink-3)" stroke-width="1" stroke-dasharray="2 2">
+              <path d="M68 104 L120 124" /><path d="M68 128 L120 130" /><path d="M68 152 L120 136" />
+            </g>
+            <text x="124" y="128" class="sub" fill="var(--ink-3)">DROPPED</text>
+            <text x="124" y="140" class="sub" fill="var(--ink-3)">+ LOGGED</text>
+            <rect x="132" y="44" width="104" height="34" rx="2" fill="var(--amber)" fill-opacity=".12" stroke="var(--amber)" stroke-width="1.6" />
+            <text x="142" y="60" class="lbl" fill="var(--amber)">3 MS analyses</text>
+            <text x="142" y="72" class="sub">CONVERTED</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 ................................................................ -->
+    <section class="slide" data-stage="3">
+      <div class="eyebrow"><span>08 · The journey</span><span class="owner">mw2mhd · builder.py:317</span></div>
+      <h2>Preconditions — the four hard stops</h2>
+      <div class="grow">
+        <div class="cols two">
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <p class="lede">
+              Before building anything, the converter demands a study summary plus three
+              specific fields. Each missing one is a <code>raise ValueError</code>.
+            </p>
+            <ul class="plain">
+              <li><span class="k">1</span><span>study summary must be fetchable</span></li>
+              <li><span class="k">2</span><span>license URL must be present</span></li>
+              <li><span class="k">3</span><span>submission date must be present</span></li>
+              <li><span class="k">4</span><span>release date must be present</span></li>
+            </ul>
+            <div class="callout">
+              Read these four lines before diagnosing <em>any</em> conversion failure —
+              they account for most of them.
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <pre><span class="c"># ST004083 — all four pass</span>
+submission_date : <b>2025-07-31</b>
+release_date    : <b>2025-08-25</b>
+license         : CC BY-NC-ND
+license_url     : creativecommons.org/
+                  licenses/by-nc-nd/4.0/deed.en</pre>
+            <div class="callout">
+              A small detail with visible output: a validator appends a trailing slash to
+              the license URL, which is why the study node's license ends
+              <code>…/deed.en/</code>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 ............................................................... -->
+    <section class="slide" data-stage="4">
+      <div class="eyebrow"><span>09 · The journey</span><span class="owner">order matters — later nodes reference earlier ones</span></div>
+      <h2>Build the graph, in order</h2>
+      <div class="grow">
+        <svg viewBox="0 0 640 132" class="dg" role="img" aria-label="Fourteen ordered graph construction steps">
+          <g id="steps"></g>
+        </svg>
+        <div class="cols two">
+          <div class="callout">
+            Step 8 is a <strong>modelling decision, not a data fact</strong>: with no DOI
+            available, the legacy converter asserts “pending publication” for every
+            single study.
+          </div>
+          <div class="callout">
+            The builder object itself — <code>add</code>, <code>link</code>,
+            <code>create_dataset</code> — belongs to <code>mhd-model</code>. What this
+            repo owns is <em>the order</em>, and what maps to what.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 ............................................................... -->
+    <section class="slide" data-stage="5">
+      <div class="eyebrow"><span>10 · The journey</span><span class="owner">mw2mhd · the intellectual core</span></div>
+      <h2>Free text becomes a controlled term</h2>
+      <div class="grow">
+        <svg viewBox="0 0 620 118" class="dg" role="img" aria-label="Free text mapped to a CV term, or falling back to an extension node">
+          <rect x="4" y="8" width="180" height="42" rx="2" fill="var(--slate)" fill-opacity=".1" stroke="var(--slate)" />
+          <text x="14" y="26" class="sub">MW FREE TEXT</text>
+          <text x="14" y="41" class="lbl">"ABI Sciex 4000 Qtrap"</text>
+          <path d="M184 29 L246 29" stroke="var(--teal)" stroke-width="1.6" fill="none" marker-end="url(#ar-t)" />
+          <text x="196" y="22" class="sub" fill="var(--teal)">MAPPED</text>
+          <rect x="246" y="8" width="230" height="42" rx="2" fill="var(--indigo)" fill-opacity=".1" stroke="var(--indigo)" stroke-width="1.6" />
+          <text x="256" y="26" class="sub">MANAGED CV TERM</text>
+          <text x="256" y="41" class="lbl">MS · MS_1000139 · 4000 QTRAP</text>
+
+          <rect x="4" y="68" width="180" height="42" rx="2" fill="var(--slate)" fill-opacity=".1" stroke="var(--slate)" />
+          <text x="14" y="86" class="sub">MW FREE TEXT</text>
+          <text x="14" y="101" class="lbl">"group"</text>
+          <path d="M184 89 L246 89" stroke="var(--amber)" stroke-width="1.6" fill="none" stroke-dasharray="4 2" marker-end="url(#ar-a)" />
+          <text x="192" y="82" class="sub" fill="var(--amber)">NO MATCH</text>
+          <rect x="246" y="68" width="230" height="42" rx="2" fill="var(--amber)" fill-opacity=".1" stroke="var(--amber)" stroke-dasharray="3 2" />
+          <text x="256" y="86" class="sub">EXTENSION NODE</text>
+          <text x="256" y="101" class="lbl">x-mw-factor-type · "group"</text>
+          <text x="490" y="86" class="sub">SOURCE + ACCESSION</text>
+          <text x="490" y="98" class="sub">LEFT EMPTY</text>
+          <defs>
+            <marker id="ar-t" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--teal)" /></marker>
+            <marker id="ar-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--amber)" /></marker>
+          </defs>
+        </svg>
+        <div class="cols two">
+          <div style="display:flex;flex-direction:column;gap:var(--s2)">
+            <p class="lede"><strong>Two mechanisms.</strong> Static maps at the top of
+            <code>builder.py</code> cover known vocabulary. A 671-row crosswalk file
+            covers instruments and ontology terms.</p>
+            <p class="lede">The crosswalk isn't MW-specific — it carries MetaboLights and
+            GNPS columns too. It's a shared translation table.</p>
+          </div>
+          <div class="callout">
+            Nothing is silently dropped. Unmappable values become <code>x-mw-*</code>
+            extension nodes, so <strong>the prefix marks exactly where semantic mapping
+            was incomplete</strong>. ST004083 has 48 of them.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 ............................................................... -->
+    <section class="slide" data-stage="4">
+      <div class="eyebrow"><span>11 · The journey</span><span class="opt">optional depth</span></div>
+      <h2>What the graph actually contains</h2>
+      <div class="grow">
+        <div class="cols two">
+          <div class="tw">
+            <table>
+              <thead><tr><th>Count</th><th>Node type</th><th>Traces to</th></tr></thead>
+              <tbody>
+                <tr><td class="n">106</td><td><span class="m">raw-data-file</span></td><td>study file listing</td></tr>
+                <tr><td class="n">64</td><td><span class="m">parameter-definition</span></td><td>protocol fields</td></tr>
+                <tr><td class="n">18</td><td><span class="m">sample</span></td><td>18 reported samples</td></tr>
+                <tr><td class="n">18</td><td><span class="m">subject</span></td><td>18 reported samples</td></tr>
+                <tr><td class="n">18</td><td><span class="m">sample-run</span></td><td>18 reported samples</td></tr>
+                <tr><td class="n">11</td><td><span class="m">protocol</span></td><td>collection, prep, MS, chrom.</td></tr>
+                <tr><td class="n">8</td><td><span class="m">result-file</span></td><td>study file listing</td></tr>
+                <tr><td class="n">4</td><td><span class="m">assay</span></td><td>4 MS analyses</td></tr>
+                <tr><td class="n">1</td><td><span class="m">study</span></td><td>the accession</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <p class="lede">
+              Every count is traceable back to something Workbench reported. Four analyses
+              became four assays; eighteen samples became eighteen samples, subjects and
+              runs.
+            </p>
+            <div class="callout">
+              The <code>x-mw-*</code> nodes are worth auditing on any study:
+              <span class="m">23 parameter-value</span>,
+              <span class="m">18 parameter-type</span>,
+              <span class="m">6 factor-value</span> here — each one a term that found no
+              controlled equivalent.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 ............................................................... -->
+    <section class="slide" data-stage="6">
+      <div class="eyebrow"><span>12 · The journey</span><span class="owner model">serialised by mhd-model</span></div>
+      <h2>Serialise — the file declares its own contract</h2>
+      <div class="grow">
+        <pre><span class="c">// outputs/ST004083.mhd.json</span>
+{ "repository_name"       : "Metabolomics Workbench",
+  "repository_identifier" : <b>"ST004083"</b>,
+  "type"                  : <b>"legacy-dataset"</b>,
+  "$schema"               : ".../common-data-model-v0.1.schema.json",
+  "profile_uri"           : ".../common-data-model-v0.1.<b>legacy-profile</b>.json",
+  "graph"                 : { "nodes": [ <b>342</b> ], "relationships": [ <b>930</b> ] } }</pre>
+        <div class="cols two">
+          <p class="lede">
+            The header names the schema and profile it claims to satisfy — so validation
+            later is a check against the file's own declaration, not an external guess.
+          </p>
+          <div class="callout">
+            <code>legacy-profile</code> is the only profile implemented. The MS profile
+            branch in the convertor factory raises <code>NotImplementedError</code>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 ............................................................... -->
+    <section class="slide" data-stage="7">
+      <div class="eyebrow"><span>13 · The journey</span><span class="owner">mw2mhd · a conditional second pass</span></div>
+      <h2>Enrichment: a safety net, not a stage</h2>
+      <div class="grow">
+        <div class="cols two">
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <h2 style="font-size:1rem">Summary fields</h2>
+            <p class="lede">
+              Fires if license or dates are missing — or if the release date merely
+              echoes the submission date, a known fallback artifact. Re-fetches and
+              patches.
+            </p>
+            <h2 style="font-size:1rem">Raw data files</h2>
+            <p class="lede">
+              Fires only if the graph has <em>no</em> raw-file nodes. Scans the file
+              listing, including inside archives, and adds nodes plus edges.
+            </p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <div class="callout">
+              Both paths are <strong>conditional</strong>. For a well-formed study neither
+              fires — ST004083 needs no enrichment at all. Its 106 raw-file nodes came
+              from the builder, not from here.
+            </div>
+            <div class="callout" style="border-left-color:var(--slate)">
+              <strong>Be precise about the corpus.</strong> No output on disk contains a
+              GNPS URL, and 153 of 600 sampled outputs have no raw-file nodes. The
+              3,718-study corpus was generated <em>before</em> this pass was wired in, and
+              does not reflect it. Re-running the batch would change those outputs.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15 ............................................................... -->
+    <section class="slide" data-stage="8">
+      <div class="eyebrow"><span>14 · The journey</span><span class="owner model">mostly mhd-model</span></div>
+      <h2>Validate, then announce</h2>
+      <div class="grow">
+        <div class="cols two">
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <p class="lede">
+              <code>validate</code> is a <strong>pure re-export</strong> of
+              <code>mhd-model</code>'s commands. This repository contains no validation
+              logic of its own — the schema and the profile rules both belong to the
+              library.
+            </p>
+            <p class="lede">
+              An <em>announcement</em> is the flattened, public-facing summary derived
+              from the graph. <code>mhd-model</code> generates the base; this repo then
+              walks the graph to recover what the base omits.
+            </p>
+          </div>
+          <svg viewBox="0 0 300 150" class="dg" role="img" aria-label="Announcement enrichment traverses graph edges to recover contacts and protocol parameters">
+            <rect x="4" y="10" width="80" height="26" rx="2" fill="var(--amber)" fill-opacity=".12" stroke="var(--amber)" /><text x="30" y="27" class="lbl" fill="var(--amber)">study</text>
+            <path d="M44 36 L44 58" stroke="var(--rule)" stroke-width="1.2" fill="none" />
+            <text x="50" y="52" class="sub">SUBMITS ↺</text>
+            <rect x="4" y="58" width="80" height="26" rx="2" fill="var(--card)" stroke="var(--indigo)" /><text x="30" y="75">person</text>
+            <path d="M44 84 L44 106" stroke="var(--rule)" stroke-width="1.2" fill="none" />
+            <text x="50" y="100" class="sub">AFFILIATED-WITH</text>
+            <rect x="4" y="106" width="80" height="26" rx="2" fill="var(--card)" stroke="var(--indigo)" /><text x="14" y="123">organization</text>
+            <path d="M92 71 L154 71" stroke="var(--teal)" stroke-width="1.6" fill="none" marker-end="url(#ar-t2)" />
+            <text x="100" y="64" class="sub" fill="var(--teal)">RECOVERED</text>
+            <rect x="154" y="46" width="142" height="52" rx="2" fill="var(--teal)" fill-opacity=".1" stroke="var(--teal)" />
+            <text x="164" y="64" class="sub">INTO ANNOUNCEMENT</text>
+            <text x="164" y="79" class="lbl">emails, affiliations,</text>
+            <text x="164" y="92" class="lbl">protocol parameters</text>
+            <defs><marker id="ar-t2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--teal)" /></marker></defs>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16 ............................................................... -->
+    <section class="slide">
+      <div class="eyebrow"><span>15 · At scale</span><span class="owner">mw2mhd · legacy_batch.py</span></div>
+      <h2>3,718 studies, and what came out</h2>
+      <div class="grow">
+        <div class="stat">
+          <div><span class="v">3,718</span><span class="l">attempted</span></div>
+          <div><span class="v">3,712</span><span class="l">MHD file</span></div>
+          <div><span class="v">3,709</span><span class="l">announcement</span></div>
+          <div><span class="v good">99.4%</span><span class="l">clean</span></div>
+          <div><span class="v warn">21</span><span class="l">errored</span></div>
+        </div>
+        <div class="cols two">
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <p class="lede">
+              The batch runner is <strong>resumable</strong>: a study is skipped when it
+              already has both outputs and no error file. That is what makes a run of
+              this size practical.
+            </p>
+            <p class="lede">
+              Per study it runs convert → enrich → validate → announce → enrich, writing
+              an errors file on failure.
+            </p>
+          </div>
+          <div class="callout">
+            The checked-in gaps document is <strong>stale</strong> — it reports 15 missing
+            MHD files and failure modes that no longer occur. These figures were
+            recomputed from the current output directory.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 17 ............................................................... -->
+    <section class="slide">
+      <div class="eyebrow"><span>16 · At scale</span><span class="opt">optional depth</span></div>
+      <h2>The 21 failures, by root cause</h2>
+      <div class="grow">
+        <svg viewBox="0 0 600 96" class="dg" role="img" aria-label="Seven fetch failures versus fourteen validation failures">
+          <text x="4" y="12" class="sub">COULD NOT FETCH SOURCE DATA</text>
+          <rect x="4" y="18" width="186" height="26" rx="2" fill="var(--slate)" fill-opacity=".18" stroke="var(--slate)" />
+          <text x="14" y="36" class="lbl">7 studies</text>
+          <text x="200" y="36" class="sub">6 PRODUCED NO OUTPUT AT ALL</text>
+          <text x="4" y="64" class="sub">FAILED PROFILE VALIDATION · MINIMUM-LENGTH STRING RULES</text>
+          <rect x="4" y="70" width="372" height="26" rx="2" fill="var(--amber)" fill-opacity=".18" stroke="var(--amber)" />
+          <text x="14" y="88" class="lbl">14 studies</text>
+          <text x="98" y="88" class="sub">MHD FILE PRODUCED, BUT REJECTED</text>
+        </svg>
+        <div class="cols two">
+          <div class="tw">
+            <table>
+              <thead><tr><th>Field too short</th><th>Studies</th></tr></thead>
+              <tbody>
+                <tr><td><span class="m">study.description</span></td><td class="n" style="text-align:left">8</td></tr>
+                <tr><td><span class="m">project.title</span></td><td class="n" style="text-align:left">4</td></tr>
+                <tr><td><span class="m">study.title</span></td><td class="n" style="text-align:left">2</td></tr>
+                <tr><td><span class="m">factor-definition.name</span></td><td class="n" style="text-align:left">1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout">
+            The headline: <strong>the dominant failure mode is empty required text in the
+            source records, not converter defects.</strong> Two thirds of all failures are
+            a missing title or description that the profile requires and Workbench never
+            captured. No amount of converter work fixes those.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 18 ............................................................... -->
+    <section class="slide">
+      <div class="eyebrow"><span>17 · Close</span></div>
+      <h2>Where to look, and what's still open</h2>
+      <div class="grow">
+        <div class="cols two">
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <span class="chip repo" style="font-weight:600">THIS REPO OWNS</span>
+            <ul class="plain">
+              <li><span class="k">FETCH</span><span><span class="m">v0_1/legacy/mw_utils.py</span></span></li>
+              <li><span class="k">MAPPING</span><span><span class="m">v0_1/legacy/builder.py</span> · <span class="m">cv_mapping_table.csv</span></span></li>
+              <li><span class="k">ENRICH</span><span><span class="m">mhd_enricher.py</span> · <span class="m">announcement_enricher.py</span></span></li>
+              <li><span class="k">BATCH</span><span><span class="m">legacy_batch.py</span></span></li>
+            </ul>
+            <span class="chip model" style="font-weight:600">MHD-MODEL OWNS</span>
+            <ul class="plain">
+              <li><span class="k">MODEL</span><span>node types, profiles, builder</span></li>
+              <li><span class="k">RULES</span><span>managed CV terms, validators</span></li>
+              <li><span class="k">OUTPUT</span><span>announcement, SDRF, Neo4j convertors</span></li>
+            </ul>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--s3)">
+            <span class="chip signal" style="font-weight:600">KNOWN LIMITATIONS</span>
+            <ul class="plain">
+              <li><span class="k">1</span><span>Only the legacy profile exists; the MS profile raises <code>NotImplementedError</code>.</span></li>
+              <li><span class="k">2</span><span>Study metadata comes from the first sorted analysis only.</span></li>
+              <li><span class="k">3</span><span>Publication status is always asserted as <em>pending</em>.</span></li>
+              <li><span class="k">4</span><span>Mapping coverage is partial; gaps surface as <code>x-mw-*</code> nodes.</span></li>
+              <li><span class="k">5</span><span>The on-disk corpus predates the enrichment pass.</span></li>
+            </ul>
+            <div class="callout">
+              Full walkthrough with line-level citations:
+              <span class="m">docs/mw-to-mhd-walkthrough.md</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="bar">
+    <div class="btns">
+      <button type="button" id="prev" aria-label="Previous slide">Prev</button>
+      <button type="button" id="next" aria-label="Next slide">Next</button>
+    </div>
+    <div class="prog" role="presentation"><i id="progfill"></i></div>
+    <span class="count" id="count">1 / 18</span>
+    <span class="hint">← → · space · home / end</span>
+  </div>
+</div>
+
+<script>
+  (function () {
+    "use strict";
+
+    var STAGES = ["download", "repair", "select", "preconditions",
+                  "build graph", "map cv", "serialise", "enrich", "validate"];
+
+    var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
+    var count  = document.getElementById("count");
+    var fill   = document.getElementById("progfill");
+    var i      = 0;
+
+    // Build the 14-step construction diagram (slide 10) from data.
+    var steps = [
+      "provider", "study", "organism", "protocols", "assays", "submitter",
+      "PI", "pub status", "project", "MS proto", "chrom", "files",
+      "design", "metabolites"
+    ];
+    var g = document.getElementById("steps");
+    if (g) {
+      var svgns = "http://www.w3.org/2000/svg";
+      steps.forEach(function (label, n) {
+        var col = n % 7, row = Math.floor(n / 7);
+        var x = col * 91, y = row * 66;
+        var r = document.createElementNS(svgns, "rect");
+        r.setAttribute("x", x); r.setAttribute("y", y + 14);
+        r.setAttribute("width", 84); r.setAttribute("height", 34);
+        r.setAttribute("rx", 2);
+        r.setAttribute("fill", n === 7 ? "var(--amber)" : "var(--teal)");
+        r.setAttribute("fill-opacity", n === 7 ? ".14" : ".08");
+        r.setAttribute("stroke", n === 7 ? "var(--amber)" : "var(--teal)");
+        g.appendChild(r);
+
+        var num = document.createElementNS(svgns, "text");
+        num.setAttribute("x", x + 8); num.setAttribute("y", y + 27);
+        num.setAttribute("class", "sub");
+        num.textContent = String(n + 1);
+        g.appendChild(num);
+
+        var t = document.createElementNS(svgns, "text");
+        t.setAttribute("x", x + 8); t.setAttribute("y", y + 41);
+        t.setAttribute("class", "lbl");
+        t.setAttribute("font-size", "8");
+        t.textContent = label;
+        g.appendChild(t);
+      });
+    }
+
+    // Give every journey slide the shared pipeline strip.
+    slides.forEach(function (s) {
+      var at = s.getAttribute("data-stage");
+      if (at === null) return;
+      at = parseInt(at, 10);
+      var wrap = document.createElement("div");
+      wrap.className = "strip";
+      var ol = document.createElement("ol");
+      STAGES.forEach(function (name, n) {
+        var li = document.createElement("li");
+        li.textContent = name;
+        if (n === at) li.setAttribute("data-on", "1");
+        else if (n < at) li.setAttribute("data-done", "1");
+        ol.appendChild(li);
+      });
+      wrap.appendChild(ol);
+      s.appendChild(wrap);
+    });
+
+    function show(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides.forEach(function (s, k) { s.classList.toggle("is-active", k === i); });
+      count.textContent = (i + 1) + " / " + slides.length;
+      fill.style.width = ((i + 1) / slides.length * 100) + "%";
+      slides[i].scrollTop = 0;
+    }
+
+    document.getElementById("next").addEventListener("click", function () { show(i + 1); });
+    document.getElementById("prev").addEventListener("click", function () { show(i - 1); });
+
+    document.addEventListener("keydown", function (e) {
+      var k = e.key;
+      if (k === "ArrowRight" || k === " " || k === "PageDown") { show(i + 1); e.preventDefault(); }
+      else if (k === "ArrowLeft" || k === "PageUp") { show(i - 1); e.preventDefault(); }
+      else if (k === "Home") { show(0); e.preventDefault(); }
+      else if (k === "End") { show(slides.length - 1); e.preventDefault(); }
+    });
+
+    show(0);
+  }());
+</script>
