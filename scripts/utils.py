@@ -1,16 +1,12 @@
 import logging
-import sys
+
+from mw2mhd.logging_utils import configure_logging
 
 
-def setup_basic_logging_config(level: int = logging.INFO):
-    logging.basicConfig(
-        level=level,
-        format="[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s",
-        datefmt="%d/%b/%Y %H:%M:%S",
-        stream=sys.stdout,
+def setup_basic_logging_config(
+    level: int = logging.INFO, log_file_path: str | None = None
+):
+    configure_logging(
+        log_file_path=log_file_path,
+        verbose=level <= logging.DEBUG,
     )
-    logging.getLogger("fake_useragent").setLevel(logging.ERROR)
-    logging.getLogger("mhd_model.model.v0_1.dataset.validation.base").setLevel(
-        logging.WARNING
-    )
-    logging.getLogger("httpx").setLevel(logging.ERROR)

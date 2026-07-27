@@ -1,5 +1,4 @@
 import logging
-import traceback
 from pathlib import Path
 
 import click
@@ -9,6 +8,8 @@ from mhd_model.model.definitions import (
 )
 
 from mw2mhd.convertor_factory import Mw2MhdConvertorFactory
+from mw2mhd.logging_utils import configure_logging
+from mw2mhd.mhd_enricher import enrich_mhd_file
 
 logger = logging.getLogger(__name__)
 
@@ -44,6 +45,19 @@ logger = logging.getLogger(__name__)
     show_default=True,
     help="Path to the directory containing the metadata",
 )
+@click.option(
+    "--log-file",
+    default=None,
+    help=(
+        "Path to write a conversion log. Defaults to "
+        "<output-dir>/conversion.log."
+    ),
+)
+@click.option(
+    "--verbose",
+    is_flag=True,
+    help="Write DEBUG logs and full exception tracebacks.",
+)
 @click.argument("mw_study_id")
 @click.argument("mhd_identifier")
 def create_mhd_file_task(
@@ -54,6 +68,8 @@ def create_mhd_file_task(
     schema_uri: str,
     profile_uri: str,
     data_path: str,
+    log_file: str | None,
+    verbose: bool,
 ):
     """Convert a Metabolomics Workbench study to MHD file format.
 
@@ -75,6 +91,14 @@ def create_mhd_file_task(
     )
     mhd_output_root_path = Path(output_dir)
     mhd_output_root_path.mkdir(exist_ok=True, parents=True)
+    log_file_path = (
+        Path(log_file) if log_file else mhd_output_root_path / "conversion.log"
+    )
+    configure_logging(
+        log_file_path=log_file_path,
+        verbose=verbose,
+    )
+    logger.info("Writing conversion log to %s", log_file_path)
     try:
         convertor.convert(
             repository_name="Metabolomics Workbench",
@@ -84,7 +108,12 @@ def create_mhd_file_task(
             mhd_output_filename=output_filename,
             data_path=Path(data_path),
         )
+        filename = output_filename or f"{mw_study_id}.mhd.json"
+        enrich_mhd_file(mhd_output_root_path / filename, data_path=Path(data_path))
         click.echo(f"{mw_study_id} is converted successfully.")
     except Exception as ex:
-        traceback.print_exc()
+        if verbose:
+            logger.exception("Error converting study %s", mw_study_id)
+        else:
+            logger.error("Error converting study %s: %s", mw_study_id, ex)
         click.echo(f"{mw_study_id} conversion failed. {str(ex)}")

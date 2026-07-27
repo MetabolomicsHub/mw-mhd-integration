@@ -18,10 +18,43 @@
             "justMyCode": false
         },
         {
-            "name": "mw2mhd Python Debugger: Create MHD File",
+            "name": "mw2mhd Python Debugger: Create Legacy Batch",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/scripts/create_mhd_file.py",
+            "module": "mw2mhd.commands.cli",
+            "args": [
+                "create",
+                "legacy-batch",
+                "--study-list",
+                "${workspaceFolder}/missing_datasets.txt",
+                "--output-dir",
+                "${workspaceFolder}/.outputs/mhd_legacy",
+                "--data-path",
+                "${workspaceFolder}/.outputs/mw_dataset",
+                "--verbose",
+                "--log-file", 
+                ".outputs/mhd_legacy/conversion-verbose-ii.log"
+            ],
+            "console": "integratedTerminal",
+            "cwd":"${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false
+        },
+        {
+            "name": "mw2mhd Python Debugger: Analyze Conversion Log",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/analyze_conversion_log.py",
+            "args": [
+                "${workspaceFolder}/.outputs/mhd_legacy/conversion-verbose.log",
+                "--output",
+                "${workspaceFolder}/.outputs/log_analysis/conversion-verbose-analysis.json",
+                "--top-n",
+                "25"
+            ],
             "console": "integratedTerminal",
             "cwd":"${workspaceFolder}",
             "envFile": "${workspaceFolder}/.env",

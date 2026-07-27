@@ -1,4 +1,3 @@
-from mhd_model.model.v0_1.rules.managed_cv_terms import MISSING_PUBLICATION_REASON
 import csv
 import datetime
 import logging
@@ -22,6 +21,7 @@ from mhd_model.model.v0_1.rules.managed_cv_terms import (
     COMMON_PARAMETER_DEFINITIONS,
     COMMON_PROTOCOLS,
     COMMON_STUDY_FACTOR_DEFINITIONS,
+    MISSING_PUBLICATION_REASON,
 )
 from mhd_model.shared.model import CvTerm, Revision, UnitCvTerm
 from pydantic import HttpUrl
@@ -292,7 +292,13 @@ class MhdLegacyDatasetBuilder:
             raise ValueError(f"{mw_study_id} has no MS analysis: {analysis_types}")
 
         if len(analysis_list) != len(list(mwtab.keys())):
-            raise ValueError(f"{mw_study_id} has non-MS analysis: {analysis_types}")
+            skipped_analysis_ids = sorted(set(mwtab) - set(analysis_list))
+            logger.warning(
+                "%s has non-MS analyses that will be skipped: %s",
+                mw_study_id,
+                ", ".join(skipped_analysis_ids),
+            )
+            mwtab = {analysis_id: mwtab[analysis_id] for analysis_id in analysis_list}
 
         analysis_id = analysis_list[0]
         # mw_section: dict[str, Any] = mwtab.get(analysis_id, {}).get(
@@ -523,8 +529,8 @@ class MhdLegacyDatasetBuilder:
         mhd_builder: MhDatasetBuilder,
         mhd_study: mhd_domain.Study,
         study_files: StudyFiles,
-    ) -> dict[str, dict[str, mhd_domain.RawDataFile]]:
-        data_files: dict[str, dict[str, mhd_domain.RawDataFile]] = {}
+    ) -> dict[str, dict[str, list[mhd_domain.RawDataFile]]]:
+        data_files: dict[str, dict[str, list[mhd_domain.RawDataFile]]] = {}
 
         for filename in study_files.files:
             extension = Path(filename).suffix
@@ -593,6 +599,72 @@ class MhdLegacyDatasetBuilder:
                 )
         return data_files
 
+    def resolve_raw_data_file(
+        self,
+        *,
+        mw_study_id: str,
+        raw_data_file_name: str,
+        raw_data_files: dict[str, list[mhd_domain.RawDataFile]],
+        ion_mode: str,
+    ) -> mhd_domain.RawDataFile | None:
+        candidates: list[tuple[str, mhd_domain.RawDataFile]] = []
+        for raw_data_path, files in raw_data_files.items():
+            for file in files:
+                candidates.append((raw_data_path, file))
+
+        if len(candidates) == 1:
+            return candidates[0][1]
+
+        if not candidates:
+            return None
+
+        requested_path = raw_data_file_name.lower()
+        requested_name = Path(raw_data_file_name).name.lower()
+        polarity = ion_mode.lower()
+
+        scored_candidates: list[tuple[int, str, mhd_domain.RawDataFile]] = []
+        for raw_data_path, file in candidates:
+            path = raw_data_path.lower()
+            file_text = f"{file.name} {file.repository_identifier}".lower()
+            candidate_text = f"{path} {file_text}"
+            score = 0
+
+            if path == requested_path:
+                score += 2
+            if Path(path).name == requested_name:
+                score += 1
+
+            has_negative_hint = "neg" in candidate_text or "negative" in candidate_text
+            has_positive_hint = "pos" in candidate_text or "positive" in candidate_text
+            if polarity.startswith("neg"):
+                score += 4 if has_negative_hint else 0
+                score -= 3 if has_positive_hint else 0
+            elif polarity.startswith("pos"):
+                score += 4 if has_positive_hint else 0
+                score -= 3 if has_negative_hint else 0
+
+            scored_candidates.append((score, raw_data_path, file))
+
+        max_score = max(score for score, _, _ in scored_candidates)
+        best_candidates = [
+            (raw_data_path, file)
+            for score, raw_data_path, file in scored_candidates
+            if score == max_score
+        ]
+
+        if len(best_candidates) == 1:
+            return best_candidates[0][1]
+
+        logger.warning(
+            "%s: ambiguous raw data file nodes found for %s"
+            " with ion mode %s: %s",
+            mw_study_id,
+            raw_data_file_name,
+            ion_mode or "unknown",
+            ", ".join(raw_data_path for raw_data_path, _ in best_candidates),
+        )
+        return None
+
     def process_study_design(
         self,
         mhd_builder: MhDatasetBuilder,
@@ -600,7 +672,7 @@ class MhdLegacyDatasetBuilder:
         mhd_study: mhd_domain.Study,
         mhd_assays: dict[str, mhd_domain.Assay],
         mw_study_id: str,
-        raw_data_files: dict[str, dict[str, mhd_domain.RawDataFile]],
+        raw_data_files: dict[str, dict[str, list[mhd_domain.RawDataFile]]],
     ):
         """Process study design on SUBJECT_SAMPLE_FACTORS section and create
         subject, sample, factor definition, factor value.
@@ -615,6 +687,7 @@ class MhdLegacyDatasetBuilder:
         analysis_list = list(mwtab_data.keys())
 
         analysis_data = mwtab_data.get(analysis_list[0], {})
+        ion_mode = analysis_data.get("MS", {}).get("ION_MODE", "")
         disease_factor_values: dict[str, list[mhd_domain.CvTermObject]] = {}
         cell_type_factor_values: dict[str, list[mhd_domain.CvTermObject]] = {}
         factors: dict[
@@ -700,25 +773,20 @@ class MhdLegacyDatasetBuilder:
                                 continue
                             # link sample run with raw data file
                             file_path = Path(raw_data_file_name)
-                            raw_data_files_list: None | list[mhd_domain.RawDataFile] = (
-                                raw_data_files.get(file_path.name)
-                            )
+                            raw_data_files_list = raw_data_files.get(file_path.name)
                             if not raw_data_files_list:
                                 raw_data_files_list = raw_data_files.get(file_path.stem)
                             if not raw_data_files_list:
                                 continue
 
-                            if len(raw_data_files_list) > 1:
-                                data_file = raw_data_files_list.get(raw_data_file_name)
-                                if not data_file:
-                                    logger.warning(
-                                        "Multiple raw data file nodes found for %s: %s",
-                                        raw_data_file_name,
-                                        ", ".join(list(raw_data_files_list.keys())),
-                                    )
-                                    continue
-                            else:
-                                data_file = list(raw_data_files_list.values())[0][0]
+                            data_file = self.resolve_raw_data_file(
+                                mw_study_id=mw_study_id,
+                                raw_data_file_name=raw_data_file_name,
+                                raw_data_files=raw_data_files_list,
+                                ion_mode=ion_mode,
+                            )
+                            if not data_file:
+                                continue
 
                             sample_run.raw_data_file_refs.append(data_file.id_)
 
@@ -1153,8 +1221,8 @@ class MhdLegacyDatasetBuilder:
                     repository_identifier=identifier,
                     full_name=pi_full_name,
                     email_list=pi_emails or None,
-                    address_list=[pi_address],
-                    phone_list=[pi_phone],
+                    address_list=[pi_address] if pi_address else None,
+                    phone_list=[pi_phone] if pi_phone else None,
                 )
                 mhd_builder.add(mhd_pi)
             mhd_builder.link(
@@ -1198,7 +1266,7 @@ class MhdLegacyDatasetBuilder:
 
     def parse_email(self, mw_study_id, email: str) -> list[str]:
         if not email or len(email) < 5:
-            logger.warning("%s: '%s' email is not valid. %s", mw_study_id, email)
+            logger.warning("%s: '%s' email is not valid.", mw_study_id, email)
             return []
         email = email.replace(";", ",")
         email = email.replace(" ", "")
@@ -1243,8 +1311,8 @@ class MhdLegacyDatasetBuilder:
                 repository_identifier=identifier,
                 full_name=submitter_full_name,
                 email_list=submitter_emails or None,
-                address_list=[submitter_address],
-                phone_list=[submitter_phone],
+                address_list=[submitter_address] if submitter_address else None,
+                phone_list=[submitter_phone] if submitter_phone else None,
             )
             mhd_builder.add(mhd_submitter)
             mhd_builder.link(
