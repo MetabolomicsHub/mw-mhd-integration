@@ -7,7 +7,8 @@ license = "Apache-2.0"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "mhd-model>=0.1.76",
+    "beautifulsoup4>=4.15.0",
+    "mhd-model",
     "pydantic>=2.11.7",
     "pydantic-settings>=2.10.1",
     "xmltodict>=0.15.1",
@@ -74,3 +75,6 @@ fixable = ["ALL"]
 [tool.importlinter]
 include_external_packages = true
 root_packages = ["mw2mhd"]
+
+[tool.uv.sources]
+mhd-model = { git = "https://github.com/MetabolomicsHub/mhd-model", rev = "test" }

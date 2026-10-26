@@ -3,23 +3,38 @@ from pathlib import Path
 
 import click
 from mhd_model.model.definitions import (
-    MHD_MODEL_V0_1_DEFAULT_SCHEMA_NAME,
-    MHD_MODEL_V0_1_LEGACY_PROFILE_NAME,
+    MHD_MODEL_V1_0_DEFAULT_SCHEMA_NAME,
+    MHD_MODEL_V1_0_LEGACY_PROFILE_NAME,
 )
 
+from mw2mhd.config import Mw2MhdConfiguration
 from mw2mhd.convertor_factory import Mw2MhdConvertorFactory
 from mw2mhd.logging_utils import configure_logging
-from mw2mhd.mhd_enricher import enrich_mhd_file
+
+# from mw2mhd.mhd_enricher import enrich_mhd_file
 
 logger = logging.getLogger(__name__)
 
 
-@click.command(name="mhd", no_args_is_help=True)
+@click.command(name="convert", no_args_is_help=True)
+@click.option(
+    "--mw-study-id",
+    required=True,
+    help="Metabolomics Workbench Study Id.",
+)
+@click.option(
+    "--input-dir",
+    required=True,
+    help="Input directory that contains analysis, metabolites, and files json files.",
+)
 @click.option(
     "--output-dir",
-    default="outputs",
-    show_default=True,
+    required=True,
     help="Output directory for MHD file",
+)
+@click.option(
+    "--mhd-id",
+    help="MHD Accession.",
 )
 @click.option(
     "--output-filename",
@@ -29,13 +44,13 @@ logger = logging.getLogger(__name__)
 )
 @click.option(
     "--schema-uri",
-    default=MHD_MODEL_V0_1_DEFAULT_SCHEMA_NAME,
+    default=MHD_MODEL_V1_0_DEFAULT_SCHEMA_NAME,
     show_default=True,
     help="Target MHD model schema. It defines format of MHD model structure.",
 )
 @click.option(
     "--profile-uri",
-    default=MHD_MODEL_V0_1_LEGACY_PROFILE_NAME,
+    default=MHD_MODEL_V1_0_LEGACY_PROFILE_NAME,
     show_default=True,
     help="Target MHD model profile. It is used to validate MHD model",
 )
@@ -46,30 +61,30 @@ logger = logging.getLogger(__name__)
     help="Path to the directory containing the metadata",
 )
 @click.option(
+    "--ontology-lookup-db-path",
+    help="Ontology lookup database path",
+)
+@click.option(
     "--log-file",
     default=None,
-    help=(
-        "Path to write a conversion log. Defaults to "
-        "<output-dir>/conversion.log."
-    ),
+    help=("Path to write a conversion log. Defaults to <output-dir>/conversion.log."),
 )
 @click.option(
     "--verbose",
     is_flag=True,
     help="Write DEBUG logs and full exception tracebacks.",
 )
-@click.argument("mw_study_id")
-@click.argument("mhd_identifier")
-def create_mhd_file_task(
+def generate_mhd_file_task(
     mw_study_id: str,
     mhd_identifier: str,
+    input_dir: str,
     output_dir: str,
     output_filename: str,
     schema_uri: str,
     profile_uri: str,
-    data_path: str,
     log_file: str | None,
     verbose: bool,
+    ontology_lookup_db_path: None | str = None,
 ):
     """Convert a Metabolomics Workbench study to MHD file format.
 
@@ -100,20 +115,22 @@ def create_mhd_file_task(
     )
     logger.info("Writing conversion log to %s", log_file_path)
     try:
+        config = Mw2MhdConfiguration()
         convertor.convert(
             repository_name="Metabolomics Workbench",
             repository_identifier=mw_study_id,
             mhd_identifier=mhd_identifier,
             mhd_output_folder_path=mhd_output_root_path,
+            mw_tab_input_folder_path=input_dir,
             mhd_output_filename=output_filename,
-            data_path=Path(data_path),
+            config=config,
+            ontology_lookup_db_path=ontology_lookup_db_path,
         )
-        filename = output_filename or f"{mw_study_id}.mhd.json"
-        enrich_mhd_file(mhd_output_root_path / filename, data_path=Path(data_path))
+
         click.echo(f"{mw_study_id} is converted successfully.")
     except Exception as ex:
         if verbose:
             logger.exception("Error converting study %s", mw_study_id)
         else:
             logger.error("Error converting study %s: %s", mw_study_id, ex)
-        click.echo(f"{mw_study_id} conversion failed. {str(ex)}")
+        click.echo(f"{mw_study_id} conversion failed. {ex!s}")

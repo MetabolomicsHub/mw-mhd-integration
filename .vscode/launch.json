@@ -10,7 +10,20 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "cwd":"${workspaceFolder}",
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.env",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false
+        },
+        {
+            "name": "mw2mhd Python : Create MHD File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/create_mhd_file.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
             "envFile": "${workspaceFolder}/.env",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
@@ -32,11 +45,11 @@
                 "--data-path",
                 "${workspaceFolder}/.outputs/mw_dataset",
                 "--verbose",
-                "--log-file", 
+                "--log-file",
                 ".outputs/mhd_legacy/conversion-verbose-ii.log"
             ],
             "console": "integratedTerminal",
-            "cwd":"${workspaceFolder}",
+            "cwd": "${workspaceFolder}",
             "envFile": "${workspaceFolder}/.env",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
@@ -56,7 +69,7 @@
                 "25"
             ],
             "console": "integratedTerminal",
-            "cwd":"${workspaceFolder}",
+            "cwd": "${workspaceFolder}",
             "envFile": "${workspaceFolder}/.env",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"

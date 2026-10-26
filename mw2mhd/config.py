@@ -1,23 +1,27 @@
 from mhd_model.model.definitions import (
-    MHD_MODEL_V0_1_DEFAULT_SCHEMA_NAME,
-    MHD_MODEL_V0_1_LEGACY_PROFILE_NAME,
-    MHD_MODEL_V0_1_MS_PROFILE_NAME,
+    MHD_MODEL_V1_0_DEFAULT_SCHEMA_NAME,
+    MHD_MODEL_V1_0_MS_PROFILE_NAME,
 )
 from pydantic import BaseModel
 
 
 class Mw2MhdConfiguration(BaseModel):
-    target_mhd_model_schema_uri: str = MHD_MODEL_V0_1_DEFAULT_SCHEMA_NAME
-    target_mhd_model_ms_profile_uri: str = MHD_MODEL_V0_1_MS_PROFILE_NAME
-    target_mhd_model_legacy_profile_uri: str = MHD_MODEL_V0_1_LEGACY_PROFILE_NAME
+    default_mhd_model_schema_uri: str = MHD_MODEL_V1_0_DEFAULT_SCHEMA_NAME
+    default_mhd_model_profile_uri: str = MHD_MODEL_V1_0_MS_PROFILE_NAME
 
     study_http_base_url: str = (
         "https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID="
     )
-    default_dataset_licence_url: str = (
-        "https://www.metabolomicsworkbench.org/about/termsofuse.php"
+    mhd_file_url: str = "https://www.metabolomicsworkbench.org/data/mhd.php?MHD_ID="
+    announcement_file_url: str = (
+        "https://www.metabolomicsworkbench.org/data/mhd-annoucement.php?MHD_ID="
     )
-    # model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+
+    default_dataset_license: str = "CC BY-NC-ND"
+    dataset_licenses: dict[str, str] = {
+        "CC BY-NC-ND": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en/",
+        "": "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en/",
+    }
 
 
 mw2mhd_config = Mw2MhdConfiguration()

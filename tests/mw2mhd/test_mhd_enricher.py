@@ -60,17 +60,23 @@ def test_enrich_mhd_file_backfills_summary_and_archive_raw_files(
     enriched = json.loads(mhd_path.read_text(encoding="utf-8"))
     study = next(node for node in enriched["graph"]["nodes"] if node["type"] == "study")
     raw_nodes = [
-        node for node in enriched["graph"]["nodes"] if node.get("type") == "raw-data-file"
+        node
+        for node in enriched["graph"]["nodes"]
+        if node.get("type") == "raw-data-file"
     ]
 
     assert result["updated"] is True
     assert study["public_release_date"] == "2026-03-19T00:00:00"
-    assert study["license"] == "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en"
+    assert (
+        study["license"] == "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en"
+    )
     assert len(raw_nodes) == 2
     names = {node["name"] for node in raw_nodes}
     assert names == {"direct_file.mzML", "inside/sample1.raw"}
 
-    archive_member = next(node for node in raw_nodes if node["name"] == "inside/sample1.raw")
+    archive_member = next(
+        node for node in raw_nodes if node["name"] == "inside/sample1.raw"
+    )
     assert archive_member["url_list"] == [
         "https://dashboard.gnps2.org/?usi=mzspec:STTEST:inside/sample1.raw",
         "https://www.metabolomicsworkbench.org/studydownload/STTEST_archive.zip",

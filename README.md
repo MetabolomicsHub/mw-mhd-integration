@@ -1,11 +1,9 @@
 # Metabolomics Workbench - MHD Model Integration Framework
 
-
-
 ## Development Environment
 
-
 Development environment for linux or mac
+
 ```bash
 
 # install python package manager uv
@@ -41,7 +39,6 @@ uv run pre-commit
 
 ## Commandline Usage
 
-
 ```bash
 # you can use any python version >= 3.12
 pip install mw-mhd-integration
@@ -60,7 +57,7 @@ mw-mhd-cli
 #   announcement  Create announcement file from MHD data model file.
 #   download      Download a Metabolomics Workbench study as json file.
 #   mhd           Convert a Metabolomics Workbench study to MHD file format.
-#   validate      Validate MHD model and annoucenment file.
+#   validate      Validate MHD model and announcement file.
 ####################################################################
 
 mw-mhd-cli download
@@ -121,7 +118,7 @@ mw-mhd-cli validate
 ####################################################################
 # Usage: mw-mhd-cli validate [OPTIONS] COMMAND [ARGS]...
 
-#   Validate MHD model and annoucenment file.
+#   Validate MHD model and announcement file.
 
 # Options:
 #   -h, --help  Show this message and exit.

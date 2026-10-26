@@ -1,10 +1,12 @@
 data/
 .all*/
+.old*/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 .test-output/
+.inputs/
 # C extensions
 *.so
 

@@ -52,6 +52,5 @@ def test_resolve_raw_data_file_uses_exact_full_path_match():
     )
 
     assert (
-        selected.id_
-        == "ST002008_HILIC_QE_HF_Orbitrap_POS.zip#mzXMLs_pos/sample.mzXML"
+        selected.id_ == "ST002008_HILIC_QE_HF_Orbitrap_POS.zip#mzXMLs_pos/sample.mzXML"
     )

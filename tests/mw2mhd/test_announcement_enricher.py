@@ -4,7 +4,9 @@ from pathlib import Path
 from mw2mhd.announcement_enricher import enrich_announcement_file
 
 
-def test_enrich_announcement_file_adds_contact_emails_and_protocol_parameters(tmp_path: Path):
+def test_enrich_announcement_file_adds_contact_emails_and_protocol_parameters(
+    tmp_path: Path,
+):
     mhd_path = tmp_path / "STTEST.mhd.json"
     announcement_path = tmp_path / "STTEST.announcement.json"
 

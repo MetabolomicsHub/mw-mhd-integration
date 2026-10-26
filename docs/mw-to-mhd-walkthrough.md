@@ -189,16 +189,6 @@ The command `mw-mhd-cli create mhd ST004083 ST004083` runs
 [Mw2MhdConvertorFactory](../mw2mhd/convertor_factory.py#L11) for a convertor. The
 request includes a schema URI and a profile URI.
 
-The factory is a simple table
-([convertor_factory.py:17-27](../mw2mhd/convertor_factory.py#L17)). For MHD v0.1
-and the legacy profile, it returns `LegacyProfileV01Convertor`. For the MS
-profile, it raises `NotImplementedError`
-([convertor_factory.py:23-25](../mw2mhd/convertor_factory.py#L23)). The legacy
-profile is therefore the only profile that works today.
-
-[legacy/convertor.py:29-41](../mw2mhd/v0_1/legacy/convertor.py#L29) then makes an
-`MhdLegacyDatasetBuilder` object and calls its `build()` method.
-
 ### Stage 3 — Select the analyses
 
 [builder.py:280-292](../mw2mhd/v0_1/legacy/builder.py#L280) keeps each analysis

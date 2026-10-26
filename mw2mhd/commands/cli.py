@@ -3,11 +3,12 @@ import warnings
 from pathlib import Path
 
 import click
+from mhd_model.commands.create.create import create_group
+from mhd_model.commands.mhd_client.mhd_client import mhd_client_group
+from mhd_model.commands.validate.validate import validate_group
 
 from mw2mhd import __version__
-from mw2mhd.commands.create import creation_cli
-from mw2mhd.commands.fetch_mw_study import fetch_mw_study
-from mw2mhd.commands.validate import validation_cli
+from mw2mhd.commands.create_mhd_file import generate_mhd_file_task
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -16,12 +17,13 @@ warnings.filterwarnings("ignore", category=UserWarning)
 @click.version_option(__version__)
 def cli():
     """Metabomics Workbench - MHD Integration CLI with subcommands."""
-    pass
 
 
-cli.add_command(fetch_mw_study)
-cli.add_command(creation_cli)
-cli.add_command(validation_cli)
+cli.add_command(generate_mhd_file_task)
+
+cli.add_command(mhd_client_group)
+cli.add_command(validate_group)
+cli.add_command(create_group)
 
 if __name__ == "__main__":
     sys.path.insert(0, str(Path.cwd()))

@@ -35,3 +35,4 @@ def configure_logging(
         logging.WARNING
     )
     logging.getLogger("httpx").setLevel(logging.ERROR)
+    logging.getLogger("httpx2").setLevel(logging.ERROR)
